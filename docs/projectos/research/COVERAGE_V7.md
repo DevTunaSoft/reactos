@@ -72,5 +72,17 @@ Task `RPL-COVERAGE-0002` (lane B), worker `cron-20261127T111304Z`. Query tool: p
 
 Totals: 4 lanes, 40 result rows, 2 language-matched items, 0 full extractions, 0 publication dates verified, 0 primary-source correlations. ko/cs are explicit zero-result lanes at this query, not claims of universal absence. New source-surface lead: ReactOS forum Czech subforum (`https://reactos.org/forum/viewforum.php?f=39`), snippet-derived 58 topics / 489 posts, unverified beyond the snippet; no thread opened. The two matched items corroborate already-recorded primary findings (PR #9646 USB3; FV7-008 / PR #9795 ARM64) only as secondary reporting. All runtime fields remain NOT RUN; no OS code, patch import, build, test, VM, merge or upstream submission.
 
+## Addendum — Wave 8 coverage (2026-11-27T14:47Z)
+
+| Source family | Records | Scope | Notes |
+|---|---:|---|---|
+| Kernel memory / filesystem reliability | 3 | JIRA/GitHub PR metadata at pin 3e6033a6 | `KERNEL_MEMORY_CANDIDATES_V7.jsonl`, `FS_RELIABILITY_V7.jsonl`; NOT RUN |
+| SMP / network / historical regressions | 67 + 22 | 379 JIRA keys, 65 PR GETs, 27 searches | `SMP_NETWORK_ARCHAEOLOGY_V7.jsonl`, `NETWORKING_GAP_V8.jsonl`; 2 JIRA 400 + 5 Wayback lanes failed |
+| Fork refs third cohort | 515 | 15 forks, 499 branches, 3765 tags, 249 tips | `FORK_REFS_W8_V7.jsonl`, `FORK_UNIQUE_CHANGES_V7.jsonl`; 249/249 exact SHAs upstream |
+| Community / adjacent FOSS | 67 | 10 language lanes, 10 HyperKitty searches, 3 snapshots | `COMMUNITY_EXPANSION_V7.jsonl`, `ADJACENT_FOSS_V7.jsonl`; 9 zero-result lanes, 2 Anubis lanes |
+| Retrieval engines | 28 | 5 engines, 1 JS fixture, 2 public pages each | `TOOL_INTEGRATION_V7.jsonl`; Lightpanda unavailable_platform |
+
+Cumulative language lanes queried: at least 30; lanes with a usable source: 7. Runtime tests executed: 0. Unsupported or challenged lanes are recorded as failures/unavailable, never as negative findings.
+
 
 

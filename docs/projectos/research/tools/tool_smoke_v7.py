@@ -6,6 +6,7 @@ launched, fetched from a local data URL, and closed before the next starts.
 """
 import json
 import os
+import shutil
 import subprocess
 import sys
 import time
@@ -15,7 +16,7 @@ import psutil
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 NODE = os.path.join(HERE, "node_tools")
-CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+CHROME = os.environ.get("PROJECTOS_V7_CHROME_PATH") or shutil.which("chrome") or "chrome"
 
 
 def utc():
@@ -83,7 +84,6 @@ def selenium_smoke():
         from selenium.webdriver.chrome.options import Options
         o = Options()
         o.add_argument("--headless=new")
-        o.add_argument("--no-sandbox")
         o.binary_location = CHROME
         d = webdriver.Chrome(options=o)
         d.get("data:text/html,<h1>V7 smoke</h1><p>engine_ok</p>")
@@ -103,7 +103,7 @@ def main():
     out += playwright_smoke()
     out.append(node_smoke("puppeteer_core_chrome",
         "(async()=>{const p=require('puppeteer-core');const b=await p.launch({executablePath:" +
-        json.dumps(CHROME) + ",headless:true,args:['--no-sandbox']});const pg=await b.newPage();" +
+        json.dumps(CHROME) + ",headless:true});const pg=await b.newPage();" +
         "await pg.goto('data:text/html,<h1>V7 smoke</h1><p>engine_ok</p>');" +
         "console.log(await pg.evaluate(()=>document.body.innerText));await b.close();})()"
         ".catch(e=>{console.error(e.message);process.exit(1)})"))
