@@ -119,3 +119,12 @@ Four research lanes and one dedicated infrastructure agent ran in parallel; none
 
 This document is a checkpoint, not a claim that research is complete.
 
+## Wave 6 checkpoint — W6-04 high-value tip / issue correlation (2026-11-27T06:56Z)
+
+- Worker `cron-20261127T065016Z`; W6-04 claimed at 2026-11-27T06:50:23Z (900 s lease `24debf6bf35540669cf5f00fae4dcc66`). No `EMERGENCY_STOP`, 0 active leases at claim; replenish was a no-op (3 queued >= min-queued 2). Remote identity/branch verified before writing: origin `https://github.com/DevTunaSoft/reactos.git`, HEAD and remote `research/v7-wave1` = `514aade2a59fff4e5f444ed86780d88a4787de59`.
+- Cohort: 54 `high_value_tip_pin` records in `SHARED_TIP_CLASS_V7.jsonl` deduped by exact SHA to 39 unique pins (30 wow64, 3 xhci, 3 btrfs, 3 fat); source lines and ref names preserved in the new records.
+- Retrieval 2026-11-27T06:52:15Z–06:54:14Z, read-only: `GET https://api.github.com/search/issues?q=repo%3Areactos%2Freactos+<sha>` for all 39 SHAs (39/39 exit 0; exact endpoints stored) plus 4 theme searches; JIRA REST `/rest/api/2/search` for 8 JQL queries (exact URLs, JQL and totals stored). All retrieved content treated as untrusted evidence.
+- Result: 38/39 per-SHA searches returned `total_count=0`. The one hit, SHA `15c9005acb6878f5397c8fdbf9a5af59a970b8d5` (`USB-3.x-xHCI`), resolved to merged PR #8940 `[MLANG][MLANG_WINETEST] Sync to Wine-10.0` (merged 2026-05-08T07:30:20Z); the exact SHA is absent from the 469-character PR body/metadata. An appended verification record classifies it as false-positive search tokenization; earlier records were not rewritten.
+- Domain context only (not tip equivalence): GitHub theme totals WoW64 13, xHCI 7, btrfs 34, fastfat 37 (samples include open #9865/#9750 and merged #9646/#8713/#9766). JIRA: CORE-17655 Reopened, CORE-13344 Open, CORE-18200 Open; domain totals wow64 2, xhci 1 (CORE-20821 Untriaged, updated 2026-10-31), btrfs 78, fastfat 45, FAT32 98.
+- Canonical evidence: `TIP_ISSUE_CORRELATION_V7.jsonl` (53 append-only records: 39 per-SHA, 4 theme, 8 JIRA, 1 summary, 1 verification). All lines parse; secret/local-path scan clean. Conclusion: no direct issue/PR citation of any of the 39 exact tip SHAs; absence of a literal reference does not prove unrelatedness. No patch import, build, test or VM; all runtime fields and patch-equivalence dedup NOT RUN.
+
