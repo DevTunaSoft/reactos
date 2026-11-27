@@ -287,3 +287,13 @@ This document is a checkpoint, not a claim that research is complete.
 - Queue: 56 verified, 5 reviewed, 3 queued, 0 running across 64 tasks; `QUEUE_SNAPSHOT_V7.jsonl` regenerated at 17:18:39Z. Evidence from isolated ledgers adopted with explicit ledger events; no lease fabricated. All runtime fields NOT RUN; no OS code, patch import, test, merge or upstream submission.
 
 This document is a checkpoint, not a claim that research is complete.
+
+
+## Wave 8 corrective checkpoint — V8-A01 fork tip ancestry methodology (2026-11-27T18:20Z)
+
+- Task `V8-A01` (lane A) claimed by worker `cron-20261127T181131Z` at 2026-11-27T18:11:31Z, 900 s lease `1a783311c5484cc69af81baa6fc221fb` (until 18:26:32Z). Replenish skipped (9 queued >= min 2); 0 active leases before claim, no overlap. Remote identity/branch verified before writing: origin `https://github.com/DevTunaSoft/reactos.git`, branch `research/v7-wave1`, local HEAD = remote `41016ead1fcf5338d5bec1b56fa63993fabe720a`.
+- Method correction: exact SHA presence in `reactos/reactos` establishes membership only. This task sampled 12 of 246 unique tip SHAs from `FORK_UNIQUE_CHANGES_W9_V7.jsonl` (sorted, evenly spaced stride 21, no cherry-pick) and proved containment with `GET /repos/reactos/reactos/compare/<sha>...3e6033a6` (`status`, `ahead_by`, `behind_by`), plus `git patch-id --stable` fingerprints from immutable `.patch` URLs. Local `git cat-file` cannot resolve these tips in this clone; API containment was used instead.
+- Result: 3/12 `EXACT_PRESENT_AND_ANCESTOR` (`status=ahead`, `behind_by=0`), 9/12 `EXACT_PRESENT_DIVERGED` (`status=diverged`, `behind_by` 1-43), 0 inconclusive. This directly disproves the earlier methodology that treated exact-SHA resolution as evidence of merged/ancestor state. Patch-id values are normalized fingerprints requiring a comparison pair; cross-sample equivalence dedup NOT RUN. Eight `.patch` fetches returned HTTP 504; an authenticated API patch-media-type retry recovered 6 fingerprints and left 2 unresolved, appended as corrections with originals preserved.
+- Canonical evidence: `FORK_ANCESTRY_METHOD_V8.jsonl` (23 append-only records; 23 unique ids; 0 parse errors; secret/local-path scan clean). Remaining 234 tips NOT RUN in this bounded sample. No OS code change, patch import, build, test, VM, merge or upstream submission; all runtime fields NOT RUN.
+
+This document is a checkpoint, not a claim that research is complete.
