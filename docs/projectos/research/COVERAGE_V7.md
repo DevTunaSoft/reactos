@@ -23,3 +23,17 @@ Coverage claims are scoped to what was actually queried. Zero means zero; no per
 - Independent evidence review: 0 findings reviewed; all are `pending_independent`.
 
 No claim of universal coverage is made. Prior records are treated as leads until revalidated; corrections are appended, not erased.
+
+## Addendum — community and language lanes (2026-11-27T05:55Z)
+
+| Source family | Language | Surface | Items inspected | Unavailable | Follow-ups |
+|---|---|---|---:|---:|---|
+| Habr | ru | company article | 1 (snippet only) | 0 | W3-03 full extraction |
+| ReactOS forum | en | 3 threads + forum index | 4 (snippets only) | 0 | read latest posts with dates |
+| Reddit | en | r/reactos thread | 1 (snippet only) | 0 | check current wiki text |
+| Independent press | en | VideoCardz | 1 (snippet only) | 0 | W3-07 primary-source reconciliation |
+| ReactOS wiki | en | Supported USB Devices | 1 (snippet only) | 0 | W3-04 revision date |
+| Third-party source mirror | en | Fossies Dox 0.4.16 | 1 (snippet only) | 0 | W3-05 authoritative tag check |
+
+Total community items inspected: 8; full-page extractions performed: 0. Language lanes covered: 2 of 15 initial lanes (ru, en). These are leads, not verified technical evidence.
+

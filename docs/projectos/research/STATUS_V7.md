@@ -74,3 +74,12 @@ Status timestamp: 2026-11-27T05:45Z. Research only. No OS code changed, no patch
 - Canonical evidence: `REF_ENUMERATION_V7.jsonl` (append-only, 20 records, 4 record types).
 
 This document is a checkpoint, not a claim that research is complete.
+
+## Correction/addendum — community discovery and path sanitization (2026-11-27T05:58Z)
+
+- Eight public community/press/mirror leads were retrieved at 2026-11-27T05:55Z using web search (one Russian-language lane, seven English-language sources). Records: `COMMUNITY_LEADS_V7.jsonl`, with faithful summaries, exact URLs, uncertainty and explicit corroboration/contradiction links. Only search snippets were inspected for these leads; full-page extraction remains queued (W3-03..W3-07).
+- Notable contradiction: `reactos.org/wiki/Supported_USB_Devices` still describes `usbxhci.sys` as non-existent, while PR #9646 is verified merged. Recorded as documentation lag; not resolved by inference.
+- Third-party 0.4.16 source mirror shows the same unbounded `FatCountClustersInChain` loop as the pinned upstream baseline; mirror is corroboration only, not authoritative (W3-05).
+- Provenance correction: two W2-01 helper scripts initially contained host-specific absolute paths. They were rewritten to derive paths from environment variables or their own location; no credential values were ever present. This correction is appended rather than rewriting history.
+- Queue was replenished with W3-03..W3-07 and W4-01/W4-02; no duplicate lease was created during the concurrent unattended run.
+

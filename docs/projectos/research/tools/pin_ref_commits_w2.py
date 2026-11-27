@@ -5,8 +5,11 @@ import os
 import subprocess
 from datetime import datetime, timezone
 
-STATE = "C:/Users/X1/ProjectOS/research_v7/state"
-PUB = "C:/Users/X1/Projects/reactos/docs/projectos/research"
+STATE = os.environ.get("PROJECTOS_V7_STATE", os.path.join(os.getcwd(), "state"))
+PUB = os.environ.get(
+    "PROJECTOS_V7_PUB",
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+)
 PRIV_F = os.path.join(STATE, "ref_enumeration.jsonl")
 PUB_F = os.path.join(PUB, "REF_ENUMERATION_V7.jsonl")
 TS = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")

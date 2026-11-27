@@ -12,11 +12,11 @@ import subprocess
 import sys
 from datetime import datetime, timezone
 
-STATE = os.environ.get(
-    "PROJECTOS_V7_STATE",
-    "C:/Users/X1/ProjectOS/research_v7/state",
+STATE = os.environ.get("PROJECTOS_V7_STATE", os.path.join(os.getcwd(), "state"))
+PUB = os.environ.get(
+    "PROJECTOS_V7_PUB",
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
 )
-PUB = "C:/Users/X1/Projects/reactos/docs/projectos/research"
 FORKS = os.path.join(STATE, "fork_network_enriched.jsonl")
 OUT_PRIV = os.path.join(STATE, "ref_enumeration.jsonl")
 OUT_PUB = os.path.join(PUB, "REF_ENUMERATION_V7.jsonl")
