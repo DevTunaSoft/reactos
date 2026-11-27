@@ -297,3 +297,14 @@ This document is a checkpoint, not a claim that research is complete.
 - Canonical evidence: `FORK_ANCESTRY_METHOD_V8.jsonl` (23 append-only records; 23 unique ids; 0 parse errors; secret/local-path scan clean). Remaining 234 tips NOT RUN in this bounded sample. No OS code change, patch import, build, test, VM, merge or upstream submission; all runtime fields NOT RUN.
 
 This document is a checkpoint, not a claim that research is complete.
+
+
+## Wave 8 corrective checkpoint — V8-B01 production adaptive retrieval (2026-11-27T18:38Z)
+
+- Task `V8-B01` (lane B) claimed by worker `cron-20261127T182416Z` at 2026-11-27T18:24:16Z, 900 s lease `86f068ed239a47049e55a134be9c548b` (until 18:39:19Z). No `EMERGENCY_STOP`; 0 active leases at claim. Remote identity/branch verified before writing: origin `https://github.com/DevTunaSoft/reactos.git`, branch `research/v7-wave1`, local HEAD = remote `3fe4aa44d33bfe889b12c54f5bb1e4882fc0efb6`.
+- Executed the published production helper `docs/projectos/research/tools/research_fetch.py` from the pinned `research_v7/venv` against two real public targets, caps 20 s/request, 5 MB response, at most one alternate client after a challenge, engines reused with images/fonts/media blocked and sandbox preserved. Retrieved content treated as untrusted evidence; no credentials, authentication, CAPTCHA or paywall bypass.
+- Result: GitHub PR #9865 HTML target failed with HTTP 504 on both `direct` (13.7 s) and `bs4_cleanup` (0.4 s) — recorded `no_method_succeeded`, not a PR-state claim. ReactOS wiki `Supported_USB_Devices` escalated `direct` (HTTP 200 with Anubis challenge, `access_restricted`) → `mediawiki_api` (JSONDecodeError) → `wayback` (snapshot `20190718140213`, HTTP 200, 5690 text chars). Verbatim 2019 excerpt: "The USB 3.0 standard is implemented in usbxHCI.sys – ReactOS state : - not existing. It will also require a new usbhub.sys driver to handle the requests." Historical snapshot only; live current state NOT ESTABLISHED. The initial zero-excerpt record was corrected by append, not rewritten.
+- Process cleanup: helper closed its engines; psutil scan found 0 browser-named processes created in the run window (pre-existing browsers excluded by creation time). The published `docs/projectos/research/tools/` tree has zero sandbox-disabling flags; a stale private legacy copy is not part of the published helper set.
+- Canonical evidence: `PRODUCTION_RETRIEVAL_V8.jsonl` (8 append-only records; 8 unique ids; 0 parse errors; secret/local-path scan clean). No OS code change, patch import, build, test, VM, merge or upstream submission; all runtime fields NOT RUN.
+
+This document is a checkpoint, not a claim that research is complete.
