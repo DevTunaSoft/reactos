@@ -117,6 +117,15 @@ Four research lanes and one dedicated infrastructure agent ran in parallel; none
 - Per-attempt evidence: `TOOL_EFFECTIVENESS_V7.jsonl` (24 records). Selection rule: direct HTTP first; browsers only when HTML is unavailable or JS-dependent; Wayback for Anubis-blocked public pages; public APIs before browser automation.
 - No OS implementation source changed; no authentication, CAPTCHA, paywall or access restriction bypassed.
 
+## Wave 7 checkpoint — full-text mining and archived-source correlation (2026-11-27T07:11Z)
+
+- `TIP_ISSUE_CORRELATION_V7.jsonl` (53 records, unattended W6-04): 39/39 unique high-value tip SHA searches succeeded; 38 zero hits. One hit resolved to merged PR #8940 but the exact SHA is absent from its body and is recorded as tokenization noise, not a citation. Theme counts (WoW64 13, xHCI 7, btrfs 34, fastfat 37) and JIRA states are domain context only. Absence of a literal reference does not prove unrelatedness.
+- `HABR_FULLTEXT_V7.jsonl` (28 records): full 2023-12-30 Russian annual review, 27 translated technical claims with verbatim short excerpts and time-bound caveats; WoW64/x64 claims correlated to FV7-007 and PRs #8713/#9766, ARM64 to FV7-008 and #9795. No current-state claim inferred from a 2023 source.
+- `FORUM_ARCHAEOLOGY_V7.jsonl` (30 records): 30 verbatim quotes from Wayback forum snapshots (5 from t=846 2020 snapshot, 7 from t=17295 2019 snapshot), Ros-dev archive index and 14 HyperKitty messages; 16 correlations to FV7-006 and 18 to FV7-007. Only page 1 of each thread was in the snapshot; broader coverage NOT RUN. Migrated Pipermail URL 404, HyperKitty used and documented.
+- `ARCHIVED_CLAIMS_V7.jsonl` (20 records) and `ACADEMIC_PROBES_V7.jsonl` (8 records): 15 archived claim checks and 3 snapshot provenance records with 26 exact-quote assertions passed; 6 academic/archive surfaces probed (15 attempts, 3 with data, 3 challenged/throttled, 5 zero-result lanes, 1 relevant hit, 0 peer-reviewed compatibility studies). OSDev 403 Cloudflare, DBLP 202 Anubis, Semantic Scholar 429, arXiv HTTP 429 then HTTPS zero results — all recorded, none bypassed.
+- Queue after reconciliation: 25 verified, 1 reviewed, 2 queued, 0 running across 28 tasks (`QUEUE_SNAPSHOT_V7.jsonl`). Evidence produced in isolated ledgers was adopted with explicit `integrator_adopt` events. Cron's W6-04 checkpoint was independently verified on remote before this append.
+- All runtime fields remain NOT RUN; no OS code, patch import, test, merge or upstream submission.
+
 This document is a checkpoint, not a claim that research is complete.
 
 ## Wave 6 checkpoint — W6-04 high-value tip / issue correlation (2026-11-27T06:56Z)
