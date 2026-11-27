@@ -1,0 +1,898 @@
+{
+  "task": "V8 Priority A - corrected fork ancestry/reachability/semantic-equivalence reassessment",
+  "created": "2026-11-27T18:53:34.476237+00:00",
+  "source_file": "docs/projectos/research/FORK_UNIQUE_CHANGES_W9_V7.jsonl",
+  "source_records_scanned": 247,
+  "coverage_denominator": {
+    "value": 246,
+    "definition": "unique tip SHAs in the 247-record W9 source (246 tip assessments + 1 summary); directive wording '249 commit-tip SHAs' is not reproducible from this file",
+    "examined_in_this_pass": 24,
+    "remaining_unexamined": 222,
+    "local_object_availability": {
+      "present_locally": 40,
+      "missing_locally": 206
+    }
+  },
+  "methodology_correction": "A successful GitHub commit API lookup (HTTP 200) proves only exact-SHA object presence, not upstream integration. Reachability requires git merge-base --is-ancestor / branch --contains; normalized patch identity requires git patch-id --stable on immutable .patch URLs (verify the 'From <sha>' header: merge commits can return a parent's patch); semantic equivalence requires direct source inspection. Divergence from the pinned master (behind_by>0) is reported explicitly, not collapsed into 'merged' or 'unique'.",
+  "sample_selection": "deterministic stratified: 12 evenly spaced from the 40 locally present tips and 12 evenly spaced from the 206 locally absent tips; no cherry-picking of outcomes",
+  "pinned_baseline": "3e6033a613fbf7c5bd58aaeaa05af42514af59d5",
+  "classification_counts": {
+    "exact-present": 12,
+    "inconclusive": 11,
+    "patch-equivalent": 1
+  },
+  "unique_or_equivalent_count": 1,
+  "constraints": [
+    "read-only in <repo>",
+    "no OS code modified",
+    "no patch imported",
+    "no tests/build/VM run",
+    "no merge, push or upstream submission",
+    "evidence written only to private/state/v8/"
+  ],
+  "limitation": "Sample only; inconclusive cases must be preserved and investigated. No legal certification. No PR .patch URL was available: GitHub issue/PR search for the equivalent change returned 0 results, so immutable commit .patch URLs were used and their headers verified.",
+  "records": [
+    {
+      "sha": "02b4119836623c06c0a56bc237ee58d326099b5c",
+      "classification": "exact-present",
+      "basis": "exact object present locally; merge-base --is-ancestor against pinned origin/master exit 0; contained in origin/master and 14 other local refs",
+      "commands_used": [
+        "git -C <repo> cat-file -t 02b4119836623c06c0a56bc237ee58d326099b5c",
+        "git -C <repo> merge-base --is-ancestor 02b4119836623c06c0a56bc237ee58d326099b5c origin/master (exit 0)",
+        "git -C <repo> branch -a --contains 02b4119836623c06c0a56bc237ee58d326099b5c",
+        "git -C <repo> merge-base 02b4119836623c06c0a56bc237ee58d326099b5c origin/master",
+        "git -C <repo> show -s --format='%H%n%ci%n%s' 02b4119836623c06c0a56bc237ee58d326099b5c",
+        "git -C <repo> show --format= 02b4119836623c06c0a56bc237ee58d326099b5c | git patch-id --stable"
+      ],
+      "evidence": {
+        "local_object_type": "commit",
+        "ancestor_of_pinned_master": true,
+        "merge_base": "02b4119836623c06c0a56bc237ee58d326099b5c",
+        "containing_ref_count": 15,
+        "containing_refs_sample": [
+          "engineering",
+          "master",
+          "+ research/fork-archaeology-2026-11-26",
+          "* research/v7-wave1"
+        ],
+        "commit_metadata": [
+          "02b4119836623c06c0a56bc237ee58d326099b5c",
+          "2016-09-12 18:05:22 +0000",
+          "[SHELL32] Do not try to call a NULL m_pSF2Parent. CORE-11969 #comment Please retest!"
+        ],
+        "local_patch_id": "91ecec3b546d80847a3302404822883e73f43533",
+        "github_commit_url": "https://github.com/reactos/reactos/commit/02b4119836623c06c0a56bc237ee58d326099b5c",
+        "fork_refs_sample": [
+          "SpinlockLabs/reactos:backups/sndblst@72664",
+          "ThinkLib/reactos:backups/sndblst@72664",
+          "iDone/reactos:backups/sndblst@72664"
+        ]
+      },
+      "license_notes": "No new license claim. Upstream COPYING is GPL-2.0; source W9 record says license verification NOT RUN (no fork-unique diff). No diff imported or executed."
+    },
+    {
+      "sha": "197ec4c5b8f807ee64f323d1461295841bd31c59",
+      "classification": "exact-present",
+      "basis": "exact object present locally; merge-base --is-ancestor against pinned origin/master exit 0; contained in origin/master and 14 other local refs",
+      "commands_used": [
+        "git -C <repo> cat-file -t 197ec4c5b8f807ee64f323d1461295841bd31c59",
+        "git -C <repo> merge-base --is-ancestor 197ec4c5b8f807ee64f323d1461295841bd31c59 origin/master (exit 0)",
+        "git -C <repo> branch -a --contains 197ec4c5b8f807ee64f323d1461295841bd31c59",
+        "git -C <repo> merge-base 197ec4c5b8f807ee64f323d1461295841bd31c59 origin/master",
+        "git -C <repo> show -s --format='%H%n%ci%n%s' 197ec4c5b8f807ee64f323d1461295841bd31c59",
+        "git -C <repo> show --format= 197ec4c5b8f807ee64f323d1461295841bd31c59 | git patch-id --stable"
+      ],
+      "evidence": {
+        "local_object_type": "commit",
+        "ancestor_of_pinned_master": true,
+        "merge_base": "197ec4c5b8f807ee64f323d1461295841bd31c59",
+        "containing_ref_count": 15,
+        "containing_refs_sample": [
+          "engineering",
+          "master",
+          "+ research/fork-archaeology-2026-11-26",
+          "* research/v7-wave1"
+        ],
+        "commit_metadata": [
+          "197ec4c5b8f807ee64f323d1461295841bd31c59",
+          "2017-12-10 17:04:29 +0100",
+          "[KERNEL32] Update some console API prototypes."
+        ],
+        "local_patch_id": "cf52b500c95dae1b2f31f561fd93009561ea9867",
+        "github_commit_url": "https://github.com/reactos/reactos/commit/197ec4c5b8f807ee64f323d1461295841bd31c59",
+        "fork_refs_sample": [
+          "phoenix-lib/reactos:master"
+        ]
+      },
+      "license_notes": "No new license claim. Upstream COPYING is GPL-2.0; source W9 record says license verification NOT RUN (no fork-unique diff). No diff imported or executed."
+    },
+    {
+      "sha": "2ad47f0104c0cfbfef528491a0cbb065361bf942",
+      "classification": "exact-present",
+      "basis": "exact object present locally; merge-base --is-ancestor against pinned origin/master exit 0; contained in origin/master and 14 other local refs",
+      "commands_used": [
+        "git -C <repo> cat-file -t 2ad47f0104c0cfbfef528491a0cbb065361bf942",
+        "git -C <repo> merge-base --is-ancestor 2ad47f0104c0cfbfef528491a0cbb065361bf942 origin/master (exit 0)",
+        "git -C <repo> branch -a --contains 2ad47f0104c0cfbfef528491a0cbb065361bf942",
+        "git -C <repo> merge-base 2ad47f0104c0cfbfef528491a0cbb065361bf942 origin/master",
+        "git -C <repo> show -s --format='%H%n%ci%n%s' 2ad47f0104c0cfbfef528491a0cbb065361bf942",
+        "git -C <repo> show --format= 2ad47f0104c0cfbfef528491a0cbb065361bf942 | git patch-id --stable"
+      ],
+      "evidence": {
+        "local_object_type": "commit",
+        "ancestor_of_pinned_master": true,
+        "merge_base": "2ad47f0104c0cfbfef528491a0cbb065361bf942",
+        "containing_ref_count": 15,
+        "containing_refs_sample": [
+          "engineering",
+          "master",
+          "+ research/fork-archaeology-2026-11-26",
+          "* research/v7-wave1"
+        ],
+        "commit_metadata": [
+          "2ad47f0104c0cfbfef528491a0cbb065361bf942",
+          "2011-03-16 23:19:36 +0000",
+          "- Change the root \"readme.txt\" file to have a CLT2011 text. - Add all CD options to \"welcome.exe\", modify its code a bit to support this."
+        ],
+        "local_patch_id": "07adb97dfb1ab653c48a521fde48fa9a3fcc83af",
+        "github_commit_url": "https://github.com/reactos/reactos/commit/2ad47f0104c0cfbfef528491a0cbb065361bf942",
+        "fork_refs_sample": [
+          "SpinlockLabs/reactos:ReactOS-0.3.13-CLT2011",
+          "SpinlockLabs/reactos:backups/ros-branch-0_3_13-clt2011@51081",
+          "ThinkLib/reactos:ReactOS-0.3.13-CLT2011"
+        ]
+      },
+      "license_notes": "No new license claim. Upstream COPYING is GPL-2.0; source W9 record says license verification NOT RUN (no fork-unique diff). No diff imported or executed."
+    },
+    {
+      "sha": "5f18dde52776e5629b5bcb2daef67ac37f37c06a",
+      "classification": "exact-present",
+      "basis": "exact object present locally; merge-base --is-ancestor against pinned origin/master exit 0; contained in origin/master and 14 other local refs",
+      "commands_used": [
+        "git -C <repo> cat-file -t 5f18dde52776e5629b5bcb2daef67ac37f37c06a",
+        "git -C <repo> merge-base --is-ancestor 5f18dde52776e5629b5bcb2daef67ac37f37c06a origin/master (exit 0)",
+        "git -C <repo> branch -a --contains 5f18dde52776e5629b5bcb2daef67ac37f37c06a",
+        "git -C <repo> merge-base 5f18dde52776e5629b5bcb2daef67ac37f37c06a origin/master",
+        "git -C <repo> show -s --format='%H%n%ci%n%s' 5f18dde52776e5629b5bcb2daef67ac37f37c06a",
+        "git -C <repo> show --format= 5f18dde52776e5629b5bcb2daef67ac37f37c06a | git patch-id --stable"
+      ],
+      "evidence": {
+        "local_object_type": "commit",
+        "ancestor_of_pinned_master": true,
+        "merge_base": "5f18dde52776e5629b5bcb2daef67ac37f37c06a",
+        "containing_ref_count": 15,
+        "containing_refs_sample": [
+          "engineering",
+          "master",
+          "+ research/fork-archaeology-2026-11-26",
+          "* research/v7-wave1"
+        ],
+        "commit_metadata": [
+          "5f18dde52776e5629b5bcb2daef67ac37f37c06a",
+          "2007-02-22 00:14:20 +0000",
+          "Fix build with gcc 4.1.2"
+        ],
+        "local_patch_id": "d5428da4f9bc5a89f7c7ab2f14b6e7a685c22230",
+        "github_commit_url": "https://github.com/reactos/reactos/commit/5f18dde52776e5629b5bcb2daef67ac37f37c06a",
+        "fork_refs_sample": [
+          "SpinlockLabs/reactos:backups/alex-kd-branch@25995",
+          "ThinkLib/reactos:backups/alex-kd-branch@25995",
+          "iDone/reactos:backups/alex-kd-branch@25995"
+        ]
+      },
+      "license_notes": "No new license claim. Upstream COPYING is GPL-2.0; source W9 record says license verification NOT RUN (no fork-unique diff). No diff imported or executed."
+    },
+    {
+      "sha": "679f8cec0ea34e1e7c270274fedce7849e0c6402",
+      "classification": "exact-present",
+      "basis": "exact object present locally; merge-base --is-ancestor against pinned origin/master exit 0; contained in origin/master and 14 other local refs",
+      "commands_used": [
+        "git -C <repo> cat-file -t 679f8cec0ea34e1e7c270274fedce7849e0c6402",
+        "git -C <repo> merge-base --is-ancestor 679f8cec0ea34e1e7c270274fedce7849e0c6402 origin/master (exit 0)",
+        "git -C <repo> branch -a --contains 679f8cec0ea34e1e7c270274fedce7849e0c6402",
+        "git -C <repo> merge-base 679f8cec0ea34e1e7c270274fedce7849e0c6402 origin/master",
+        "git -C <repo> show -s --format='%H%n%ci%n%s' 679f8cec0ea34e1e7c270274fedce7849e0c6402",
+        "git -C <repo> show --format= 679f8cec0ea34e1e7c270274fedce7849e0c6402 | git patch-id --stable"
+      ],
+      "evidence": {
+        "local_object_type": "commit",
+        "ancestor_of_pinned_master": true,
+        "merge_base": "679f8cec0ea34e1e7c270274fedce7849e0c6402",
+        "containing_ref_count": 15,
+        "containing_refs_sample": [
+          "engineering",
+          "master",
+          "+ research/fork-archaeology-2026-11-26",
+          "* research/v7-wave1"
+        ],
+        "commit_metadata": [
+          "679f8cec0ea34e1e7c270274fedce7849e0c6402",
+          "2012-10-14 11:46:22 +0000",
+          "[CSRSS] Code formatting only."
+        ],
+        "local_patch_id": "48778328470b6a1fe0c283f4e424f6aa6b4baf3f",
+        "github_commit_url": "https://github.com/reactos/reactos/commit/679f8cec0ea34e1e7c270274fedce7849e0c6402",
+        "fork_refs_sample": [
+          "SpinlockLabs/reactos:backups/ros-csrss@57560",
+          "ThinkLib/reactos:backups/ros-csrss@57560",
+          "iDone/reactos:backups/ros-csrss@57560"
+        ]
+      },
+      "license_notes": "No new license claim. Upstream COPYING is GPL-2.0; source W9 record says license verification NOT RUN (no fork-unique diff). No diff imported or executed."
+    },
+    {
+      "sha": "7223cdea1f43814e2b5fce8a6254dde28341d593",
+      "classification": "exact-present",
+      "basis": "exact object present locally; merge-base --is-ancestor against pinned origin/master exit 0; contained in origin/master and 14 other local refs",
+      "commands_used": [
+        "git -C <repo> cat-file -t 7223cdea1f43814e2b5fce8a6254dde28341d593",
+        "git -C <repo> merge-base --is-ancestor 7223cdea1f43814e2b5fce8a6254dde28341d593 origin/master (exit 0)",
+        "git -C <repo> branch -a --contains 7223cdea1f43814e2b5fce8a6254dde28341d593",
+        "git -C <repo> merge-base 7223cdea1f43814e2b5fce8a6254dde28341d593 origin/master",
+        "git -C <repo> show -s --format='%H%n%ci%n%s' 7223cdea1f43814e2b5fce8a6254dde28341d593",
+        "git -C <repo> show --format= 7223cdea1f43814e2b5fce8a6254dde28341d593 | git patch-id --stable"
+      ],
+      "evidence": {
+        "local_object_type": "commit",
+        "ancestor_of_pinned_master": true,
+        "merge_base": "7223cdea1f43814e2b5fce8a6254dde28341d593",
+        "containing_ref_count": 15,
+        "containing_refs_sample": [
+          "engineering",
+          "master",
+          "+ research/fork-archaeology-2026-11-26",
+          "* research/v7-wave1"
+        ],
+        "commit_metadata": [
+          "7223cdea1f43814e2b5fce8a6254dde28341d593",
+          "2010-03-11 00:01:33 +0000",
+          "Scale down the wallpaper to 800x600. For some reason, scaling down the image through the \"Stretch\" option of the Desktop doesn't seem to work."
+        ],
+        "local_patch_id": "18efb1dce8b8518b055848b414c872d498cc0284",
+        "github_commit_url": "https://github.com/reactos/reactos/commit/7223cdea1f43814e2b5fce8a6254dde28341d593",
+        "fork_refs_sample": [
+          "SpinlockLabs/reactos:ReactOS-0.3.11-CLT2010",
+          "SpinlockLabs/reactos:backups/ros-branch-0_3_11-clt2010@46228",
+          "ThinkLib/reactos:ReactOS-0.3.11-CLT2010"
+        ]
+      },
+      "license_notes": "No new license claim. Upstream COPYING is GPL-2.0; source W9 record says license verification NOT RUN (no fork-unique diff). No diff imported or executed."
+    },
+    {
+      "sha": "7aafb75d80256f0593918118f63e1171c8813dc9",
+      "classification": "exact-present",
+      "basis": "exact object present locally; merge-base --is-ancestor against pinned origin/master exit 0; contained in origin/master and 14 other local refs",
+      "commands_used": [
+        "git -C <repo> cat-file -t 7aafb75d80256f0593918118f63e1171c8813dc9",
+        "git -C <repo> merge-base --is-ancestor 7aafb75d80256f0593918118f63e1171c8813dc9 origin/master (exit 0)",
+        "git -C <repo> branch -a --contains 7aafb75d80256f0593918118f63e1171c8813dc9",
+        "git -C <repo> merge-base 7aafb75d80256f0593918118f63e1171c8813dc9 origin/master",
+        "git -C <repo> show -s --format='%H%n%ci%n%s' 7aafb75d80256f0593918118f63e1171c8813dc9",
+        "git -C <repo> show --format= 7aafb75d80256f0593918118f63e1171c8813dc9 | git patch-id --stable"
+      ],
+      "evidence": {
+        "local_object_type": "commit",
+        "ancestor_of_pinned_master": true,
+        "merge_base": "7aafb75d80256f0593918118f63e1171c8813dc9",
+        "containing_ref_count": 15,
+        "containing_refs_sample": [
+          "engineering",
+          "master",
+          "+ research/fork-archaeology-2026-11-26",
+          "* research/v7-wave1"
+        ],
+        "commit_metadata": [
+          "7aafb75d80256f0593918118f63e1171c8813dc9",
+          "2011-02-21 20:11:52 +0000",
+          "[CMAKE] Improve configure script. It now defaults to nmake for MSVC, if you want a \"VSSolution\", pass exactly this as 1st paramter Patch by Samuel Serapion"
+        ],
+        "local_patch_id": "0062fb47ebdfbcb7dc36937a050fb9b68ae9bbbf",
+        "github_commit_url": "https://github.com/reactos/reactos/commit/7aafb75d80256f0593918118f63e1171c8813dc9",
+        "fork_refs_sample": [
+          "SpinlockLabs/reactos:backups/GSoC_2011/GSoC_Themes@51550",
+          "SpinlockLabs/reactos:backups/GSoC_Themes@51548",
+          "ThinkLib/reactos:backups/GSoC_2011/GSoC_Themes@51550"
+        ]
+      },
+      "license_notes": "No new license claim. Upstream COPYING is GPL-2.0; source W9 record says license verification NOT RUN (no fork-unique diff). No diff imported or executed."
+    },
+    {
+      "sha": "9e0b1f1383b96f801152c75ac45cf41e7c5b13f7",
+      "classification": "exact-present",
+      "basis": "exact object present locally; merge-base --is-ancestor against pinned origin/master exit 0; contained in origin/master and 14 other local refs",
+      "commands_used": [
+        "git -C <repo> cat-file -t 9e0b1f1383b96f801152c75ac45cf41e7c5b13f7",
+        "git -C <repo> merge-base --is-ancestor 9e0b1f1383b96f801152c75ac45cf41e7c5b13f7 origin/master (exit 0)",
+        "git -C <repo> branch -a --contains 9e0b1f1383b96f801152c75ac45cf41e7c5b13f7",
+        "git -C <repo> merge-base 9e0b1f1383b96f801152c75ac45cf41e7c5b13f7 origin/master",
+        "git -C <repo> show -s --format='%H%n%ci%n%s' 9e0b1f1383b96f801152c75ac45cf41e7c5b13f7",
+        "git -C <repo> show --format= 9e0b1f1383b96f801152c75ac45cf41e7c5b13f7 | git patch-id --stable"
+      ],
+      "evidence": {
+        "local_object_type": "commit",
+        "ancestor_of_pinned_master": true,
+        "merge_base": "9e0b1f1383b96f801152c75ac45cf41e7c5b13f7",
+        "containing_ref_count": 15,
+        "containing_refs_sample": [
+          "engineering",
+          "master",
+          "+ research/fork-archaeology-2026-11-26",
+          "* research/v7-wave1"
+        ],
+        "commit_metadata": [
+          "9e0b1f1383b96f801152c75ac45cf41e7c5b13f7",
+          "2005-01-27 08:16:42 +0000",
+          "Suggested fix for atapi.  The atapi driver wants whole sectors, but the ext2 driver sometimes attempts an incomplete write.  Here we fill the remaineder of the sector with zeros.  This isn't the most elegant way to do it but illustrates the problem.  I'm committing this here because it's a branch."
+        ],
+        "local_patch_id": "5d6ab2797839e2c75f7029484ea6002117c7a053",
+        "github_commit_url": "https://github.com/reactos/reactos/commit/9e0b1f1383b96f801152c75ac45cf41e7c5b13f7",
+        "fork_refs_sample": [
+          "SpinlockLabs/reactos:backups/ext2@33480",
+          "ThinkLib/reactos:backups/ext2@33480",
+          "iDone/reactos:backups/ext2@33480"
+        ]
+      },
+      "license_notes": "No new license claim. Upstream COPYING is GPL-2.0; source W9 record says license verification NOT RUN (no fork-unique diff). No diff imported or executed."
+    },
+    {
+      "sha": "c39b0fc66706635a73fdbab557e1404e515fa622",
+      "classification": "exact-present",
+      "basis": "exact object present locally; merge-base --is-ancestor against pinned origin/master exit 0; contained in origin/master and 14 other local refs",
+      "commands_used": [
+        "git -C <repo> cat-file -t c39b0fc66706635a73fdbab557e1404e515fa622",
+        "git -C <repo> merge-base --is-ancestor c39b0fc66706635a73fdbab557e1404e515fa622 origin/master (exit 0)",
+        "git -C <repo> branch -a --contains c39b0fc66706635a73fdbab557e1404e515fa622",
+        "git -C <repo> merge-base c39b0fc66706635a73fdbab557e1404e515fa622 origin/master",
+        "git -C <repo> show -s --format='%H%n%ci%n%s' c39b0fc66706635a73fdbab557e1404e515fa622",
+        "git -C <repo> show --format= c39b0fc66706635a73fdbab557e1404e515fa622 | git patch-id --stable"
+      ],
+      "evidence": {
+        "local_object_type": "commit",
+        "ancestor_of_pinned_master": true,
+        "merge_base": "c39b0fc66706635a73fdbab557e1404e515fa622",
+        "containing_ref_count": 15,
+        "containing_refs_sample": [
+          "engineering",
+          "master",
+          "+ research/fork-archaeology-2026-11-26",
+          "* research/v7-wave1"
+        ],
+        "commit_metadata": [
+          "c39b0fc66706635a73fdbab557e1404e515fa622",
+          "2017-12-02 22:18:06 +0100",
+          "[USER32_APITEST] Add a PCH."
+        ],
+        "local_patch_id": "f6e4e8797c985fafe038cadb29af99af8f0c618c",
+        "github_commit_url": "https://github.com/reactos/reactos/commit/c39b0fc66706635a73fdbab557e1404e515fa622",
+        "fork_refs_sample": [
+          "kumaran-git/reactos:master"
+        ]
+      },
+      "license_notes": "No new license claim. Upstream COPYING is GPL-2.0; source W9 record says license verification NOT RUN (no fork-unique diff). No diff imported or executed."
+    },
+    {
+      "sha": "ddfa887b86f497eb4ad733cacfc01e856ea13591",
+      "classification": "exact-present",
+      "basis": "exact object present locally; merge-base --is-ancestor against pinned origin/master exit 0; contained in origin/master and 14 other local refs",
+      "commands_used": [
+        "git -C <repo> cat-file -t ddfa887b86f497eb4ad733cacfc01e856ea13591",
+        "git -C <repo> merge-base --is-ancestor ddfa887b86f497eb4ad733cacfc01e856ea13591 origin/master (exit 0)",
+        "git -C <repo> branch -a --contains ddfa887b86f497eb4ad733cacfc01e856ea13591",
+        "git -C <repo> merge-base ddfa887b86f497eb4ad733cacfc01e856ea13591 origin/master",
+        "git -C <repo> show -s --format='%H%n%ci%n%s' ddfa887b86f497eb4ad733cacfc01e856ea13591",
+        "git -C <repo> show --format= ddfa887b86f497eb4ad733cacfc01e856ea13591 | git patch-id --stable"
+      ],
+      "evidence": {
+        "local_object_type": "commit",
+        "ancestor_of_pinned_master": true,
+        "merge_base": "ddfa887b86f497eb4ad733cacfc01e856ea13591",
+        "containing_ref_count": 15,
+        "containing_refs_sample": [
+          "engineering",
+          "master",
+          "+ research/fork-archaeology-2026-11-26",
+          "* research/v7-wave1"
+        ],
+        "commit_metadata": [
+          "ddfa887b86f497eb4ad733cacfc01e856ea13591",
+          "2013-04-14 16:04:46 +0000",
+          "[CONSRV] Fix some MSVC warnings (type conversions)."
+        ],
+        "local_patch_id": "7c81b8c6c734b159298a23621262c0ab337dbc73",
+        "github_commit_url": "https://github.com/reactos/reactos/commit/ddfa887b86f497eb4ad733cacfc01e856ea13591",
+        "fork_refs_sample": [
+          "SpinlockLabs/reactos:backups/ros-csrss@60644",
+          "ThinkLib/reactos:backups/ros-csrss@60644",
+          "iDone/reactos:backups/ros-csrss@60644"
+        ]
+      },
+      "license_notes": "No new license claim. Upstream COPYING is GPL-2.0; source W9 record says license verification NOT RUN (no fork-unique diff). No diff imported or executed."
+    },
+    {
+      "sha": "ed469a00afefe799500a59fabbf9c2b60ae745b4",
+      "classification": "exact-present",
+      "basis": "exact object present locally; merge-base --is-ancestor against pinned origin/master exit 0; contained in origin/master and 14 other local refs",
+      "commands_used": [
+        "git -C <repo> cat-file -t ed469a00afefe799500a59fabbf9c2b60ae745b4",
+        "git -C <repo> merge-base --is-ancestor ed469a00afefe799500a59fabbf9c2b60ae745b4 origin/master (exit 0)",
+        "git -C <repo> branch -a --contains ed469a00afefe799500a59fabbf9c2b60ae745b4",
+        "git -C <repo> merge-base ed469a00afefe799500a59fabbf9c2b60ae745b4 origin/master",
+        "git -C <repo> show -s --format='%H%n%ci%n%s' ed469a00afefe799500a59fabbf9c2b60ae745b4",
+        "git -C <repo> show --format= ed469a00afefe799500a59fabbf9c2b60ae745b4 | git patch-id --stable"
+      ],
+      "evidence": {
+        "local_object_type": "commit",
+        "ancestor_of_pinned_master": true,
+        "merge_base": "ed469a00afefe799500a59fabbf9c2b60ae745b4",
+        "containing_ref_count": 15,
+        "containing_refs_sample": [
+          "engineering",
+          "master",
+          "+ research/fork-archaeology-2026-11-26",
+          "* research/v7-wave1"
+        ],
+        "commit_metadata": [
+          "ed469a00afefe799500a59fabbf9c2b60ae745b4",
+          "2009-12-12 17:15:19 +0000",
+          "Merge r44552"
+        ],
+        "local_patch_id": "36c1fb443641edd326315a6934efa67d0ad646e2",
+        "github_commit_url": "https://github.com/reactos/reactos/commit/ed469a00afefe799500a59fabbf9c2b60ae745b4",
+        "fork_refs_sample": [
+          "SpinlockLabs/reactos:ReactOS-0.3.11",
+          "SpinlockLabs/reactos:backups/ros-branch-0_3_11@44688",
+          "ThinkLib/reactos:ReactOS-0.3.11"
+        ]
+      },
+      "license_notes": "No new license claim. Upstream COPYING is GPL-2.0; source W9 record says license verification NOT RUN (no fork-unique diff). No diff imported or executed."
+    },
+    {
+      "sha": "fcf87307bc457e0d53423f370431bdd9fee2a0af",
+      "classification": "exact-present",
+      "basis": "exact object present locally; merge-base --is-ancestor against pinned origin/master exit 0; contained in origin/master and 14 other local refs",
+      "commands_used": [
+        "git -C <repo> cat-file -t fcf87307bc457e0d53423f370431bdd9fee2a0af",
+        "git -C <repo> merge-base --is-ancestor fcf87307bc457e0d53423f370431bdd9fee2a0af origin/master (exit 0)",
+        "git -C <repo> branch -a --contains fcf87307bc457e0d53423f370431bdd9fee2a0af",
+        "git -C <repo> merge-base fcf87307bc457e0d53423f370431bdd9fee2a0af origin/master",
+        "git -C <repo> show -s --format='%H%n%ci%n%s' fcf87307bc457e0d53423f370431bdd9fee2a0af",
+        "git -C <repo> show --format= fcf87307bc457e0d53423f370431bdd9fee2a0af | git patch-id --stable"
+      ],
+      "evidence": {
+        "local_object_type": "commit",
+        "ancestor_of_pinned_master": true,
+        "merge_base": "fcf87307bc457e0d53423f370431bdd9fee2a0af",
+        "containing_ref_count": 15,
+        "containing_refs_sample": [
+          "engineering",
+          "master",
+          "+ research/fork-archaeology-2026-11-26",
+          "* research/v7-wave1"
+        ],
+        "commit_metadata": [
+          "fcf87307bc457e0d53423f370431bdd9fee2a0af",
+          "2011-08-20 11:39:05 +0000",
+          "[uxtheme] - Remove a hack that is not needed because it was added to a better place in 53295"
+        ],
+        "local_patch_id": "d372f1ee893f6f6bab3c3904466640dd2d6043ba",
+        "github_commit_url": "https://github.com/reactos/reactos/commit/fcf87307bc457e0d53423f370431bdd9fee2a0af",
+        "fork_refs_sample": [
+          "SpinlockLabs/reactos:GSoC_2011/ThemesSupport",
+          "ThinkLib/reactos:GSoC_2011/ThemesSupport",
+          "iDone/reactos:GSoC_2011/ThemesSupport"
+        ]
+      },
+      "license_notes": "No new license claim. Upstream COPYING is GPL-2.0; source W9 record says license verification NOT RUN (no fork-unique diff). No diff imported or executed."
+    },
+    {
+      "sha": "011b958ceda7ee1088334d82fa850f7bd6209154",
+      "classification": "inconclusive",
+      "basis": "Exact SHA resolves in upstream object database but compare to pinned master is diverged (behind_by>0); no verified patch-id or source-level equivalence established in this pass; preserved for additional investigation.",
+      "commands_used": [
+        "git -C <repo> cat-file --batch-check < all_246_shas.txt (result: missing)",
+        "gh api repos/reactos/reactos/commits/011b958ceda7ee1088334d82fa850f7bd6209154",
+        "gh api repos/reactos/reactos/compare/011b958ceda7ee1088334d82fa850f7bd6209154...3e6033a613fbf7c5bd58aaeaa05af42514af59d5",
+        "gh api -H 'Accept: application/vnd.github.v3.patch' repos/reactos/reactos/commits/011b958ceda7ee1088334d82fa850f7bd6209154 > <scratch>/v8patches/011b958ceda7ee1088334d82fa850f7bd6209154.patch",
+        "head -1 <scratch>/v8patches/011b958ceda7ee1088334d82fa850f7bd6209154.patch  # verify 'From <sha>' header",
+        "git patch-id --stable < <scratch>/v8patches/011b958ceda7ee1088334d82fa850f7bd6209154.patch",
+        "git -C <repo> log --all --format=%H -- <patched paths> | while read c; do git show --format= $c | git patch-id --stable; done  # 36 candidates"
+      ],
+      "evidence": {
+        "github_commit_url": "https://github.com/reactos/reactos/commit/011b958ceda7ee1088334d82fa850f7bd6209154",
+        "immutable_patch_url": "https://github.com/reactos/reactos/commit/011b958ceda7ee1088334d82fa850f7bd6209154.patch",
+        "compare_url": "https://github.com/reactos/reactos/compare/011b958ceda7ee1088334d82fa850f7bd6209154...3e6033a613fbf7c5bd58aaeaa05af42514af59d5",
+        "commit_message_first_line": "new rev",
+        "compare_status": "diverged",
+        "compare_ahead_by": 88894,
+        "compare_behind_by": 7,
+        "merge_base": "fb416bf8e28f40717186109d1158985a517cddfe",
+        "patch_from_header": "011b958ceda7ee1088334d82fa850f7bd6209154",
+        "patch_header_matches_requested_sha": true,
+        "patch_id_stable": "91bf435e7b5cf5837068f834875b47a26a641991",
+        "upstream_equivalence_sha": null,
+        "candidate_patch_ids_scanned": 36,
+        "fork_refs_sample": [
+          "SpinlockLabs/reactos:backups/prep0016@12448",
+          "ThinkLib/reactos:backups/prep0016@12448",
+          "iDone/reactos:backups/prep0016@12448"
+        ]
+      },
+      "license_notes": "Source W9 record: licensing_status NOT RUN (no fork-unique diff); no per-file SPDX certification and no legal conclusion. Upstream baseline COPYING is GPL-2.0; no patch imported, built or executed."
+    },
+    {
+      "sha": "135aa96a3bc28962a8027d8d3aa3579589ece7db",
+      "classification": "inconclusive",
+      "basis": "Exact SHA resolves in upstream object database but compare to pinned master is diverged (behind_by>0); no verified patch-id or source-level equivalence established in this pass; preserved for additional investigation.",
+      "commands_used": [
+        "git -C <repo> cat-file --batch-check < all_246_shas.txt (result: missing)",
+        "gh api repos/reactos/reactos/commits/135aa96a3bc28962a8027d8d3aa3579589ece7db",
+        "gh api repos/reactos/reactos/compare/135aa96a3bc28962a8027d8d3aa3579589ece7db...3e6033a613fbf7c5bd58aaeaa05af42514af59d5",
+        "gh api -H 'Accept: application/vnd.github.v3.patch' repos/reactos/reactos/commits/135aa96a3bc28962a8027d8d3aa3579589ece7db > <scratch>/v8patches/135aa96a3bc28962a8027d8d3aa3579589ece7db.patch",
+        "head -1 <scratch>/v8patches/135aa96a3bc28962a8027d8d3aa3579589ece7db.patch  # verify 'From <sha>' header",
+        "git patch-id --stable < <scratch>/v8patches/135aa96a3bc28962a8027d8d3aa3579589ece7db.patch"
+      ],
+      "evidence": {
+        "github_commit_url": "https://github.com/reactos/reactos/commit/135aa96a3bc28962a8027d8d3aa3579589ece7db",
+        "immutable_patch_url": "https://github.com/reactos/reactos/commit/135aa96a3bc28962a8027d8d3aa3579589ece7db.patch",
+        "compare_url": "https://github.com/reactos/reactos/compare/135aa96a3bc28962a8027d8d3aa3579589ece7db...3e6033a613fbf7c5bd58aaeaa05af42514af59d5",
+        "commit_message_first_line": "including floppy driver",
+        "compare_status": "diverged",
+        "compare_ahead_by": 90056,
+        "compare_behind_by": 12,
+        "merge_base": "c38258c97ab65d8e18acd00c84c2f9ac4e3099b7",
+        "patch_from_header": "135aa96a3bc28962a8027d8d3aa3579589ece7db",
+        "patch_header_matches_requested_sha": true,
+        "patch_id_stable": "1919c042902160ae93519401e0842aa188118fe0",
+        "upstream_equivalence_sha": null,
+        "candidate_patch_ids_scanned": 0,
+        "fork_refs_sample": [
+          "SpinlockLabs/reactos:backups/ros@12450",
+          "ThinkLib/reactos:backups/ros@12450",
+          "iDone/reactos:backups/ros@12450"
+        ]
+      },
+      "license_notes": "Source W9 record: licensing_status NOT RUN (no fork-unique diff); no per-file SPDX certification and no legal conclusion. Upstream baseline COPYING is GPL-2.0; no patch imported, built or executed."
+    },
+    {
+      "sha": "2fda8374a2e1c655272fcfd49465675377618bbc",
+      "classification": "patch-equivalent",
+      "basis": "patch header states '(cherry picked from commit 34c563fa2a2...)'; patch-id of immutable .patch equals patch-id of upstream commit which is an ancestor of origin/master; master source still uses GetSysColorBrush(COLOR_BTNFACE) at dll/win32/comctl32/button.c:1527.",
+      "commands_used": [
+        "git -C <repo> cat-file --batch-check < all_246_shas.txt (result: missing)",
+        "gh api repos/reactos/reactos/commits/2fda8374a2e1c655272fcfd49465675377618bbc",
+        "gh api repos/reactos/reactos/compare/2fda8374a2e1c655272fcfd49465675377618bbc...3e6033a613fbf7c5bd58aaeaa05af42514af59d5",
+        "gh api -H 'Accept: application/vnd.github.v3.patch' repos/reactos/reactos/commits/2fda8374a2e1c655272fcfd49465675377618bbc > <scratch>/v8patches/2fda8374a2e1c655272fcfd49465675377618bbc.patch",
+        "head -1 <scratch>/v8patches/2fda8374a2e1c655272fcfd49465675377618bbc.patch  # verify 'From <sha>' header",
+        "git patch-id --stable < <scratch>/v8patches/2fda8374a2e1c655272fcfd49465675377618bbc.patch"
+      ],
+      "evidence": {
+        "github_commit_url": "https://github.com/reactos/reactos/commit/2fda8374a2e1c655272fcfd49465675377618bbc",
+        "immutable_patch_url": "https://github.com/reactos/reactos/commit/2fda8374a2e1c655272fcfd49465675377618bbc.patch",
+        "compare_url": "https://github.com/reactos/reactos/compare/2fda8374a2e1c655272fcfd49465675377618bbc...3e6033a613fbf7c5bd58aaeaa05af42514af59d5",
+        "commit_message_first_line": "[0.4.7] cherry-pick [COMCTL32] Button: Don't use a class brush. CORE-13445",
+        "compare_status": "diverged",
+        "compare_ahead_by": 20140,
+        "compare_behind_by": 13,
+        "merge_base": "959d9c62018d5c6a73a9df2747d25dde244b00b9",
+        "patch_from_header": "2fda8374a2e1c655272fcfd49465675377618bbc",
+        "patch_header_matches_requested_sha": true,
+        "patch_id_stable": "2a65c4ff3ed391d2283932e8295a0245d75ef415",
+        "upstream_equivalence_sha": "34c563fa2a29c71705322abba6768a00361e91bb",
+        "candidate_patch_ids_scanned": 0,
+        "fork_refs_sample": [
+          "wassekaran/reactos:releases/0.4.7",
+          "wray007/reactos:releases/0.4.7"
+        ]
+      },
+      "license_notes": "Source W9 record: licensing_status NOT RUN (no fork-unique diff); no per-file SPDX certification and no legal conclusion. Upstream baseline COPYING is GPL-2.0; no patch imported, built or executed."
+    },
+    {
+      "sha": "462609b831a708c640f517db9e3d90c227f8b934",
+      "classification": "inconclusive",
+      "basis": "Exact SHA resolves in upstream object database but compare to pinned master is diverged (behind_by>0); no verified patch-id or source-level equivalence established in this pass; preserved for additional investigation.",
+      "commands_used": [
+        "git -C <repo> cat-file --batch-check < all_246_shas.txt (result: missing)",
+        "gh api repos/reactos/reactos/commits/462609b831a708c640f517db9e3d90c227f8b934",
+        "gh api repos/reactos/reactos/compare/462609b831a708c640f517db9e3d90c227f8b934...3e6033a613fbf7c5bd58aaeaa05af42514af59d5",
+        "gh api -H 'Accept: application/vnd.github.v3.patch' repos/reactos/reactos/commits/462609b831a708c640f517db9e3d90c227f8b934 > <scratch>/v8patches/462609b831a708c640f517db9e3d90c227f8b934.patch",
+        "head -1 <scratch>/v8patches/462609b831a708c640f517db9e3d90c227f8b934.patch  # verify 'From <sha>' header",
+        "git patch-id --stable < <scratch>/v8patches/462609b831a708c640f517db9e3d90c227f8b934.patch",
+        "git -C <repo> log --all --format=%H -- <patched paths> | while read c; do git show --format= $c | git patch-id --stable; done  # 36 candidates"
+      ],
+      "evidence": {
+        "github_commit_url": "https://github.com/reactos/reactos/commit/462609b831a708c640f517db9e3d90c227f8b934",
+        "immutable_patch_url": "https://github.com/reactos/reactos/commit/462609b831a708c640f517db9e3d90c227f8b934.patch",
+        "compare_url": "https://github.com/reactos/reactos/compare/462609b831a708c640f517db9e3d90c227f8b934...3e6033a613fbf7c5bd58aaeaa05af42514af59d5",
+        "commit_message_first_line": "Release version preparation",
+        "compare_status": "diverged",
+        "compare_ahead_by": 80835,
+        "compare_behind_by": 39,
+        "merge_base": "0a30ec98a34de5046c854d876f153bb17b55c5ac",
+        "patch_from_header": "462609b831a708c640f517db9e3d90c227f8b934",
+        "patch_header_matches_requested_sha": true,
+        "patch_id_stable": "e0a04d50903144747d8dd74cdc8d0b9c87235270",
+        "upstream_equivalence_sha": null,
+        "candidate_patch_ids_scanned": 36,
+        "fork_refs_sample": [
+          "SpinlockLabs/reactos:ReactOS-0.2.3",
+          "SpinlockLabs/reactos:backups/ros-branch-0_2_3@12456",
+          "ThinkLib/reactos:ReactOS-0.2.3"
+        ]
+      },
+      "license_notes": "Source W9 record: licensing_status NOT RUN (no fork-unique diff); no per-file SPDX certification and no legal conclusion. Upstream baseline COPYING is GPL-2.0; no patch imported, built or executed."
+    },
+    {
+      "sha": "63b2a4f19cacfca7958b430aeed0f8f5fd372b7a",
+      "classification": "inconclusive",
+      "basis": "2-parent cvs2svn tag commit; GitHub .patch returned parent d87b4502664... instead; not identity evidence for the tip",
+      "commands_used": [
+        "git -C <repo> cat-file --batch-check < all_246_shas.txt (result: missing)",
+        "gh api repos/reactos/reactos/commits/63b2a4f19cacfca7958b430aeed0f8f5fd372b7a",
+        "gh api repos/reactos/reactos/compare/63b2a4f19cacfca7958b430aeed0f8f5fd372b7a...3e6033a613fbf7c5bd58aaeaa05af42514af59d5",
+        "gh api -H 'Accept: application/vnd.github.v3.patch' repos/reactos/reactos/commits/63b2a4f19cacfca7958b430aeed0f8f5fd372b7a > <scratch>/v8patches/63b2a4f19cacfca7958b430aeed0f8f5fd372b7a.patch",
+        "head -1 <scratch>/v8patches/63b2a4f19cacfca7958b430aeed0f8f5fd372b7a.patch  # verify 'From <sha>' header",
+        "git patch-id --stable < <scratch>/v8patches/63b2a4f19cacfca7958b430aeed0f8f5fd372b7a.patch"
+      ],
+      "evidence": {
+        "github_commit_url": "https://github.com/reactos/reactos/commit/63b2a4f19cacfca7958b430aeed0f8f5fd372b7a",
+        "immutable_patch_url": "https://github.com/reactos/reactos/commit/63b2a4f19cacfca7958b430aeed0f8f5fd372b7a.patch",
+        "compare_url": "https://github.com/reactos/reactos/compare/63b2a4f19cacfca7958b430aeed0f8f5fd372b7a...3e6033a613fbf7c5bd58aaeaa05af42514af59d5",
+        "commit_message_first_line": "This commit was manufactured by cvs2svn to create tag 'krnl0018'.",
+        "compare_status": "diverged",
+        "compare_ahead_by": 88038,
+        "compare_behind_by": 1,
+        "merge_base": "7e4a551cd55207a7277b3d72011079ad47d5ccea",
+        "patch_from_header": "d87b4502664304f1fea19a8ede7faf912805e74f",
+        "patch_header_matches_requested_sha": false,
+        "patch_id_stable": "f141991fe285c1d2c22827004c41b854afbcb4da",
+        "upstream_equivalence_sha": null,
+        "candidate_patch_ids_scanned": 0,
+        "fork_refs_sample": [
+          "SpinlockLabs/reactos:ReactOS-0.0.18",
+          "ThinkLib/reactos:ReactOS-0.0.18",
+          "iDone/reactos:ReactOS-0.0.18"
+        ]
+      },
+      "license_notes": "Source W9 record: licensing_status NOT RUN (no fork-unique diff); no per-file SPDX certification and no legal conclusion. Upstream baseline COPYING is GPL-2.0; no patch imported, built or executed."
+    },
+    {
+      "sha": "78faca2e06fffb51c4c617164027a1833c47a24b",
+      "classification": "inconclusive",
+      "basis": "Exact SHA resolves in upstream object database but compare to pinned master is diverged (behind_by>0); no verified patch-id or source-level equivalence established in this pass; preserved for additional investigation.",
+      "commands_used": [
+        "git -C <repo> cat-file --batch-check < all_246_shas.txt (result: missing)",
+        "gh api repos/reactos/reactos/commits/78faca2e06fffb51c4c617164027a1833c47a24b",
+        "gh api repos/reactos/reactos/compare/78faca2e06fffb51c4c617164027a1833c47a24b...3e6033a613fbf7c5bd58aaeaa05af42514af59d5",
+        "gh api -H 'Accept: application/vnd.github.v3.patch' repos/reactos/reactos/commits/78faca2e06fffb51c4c617164027a1833c47a24b > <scratch>/v8patches/78faca2e06fffb51c4c617164027a1833c47a24b.patch",
+        "head -1 <scratch>/v8patches/78faca2e06fffb51c4c617164027a1833c47a24b.patch  # verify 'From <sha>' header",
+        "git patch-id --stable < <scratch>/v8patches/78faca2e06fffb51c4c617164027a1833c47a24b.patch"
+      ],
+      "evidence": {
+        "github_commit_url": "https://github.com/reactos/reactos/commit/78faca2e06fffb51c4c617164027a1833c47a24b",
+        "immutable_patch_url": "https://github.com/reactos/reactos/commit/78faca2e06fffb51c4c617164027a1833c47a24b.patch",
+        "compare_url": "https://github.com/reactos/reactos/compare/78faca2e06fffb51c4c617164027a1833c47a24b...3e6033a613fbf7c5bd58aaeaa05af42514af59d5",
+        "commit_message_first_line": "fixed bug checking code to detect corrupt lists, detects a few corrupt lists in other parts of the kernel that need to be resolved",
+        "compare_status": "diverged",
+        "compare_ahead_by": 89461,
+        "compare_behind_by": 2,
+        "merge_base": "648301897cb71db586c2024a0f7e9b8afe6cc250",
+        "patch_from_header": "78faca2e06fffb51c4c617164027a1833c47a24b",
+        "patch_header_matches_requested_sha": true,
+        "patch_id_stable": "f7e73783c2d0aba4bf36a2c2d59558564babc602",
+        "upstream_equivalence_sha": null,
+        "candidate_patch_ids_scanned": 0,
+        "fork_refs_sample": [
+          "SpinlockLabs/reactos:backups/unlabeled-1.3.1@12463",
+          "ThinkLib/reactos:backups/unlabeled-1.3.1@12463",
+          "iDone/reactos:backups/unlabeled-1.3.1@12463"
+        ]
+      },
+      "license_notes": "Source W9 record: licensing_status NOT RUN (no fork-unique diff); no per-file SPDX certification and no legal conclusion. Upstream baseline COPYING is GPL-2.0; no patch imported, built or executed."
+    },
+    {
+      "sha": "8c3775afd44fb7a6700c4df5c5bd3024240ce905",
+      "classification": "inconclusive",
+      "basis": "Exact SHA resolves in upstream object database but compare to pinned master is diverged (behind_by>0); no verified patch-id or source-level equivalence established in this pass; preserved for additional investigation. Upstream ancestor 57e6630f32296f52a0428229c458e45790a59978 applies the opposite change (ASSERT -> C_ASSERT); branch patch is a regression, not an integrated change. Candidate path scan returned 0 commits after path moves.",
+      "commands_used": [
+        "git -C <repo> cat-file --batch-check < all_246_shas.txt (result: missing)",
+        "gh api repos/reactos/reactos/commits/8c3775afd44fb7a6700c4df5c5bd3024240ce905",
+        "gh api repos/reactos/reactos/compare/8c3775afd44fb7a6700c4df5c5bd3024240ce905...3e6033a613fbf7c5bd58aaeaa05af42514af59d5",
+        "gh api -H 'Accept: application/vnd.github.v3.patch' repos/reactos/reactos/commits/8c3775afd44fb7a6700c4df5c5bd3024240ce905 > <scratch>/v8patches/8c3775afd44fb7a6700c4df5c5bd3024240ce905.patch",
+        "head -1 <scratch>/v8patches/8c3775afd44fb7a6700c4df5c5bd3024240ce905.patch  # verify 'From <sha>' header",
+        "git patch-id --stable < <scratch>/v8patches/8c3775afd44fb7a6700c4df5c5bd3024240ce905.patch"
+      ],
+      "evidence": {
+        "github_commit_url": "https://github.com/reactos/reactos/commit/8c3775afd44fb7a6700c4df5c5bd3024240ce905",
+        "immutable_patch_url": "https://github.com/reactos/reactos/commit/8c3775afd44fb7a6700c4df5c5bd3024240ce905.patch",
+        "compare_url": "https://github.com/reactos/reactos/compare/8c3775afd44fb7a6700c4df5c5bd3024240ce905...3e6033a613fbf7c5bd58aaeaa05af42514af59d5",
+        "commit_message_first_line": "modified   ntoskrnl/mm/pe.c",
+        "compare_status": "diverged",
+        "compare_ahead_by": 59855,
+        "compare_behind_by": 3,
+        "merge_base": "21ffe8e67af0a4268e0f475b41c794be6d89fd51",
+        "patch_from_header": "8c3775afd44fb7a6700c4df5c5bd3024240ce905",
+        "patch_header_matches_requested_sha": true,
+        "patch_id_stable": "aaf2eaaa35502c72a05989f1813660f0aa81f250",
+        "upstream_equivalence_sha": null,
+        "candidate_patch_ids_scanned": 0,
+        "fork_refs_sample": [
+          "SpinlockLabs/reactos:backups/hyperion@33110",
+          "ThinkLib/reactos:backups/hyperion@33110",
+          "iDone/reactos:backups/hyperion@33110"
+        ]
+      },
+      "license_notes": "Source W9 record: licensing_status NOT RUN (no fork-unique diff); no per-file SPDX certification and no legal conclusion. Upstream baseline COPYING is GPL-2.0; no patch imported, built or executed."
+    },
+    {
+      "sha": "9da3ad2c7bdfb4bd2801c64c4649423395a74674",
+      "classification": "inconclusive",
+      "basis": "Exact SHA resolves in upstream object database but compare to pinned master is diverged (behind_by>0); no verified patch-id or source-level equivalence established in this pass; preserved for additional investigation.",
+      "commands_used": [
+        "git -C <repo> cat-file --batch-check < all_246_shas.txt (result: missing)",
+        "gh api repos/reactos/reactos/commits/9da3ad2c7bdfb4bd2801c64c4649423395a74674",
+        "gh api repos/reactos/reactos/compare/9da3ad2c7bdfb4bd2801c64c4649423395a74674...3e6033a613fbf7c5bd58aaeaa05af42514af59d5",
+        "gh api -H 'Accept: application/vnd.github.v3.patch' repos/reactos/reactos/commits/9da3ad2c7bdfb4bd2801c64c4649423395a74674 > <scratch>/v8patches/9da3ad2c7bdfb4bd2801c64c4649423395a74674.patch",
+        "head -1 <scratch>/v8patches/9da3ad2c7bdfb4bd2801c64c4649423395a74674.patch  # verify 'From <sha>' header",
+        "git patch-id --stable < <scratch>/v8patches/9da3ad2c7bdfb4bd2801c64c4649423395a74674.patch"
+      ],
+      "evidence": {
+        "github_commit_url": "https://github.com/reactos/reactos/commit/9da3ad2c7bdfb4bd2801c64c4649423395a74674",
+        "immutable_patch_url": "https://github.com/reactos/reactos/commit/9da3ad2c7bdfb4bd2801c64c4649423395a74674.patch",
+        "compare_url": "https://github.com/reactos/reactos/compare/9da3ad2c7bdfb4bd2801c64c4649423395a74674...3e6033a613fbf7c5bd58aaeaa05af42514af59d5",
+        "commit_message_first_line": "[0.4.6]",
+        "compare_status": "diverged",
+        "compare_ahead_by": 20851,
+        "compare_behind_by": 10,
+        "merge_base": "f9df6b72bf873c668eb3ebd0b7b1fff500c48828",
+        "patch_from_header": "9da3ad2c7bdfb4bd2801c64c4649423395a74674",
+        "patch_header_matches_requested_sha": true,
+        "patch_id_stable": "1061213cea22ff9abaa00a428673f51b2802ab67",
+        "upstream_equivalence_sha": null,
+        "candidate_patch_ids_scanned": 0,
+        "fork_refs_sample": [
+          "SpinlockLabs/reactos:ReactOS-0.4.6",
+          "SpinlockLabs/reactos:backups/ros-branch-0_4_6@75728",
+          "ThinkLib/reactos:ReactOS-0.4.6"
+        ]
+      },
+      "license_notes": "Source W9 record: licensing_status NOT RUN (no fork-unique diff); no per-file SPDX certification and no legal conclusion. Upstream baseline COPYING is GPL-2.0; no patch imported, built or executed."
+    },
+    {
+      "sha": "b549f29b904972482b6fa9570c6243c97cf36d3a",
+      "classification": "inconclusive",
+      "basis": "Exact SHA resolves in upstream object database but compare to pinned master is diverged (behind_by>0); no verified patch-id or source-level equivalence established in this pass; preserved for additional investigation. Patch is 21,322,781 bytes / 9,499 files; deferred for dedicated equivalence review.",
+      "commands_used": [
+        "git -C <repo> cat-file --batch-check < all_246_shas.txt (result: missing)",
+        "gh api repos/reactos/reactos/commits/b549f29b904972482b6fa9570c6243c97cf36d3a",
+        "gh api repos/reactos/reactos/compare/b549f29b904972482b6fa9570c6243c97cf36d3a...3e6033a613fbf7c5bd58aaeaa05af42514af59d5",
+        "gh api -H 'Accept: application/vnd.github.v3.patch' repos/reactos/reactos/commits/b549f29b904972482b6fa9570c6243c97cf36d3a > <scratch>/v8patches/b549f29b904972482b6fa9570c6243c97cf36d3a.patch",
+        "head -1 <scratch>/v8patches/b549f29b904972482b6fa9570c6243c97cf36d3a.patch  # verify 'From <sha>' header",
+        "git patch-id --stable < <scratch>/v8patches/b549f29b904972482b6fa9570c6243c97cf36d3a.patch"
+      ],
+      "evidence": {
+        "github_commit_url": "https://github.com/reactos/reactos/commit/b549f29b904972482b6fa9570c6243c97cf36d3a",
+        "immutable_patch_url": "https://github.com/reactos/reactos/commit/b549f29b904972482b6fa9570c6243c97cf36d3a.patch",
+        "compare_url": "https://github.com/reactos/reactos/compare/b549f29b904972482b6fa9570c6243c97cf36d3a...3e6033a613fbf7c5bd58aaeaa05af42514af59d5",
+        "commit_message_first_line": "Winsock, Ws2Help, MsAfd, MsWinSck, WshTcpIp re-write branch.",
+        "compare_status": "diverged",
+        "compare_ahead_by": 77097,
+        "compare_behind_by": 1,
+        "merge_base": "8b0ad6b22f7b32c9e4c9b9266b4bc6506a317924",
+        "patch_from_header": "b549f29b904972482b6fa9570c6243c97cf36d3a",
+        "patch_header_matches_requested_sha": true,
+        "patch_id_stable": "014b72f7275498f5e35371669a80244fd92b17c1",
+        "upstream_equivalence_sha": null,
+        "candidate_patch_ids_scanned": 0,
+        "fork_refs_sample": [
+          "SpinlockLabs/reactos:backups/reactos@14242",
+          "ThinkLib/reactos:backups/reactos@14242",
+          "iDone/reactos:backups/reactos@14242"
+        ]
+      },
+      "license_notes": "Source W9 record: licensing_status NOT RUN (no fork-unique diff); no per-file SPDX certification and no legal conclusion. Upstream baseline COPYING is GPL-2.0; no patch imported, built or executed."
+    },
+    {
+      "sha": "cb2e180e1694bb6477ac78a498313ec0ebca8157",
+      "classification": "inconclusive",
+      "basis": "Exact SHA resolves in upstream object database but compare to pinned master is diverged (behind_by>0); no verified patch-id or source-level equivalence established in this pass; preserved for additional investigation. Patched file rosapps/applications/downloader/downloader.xml is absent from pinned master tree (superseded by removal); patch-id scan of 17 master commits touching that path found no match.",
+      "commands_used": [
+        "git -C <repo> cat-file --batch-check < all_246_shas.txt (result: missing)",
+        "gh api repos/reactos/reactos/commits/cb2e180e1694bb6477ac78a498313ec0ebca8157",
+        "gh api repos/reactos/reactos/compare/cb2e180e1694bb6477ac78a498313ec0ebca8157...3e6033a613fbf7c5bd58aaeaa05af42514af59d5",
+        "gh api -H 'Accept: application/vnd.github.v3.patch' repos/reactos/reactos/commits/cb2e180e1694bb6477ac78a498313ec0ebca8157 > <scratch>/v8patches/cb2e180e1694bb6477ac78a498313ec0ebca8157.patch",
+        "head -1 <scratch>/v8patches/cb2e180e1694bb6477ac78a498313ec0ebca8157.patch  # verify 'From <sha>' header",
+        "git patch-id --stable < <scratch>/v8patches/cb2e180e1694bb6477ac78a498313ec0ebca8157.patch",
+        "git -C <repo> log --all --format=%H -- <patched paths> | while read c; do git show --format= $c | git patch-id --stable; done  # 17 candidates"
+      ],
+      "evidence": {
+        "github_commit_url": "https://github.com/reactos/reactos/commit/cb2e180e1694bb6477ac78a498313ec0ebca8157",
+        "immutable_patch_url": "https://github.com/reactos/reactos/commit/cb2e180e1694bb6477ac78a498313ec0ebca8157.patch",
+        "compare_url": "https://github.com/reactos/reactos/compare/cb2e180e1694bb6477ac78a498313ec0ebca8157...3e6033a613fbf7c5bd58aaeaa05af42514af59d5",
+        "commit_message_first_line": "Remove non-working apps from the Downloader list (according to http://www.reactos.org/wiki/index.php/Tests_for_0.3.6) and downgrade Abiword to 2.4.6 (currently runs best on ROS)",
+        "compare_status": "diverged",
+        "compare_ahead_by": 58295,
+        "compare_behind_by": 5,
+        "merge_base": "de7b0d6e38c634d346999b7329aa9341f61c6343",
+        "patch_from_header": "cb2e180e1694bb6477ac78a498313ec0ebca8157",
+        "patch_header_matches_requested_sha": true,
+        "patch_id_stable": "f1e377a1ffd4db14e702bd57756dfdaae81e228a",
+        "upstream_equivalence_sha": null,
+        "candidate_patch_ids_scanned": 17,
+        "fork_refs_sample": [
+          "SpinlockLabs/reactos:ReactOS-0.3.6",
+          "SpinlockLabs/reactos:backups/ros-branch-0_3_6@35137",
+          "ThinkLib/reactos:ReactOS-0.3.6"
+        ]
+      },
+      "license_notes": "Source W9 record: licensing_status NOT RUN (no fork-unique diff); no per-file SPDX certification and no legal conclusion. Upstream baseline COPYING is GPL-2.0; no patch imported, built or executed."
+    },
+    {
+      "sha": "e341e1728e92bb84cbf36f2b410ebf098eb60464",
+      "classification": "inconclusive",
+      "basis": "merge commit; GitHub .patch returned parent 8f22c7534c22... instead; not identity evidence for the tip",
+      "commands_used": [
+        "git -C <repo> cat-file --batch-check < all_246_shas.txt (result: missing)",
+        "gh api repos/reactos/reactos/commits/e341e1728e92bb84cbf36f2b410ebf098eb60464",
+        "gh api repos/reactos/reactos/compare/e341e1728e92bb84cbf36f2b410ebf098eb60464...3e6033a613fbf7c5bd58aaeaa05af42514af59d5",
+        "gh api -H 'Accept: application/vnd.github.v3.patch' repos/reactos/reactos/commits/e341e1728e92bb84cbf36f2b410ebf098eb60464 > <scratch>/v8patches/e341e1728e92bb84cbf36f2b410ebf098eb60464.patch",
+        "head -1 <scratch>/v8patches/e341e1728e92bb84cbf36f2b410ebf098eb60464.patch  # verify 'From <sha>' header",
+        "git patch-id --stable < <scratch>/v8patches/e341e1728e92bb84cbf36f2b410ebf098eb60464.patch"
+      ],
+      "evidence": {
+        "github_commit_url": "https://github.com/reactos/reactos/commit/e341e1728e92bb84cbf36f2b410ebf098eb60464",
+        "immutable_patch_url": "https://github.com/reactos/reactos/commit/e341e1728e92bb84cbf36f2b410ebf098eb60464.patch",
+        "compare_url": "https://github.com/reactos/reactos/compare/e341e1728e92bb84cbf36f2b410ebf098eb60464...3e6033a613fbf7c5bd58aaeaa05af42514af59d5",
+        "commit_message_first_line": "Actual merge, sorry for the false alert. Merges with 13937.",
+        "compare_status": "diverged",
+        "compare_ahead_by": 77357,
+        "compare_behind_by": 23,
+        "merge_base": "76c165b4282f294fd8d6caa2f255aee0febd2ab4",
+        "patch_from_header": "8f22c7534c2290a117142213a824a33679f983f9",
+        "patch_header_matches_requested_sha": false,
+        "patch_id_stable": "8e475411535db7151d2911ae705a0836e976399e",
+        "upstream_equivalence_sha": null,
+        "candidate_patch_ids_scanned": 0,
+        "fork_refs_sample": [
+          "SpinlockLabs/reactos:backups/alex_devel_branch@15093",
+          "ThinkLib/reactos:backups/alex_devel_branch@15093",
+          "iDone/reactos:backups/alex_devel_branch@15093"
+        ]
+      },
+      "license_notes": "Source W9 record: licensing_status NOT RUN (no fork-unique diff); no per-file SPDX certification and no legal conclusion. Upstream baseline COPYING is GPL-2.0; no patch imported, built or executed."
+    },
+    {
+      "sha": "ff79e163074e2f8368c8fbb2e254d4db9b8ee70c",
+      "classification": "inconclusive",
+      "basis": "GitHub .patch returned HTTP 422 'patch is taking too long to generate'; no patch-id obtainable",
+      "commands_used": [
+        "git -C <repo> cat-file --batch-check < all_246_shas.txt (result: missing)",
+        "gh api repos/reactos/reactos/commits/ff79e163074e2f8368c8fbb2e254d4db9b8ee70c",
+        "gh api repos/reactos/reactos/compare/ff79e163074e2f8368c8fbb2e254d4db9b8ee70c...3e6033a613fbf7c5bd58aaeaa05af42514af59d5",
+        "gh api -H 'Accept: application/vnd.github.v3.patch' repos/reactos/reactos/commits/ff79e163074e2f8368c8fbb2e254d4db9b8ee70c > <scratch>/v8patches/ff79e163074e2f8368c8fbb2e254d4db9b8ee70c.patch",
+        "head -1 <scratch>/v8patches/ff79e163074e2f8368c8fbb2e254d4db9b8ee70c.patch  # verify 'From <sha>' header",
+        "git patch-id --stable < <scratch>/v8patches/ff79e163074e2f8368c8fbb2e254d4db9b8ee70c.patch"
+      ],
+      "evidence": {
+        "github_commit_url": "https://github.com/reactos/reactos/commit/ff79e163074e2f8368c8fbb2e254d4db9b8ee70c",
+        "immutable_patch_url": "https://github.com/reactos/reactos/commit/ff79e163074e2f8368c8fbb2e254d4db9b8ee70c.patch",
+        "compare_url": "https://github.com/reactos/reactos/compare/ff79e163074e2f8368c8fbb2e254d4db9b8ee70c...3e6033a613fbf7c5bd58aaeaa05af42514af59d5",
+        "commit_message_first_line": "Restore original repository root.",
+        "compare_status": "diverged",
+        "compare_ahead_by": 20278,
+        "compare_behind_by": 29,
+        "merge_base": "c8d97709cbbfc727ccf48d799202243804c25229",
+        "patch_from_header": null,
+        "patch_header_matches_requested_sha": false,
+        "patch_id_stable": null,
+        "upstream_equivalence_sha": null,
+        "candidate_patch_ids_scanned": 0,
+        "fork_refs_sample": [
+          "SpinlockLabs/reactos:GSoC_2017/usbxhci",
+          "ThinkLib/reactos:GSoC_2017/usbxhci",
+          "iDone/reactos:GSoC_2017/usbxhci"
+        ]
+      },
+      "license_notes": "Source W9 record: licensing_status NOT RUN (no fork-unique diff); no per-file SPDX certification and no legal conclusion. Upstream baseline COPYING is GPL-2.0; no patch imported, built or executed."
+    }
+  ]
+}
