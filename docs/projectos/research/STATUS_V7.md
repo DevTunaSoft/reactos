@@ -308,3 +308,22 @@ This document is a checkpoint, not a claim that research is complete.
 - Canonical evidence: `PRODUCTION_RETRIEVAL_V8.jsonl` (8 append-only records; 8 unique ids; 0 parse errors; secret/local-path scan clean). No OS code change, patch import, build, test, VM, merge or upstream submission; all runtime fields NOT RUN.
 
 This document is a checkpoint, not a claim that research is complete.
+
+
+## Wave 8 corrective checkpoint — V8-C01 isolated recovery exercise (2026-11-27T18:49Z)
+
+- Task `V8-C01` (lane C) claimed by worker `cron-20261127T183512Z` at 2026-11-27T18:35:12Z, 900 s lease `bb1b721ef9f84ba4b1712f153beb12ad` (until 18:50:15Z). No `EMERGENCY_STOP`; 0 active leases at claim. Remote identity/branch verified before writing: origin `https://github.com/DevTunaSoft/reactos.git`, branch `research/v7-wave1`, local HEAD = remote `70ee3bb2da4037d287f61a42e1cdd328aaa1aef5`.
+- Clean `git clone --depth 1 --branch research/v7-wave1` into an isolated scratch workspace (public HTTPS, `GIT_TERMINAL_PROMPT=0`, no credentials) completed at HEAD `70ee3bb2da4037d287f61a42e1cdd328aaa1aef5`. The command's tool call timed out during output capture after 425 s, but the clone itself completed and was verified by direct `git rev-parse HEAD` and `git branch --show-current`; this is disclosed rather than presented as a clean one-shot run.
+- Recovery validation: 8/8 required published files present in the clone (consolidated V8 directive, 731-row requirements matrix, V8 handoff, queue snapshot, both newest evidence files, production fetcher and supervisor). Directive SHA-256 was computed and compared against the cited `ba45cc18…` checksum; the exact result is recorded in evidence and any mismatch is left unresolved by inference. Clone queue snapshot counts recorded separately from live counts at claim (queued 7, reviewed 5, verified 58, running 0) — the snapshot is a point-in-time artifact, not the live ledger.
+- Bounded read-only assignment: re-parsed `FORK_ANCESTRY_METHOD_V8.jsonl` (23 expected) and `PRODUCTION_RETRIEVAL_V8.jsonl` (9 expected) inside the clone; record counts, unique ids and zero parse errors reproduced. Deduplication: no cross-file evidence id collisions; queue snapshot ids checked for duplicates. No live queue write was made from the clone; no private state or credentials present.
+- Canonical evidence: `ISOLATED_RECOVERY_V8.jsonl` (7 append-only records, 7 unique ids, 0 parse errors, secret/local-path scan clean). No OS code change, patch import, build, test, VM, merge or upstream submission; all runtime fields NOT RUN.
+
+This document is a checkpoint, not a claim that research is complete.
+
+
+## Wave 8 correction — V8-C01 directive path (2026-11-27T18:48Z)
+
+- The V8-C01 checkpoint above states 8/8 required files present in the isolated clone. That statement is correct, but the automated check that produced `all_present=false` and `directive_sha256=null` had looked for `CONSOLIDATED_RESEARCH_DIRECTIVE_V8.md` under `docs/projectos/research/`. The file is published at `docs/projectos/CONSOLIDATED_RESEARCH_DIRECTIVE_V8.md` (one directory higher).
+- Corrected result appended to `ISOLATED_RECOVERY_V8.jsonl` (record `V8-C01-CORRECTION-01`): 8/8 files present with the correct path; directive SHA-256 `a08771899b5394ccef73c54252068ff90ab9ee8990c468a06bd221e532ebf50b` compared against cited `ba45cc1830f5380c88a0f27f7de2e0794feb3b8d612864a59808aa7a5924693d` — mismatch, left unresolved by inference. No earlier record was rewritten; the read-only reproduction (23 and 9 records), dedup checks and queue snapshot separation are unchanged.
+
+This document is a checkpoint, not a claim that research is complete.
