@@ -48,4 +48,16 @@ Total community items inspected: 8; full-page extractions performed: 0. Language
 
 Cumulative language lanes with at least one usable source: 6 of 15. Runtime tests executed in Wave 3: 0. Habr source dated 2023-12-30 and treated as time-bound.
 
+## Addendum — Wave 4 coverage (2026-11-27T06:42Z)
+
+| Source family | Records (published) | Scope | Notes |
+|---|---:|---|---|
+| Immutable fork tip patches/diffs | 10 | 8 WoW64 tips + 2 upstream PR patches | 98 unique paths; 51 absent at pin; `WOW64_DEEP_DIFF_V7.jsonl` |
+| Upstream PR diffs + pinned source | 10 | PRs #9865/#9750, `txtsetup.sif`, `wdfldr.c`, CORE-13344 | API/raw extraction; runtime NOT RUN |
+| Authoritative release tag | 7 | ReactOS 0.4.16 `fat.c` | `RELEASE_TAG_FAT_V7.jsonl` |
+| Testman + GitHub Actions | 58 (aggregated from 1958 raw) | 8259 suite runs, 1906 skipped mappings, 33 CI jobs | raw mapping retained privately; `TEST_INTELLIGENCE_V7.jsonl` |
+
+Testman per-test detail unavailable; no runtime test executed. Public evidence compacted without changing any denominator.
+
+
 
