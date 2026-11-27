@@ -335,4 +335,13 @@ This document is a checkpoint, not a claim that research is complete.
 - Ledger note: an accidental V8F01-C04 claim by the V8-D01 worker was released via an append-only event without attempt increment; the v2 ledger still shows that historical claim as active until lease expiry/reclaim, while materialized state has C04 queued. No history was rewritten; next claim will reconcile it.
 - Queue: 65 verified, 5 reviewed, 4 queued, 0 running across 74 tasks; snapshot regenerated at 22:03Z. No OS code, patch import, test, merge or upstream submission.
 
+## Wave 11 checkpoint — interrupted-run recovery (2026-11-27T23:55Z)
+
+- One hourly cron run (`38dd43b433f646e391e2817d97860bfb`) ended `interrupted`; 14 of 15 recorded runs completed. The job remains enabled and is not paused. No `EMERGENCY_STOP` was involved.
+- Three leases were left running by that interruption and the two workers: `V8F01-C04`, `W9-12`, `RPL-PROVENANCE-0008`. Their `lease_until` times had passed, so v2 correctly rejected late `finish` calls with `REJECTED: lease_expired`. No state was silently mutated by those attempts.
+- Artifacts that actually landed were verified and adopted via explicit append-only `integrator_expired_lease_recovery` events: `V8F01C04_INDEPENDENT_REVIEW_V8.jsonl` (11 records, verdict: governance evidence upheld with high confidence for checksum/cron/record integrity and medium for gate-triage durability), `COMMUNITY_LANGUAGE_W9_V8.jsonl` (83 records, 16 lanes, 54 exact queries, 12 matched items, 11 zero-result lanes), `W9_PROVENANCE_AUDIT_V8.jsonl` (26 records, 17 files, 1007 records scanned, 0 parse errors, 0 secret/private-host hits). The interrupted cron task had no artifact; it was requeued with one recorded attempt, not marked complete.
+- All three JSONL files parse with unique IDs; no credential/private-path hit in published research. The `lease_expired` rejections, recovery events and requeue are preserved rather than rewritten.
+- Queue: 68 verified, 5 reviewed, 1 queued, 0 running across 74 tasks; snapshot regenerated at 23:54:52Z. The `ledger_active_leases` counter still shows three historical claim events with no matching release; materialized state has no running task, and the next claim's reclaim logic will reconcile them.
+- No OS code, patch import, test, merge or upstream submission.
+
 This document is a checkpoint, not a claim that research is complete.
