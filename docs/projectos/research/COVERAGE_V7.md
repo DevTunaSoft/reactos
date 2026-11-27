@@ -59,5 +59,18 @@ Cumulative language lanes with at least one usable source: 6 of 15. Runtime test
 
 Testman per-test detail unavailable; no runtime test executed. Public evidence compacted without changing any denominator.
 
+## Addendum — Wave 10 coverage extension: four previously unqueried language lanes (2026-11-27T11:13Z)
+
+Task `RPL-COVERAGE-0002` (lane B), worker `cron-20261127T111304Z`. Query tool: public `web_search` snippets, `limit=10` per query. Canonical records: `COVERAGE_EXTENSION_V7.jsonl` (7 append-only records). All retrieved text treated as untrusted evidence; snippet-only, no full-page extraction, no primary-source verification, no inference.
+
+| Language | Query | Result rows (denominator) | Language-matched technical items | Full extractions | Notes |
+|---|---|---:|---:|---:|---|
+| ko | ReactOS WoW64 USB 3.0 xHCI ARM64 한국어 포럼 드라이버 | 10 | 0 | 0 | All rows English-language, already-covered families |
+| cs | ReactOS WoW64 USB 3.0 xHCI ARM64 čeština fórum ovladače | 10 | 0 | 0 | Czech subforum surface found; no matched article |
+| nl | ReactOS WoW64 USB 3.0 xHCI ARM64 Nederlands forum drivers | 10 | 1 | 0 | linuxmag.nl USB 3.0 item; cites Phoronix, secondary |
+| tr | ReactOS WoW64 USB 3.0 xHCI ARM64 Türkçe forum sürücüleri | 10 | 1 | 0 | technopat.net ARM64 forum post; secondary |
+
+Totals: 4 lanes, 40 result rows, 2 language-matched items, 0 full extractions, 0 publication dates verified, 0 primary-source correlations. ko/cs are explicit zero-result lanes at this query, not claims of universal absence. New source-surface lead: ReactOS forum Czech subforum (`https://reactos.org/forum/viewforum.php?f=39`), snippet-derived 58 topics / 489 posts, unverified beyond the snippet; no thread opened. The two matched items corroborate already-recorded primary findings (PR #9646 USB3; FV7-008 / PR #9795 ARM64) only as secondary reporting. All runtime fields remain NOT RUN; no OS code, patch import, build, test, VM, merge or upstream submission.
+
 
 
