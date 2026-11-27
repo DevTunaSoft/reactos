@@ -107,5 +107,15 @@ Four research lanes and one dedicated infrastructure agent ran in parallel; none
 - Evidence-size correction: the raw 1.9 MB per-test mapping is preserved in private research state; the public `TEST_INTELLIGENCE_V7.jsonl` contains 58 records (27 KB) retaining 100% of the aggregated denominator (1906) with exact source URLs. This is a publication-size correction, not a data deletion.
 - Queue reconciliation: W6-01 and W6-03/W3-05 completed via their real v2 leases; W6-02 was adopted with an explicit ledger event because its agent used an isolated ledger. Final live queue: 19 verified, 1 reviewed, 3 queued, 0 running across 23 tasks (`QUEUE_SNAPSHOT_V7.jsonl`). Attempts on interposed-but-unworked tasks were incremented by the v2 backoff rules and remain visible in the ledger.
 
+## Wave 5 checkpoint — retrieval tooling and previously blocked sources (2026-11-27T06:55Z)
+
+- Installed an isolated uv venv with pinned `requests`, `beautifulsoup4`, `lxml`, `trafilatura`, `playwright`, `selenium`, `pypdf`, `psutil`, Pillow and `pytesseract`; Playwright Chromium/Firefox/WebKit and Tesseract 5.4.0 installed and smoke-tested. Node `puppeteer-core` and `@lightpanda/browser` installed in the private state directory. Manifest: `TOOLING_MANIFEST_V7.md`; pins: `requirements-v7.txt`.
+- Original helpers: `tools/research_fetch.py` (cheapest-first strategy chain, one reused browser per engine, image/font/media blocked, 20 s request cap, 5 MB response cap, challenge detection with no circumvention), `tools/tool_smoke_v7.py`, `tools/build_tooling_records.py`.
+- Engine smoke 6/6 passed from a local data URL: Chromium 111 ms launch, Firefox 1877 ms, WebKit 217 ms; Puppeteer/Chrome, Lightpanda module and Selenium/Chrome all functional. Tesseract probe read synthetic text in 303 ms. Memory samples include pre-existing resident browsers and are not per-engine costs. No engines ran concurrently.
+- Revisited 8 previously inaccessible/snippet-only URLs: 4 full pages via direct HTTP (Habr 11821 chars, VideoCardz 15156, mailing archive 16069), 3 via Wayback snapshots (forums 13282/15487, wiki 5690, Reddit 1000), 1 still restricted (Fossies 401, no snapshot; authoritative upstream tag used instead). Reddit JSON and old.reddit returned 403; MediaWiki API was challenged. Challenge markers never bypassed.
+- Snapshot dates recorded explicitly: forum 2020-09-25 and 2019-01-23, wiki 2019-07-18, Reddit 2021-08-03. Snapshots are historical evidence, not current-state claims.
+- Per-attempt evidence: `TOOL_EFFECTIVENESS_V7.jsonl` (24 records). Selection rule: direct HTTP first; browsers only when HTML is unavailable or JS-dependent; Wayback for Anubis-blocked public pages; public APIs before browser automation.
+- No OS implementation source changed; no authentication, CAPTCHA, paywall or access restriction bypassed.
+
 This document is a checkpoint, not a claim that research is complete.
 
