@@ -36,3 +36,8 @@ See `STATUS_V7.md` and `COVERAGE_V7.md`. Runtime tests executed: 0/0. Findings i
 ## Queue state and next wave
 
 Nine tasks seeded; two verified (W1-01, W1-02), two in progress/awaiting write (W1-03, W1-04), five queued. Next: W2-01 branch/tag enumeration, then independent review of FV7-009 and failure archaeology.
+
+## Correction — counts and terminology (2026-11-27T06:25Z)
+
+The paragraph above was a point-in-time summary and no longer matches the ledger. Exact discrepancies are in `COUNT_RECONCILIATION_V7.jsonl`; the current queue is 15 verified / 1 reviewed / 2 queued / 0 running across 18 tasks. The phrase "exactly match" used for `git patch-id --stable` was imprecise: patch-ID equality is normalized patch equivalence, not byte identity. See `TERMINOLOGY_CORRECTION_V7.jsonl` and the Wave 3 checkpoint in `STATUS_V7.md`.
+

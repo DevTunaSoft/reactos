@@ -37,3 +37,15 @@ No claim of universal coverage is made. Prior records are treated as leads until
 
 Total community items inspected: 8; full-page extractions performed: 0. Language lanes covered: 2 of 15 initial lanes (ru, en). These are leads, not verified technical evidence.
 
+## Addendum — Wave 3 coverage (2026-11-27T06:25Z)
+
+| Source family | Language lanes | Records | Full extractions | API extractions | Snippet-only | Notes |
+|---|---:|---:|---:|---:|---:|---|
+| Community forums / Habr / press / mirror | 10 queried (6 usable, 4 zero-result) | 15 | 5 | 0 | 10 | `MULTILINGUAL_V7.jsonl` |
+| Reddit / ReactOS forum | en, de, ru + adjacent | 15 | 2 | 0 | 13 | `REDDIT_FORUM_V7.jsonl`; direct HTTP 403/Anubis blocking recorded |
+| JIRA / upstream PR / mailing list | en | 26 | 0 | 25 | 1 | `HISTORICAL_FAILURES_V7.jsonl`; 8 JIRA issues opened, 10 PR states verified |
+| Fork refs (second cohort) | N/A | 453 published records | N/A | 12 repos, 403 branches, 2988 tags | N/A | `REF_ENUMERATION_W4_V7.jsonl`, `SHARED_TIP_CLASS_V7.jsonl`; 382/382 shared tips resolved, patch-equivalence NOT RUN |
+
+Cumulative language lanes with at least one usable source: 6 of 15. Runtime tests executed in Wave 3: 0. Habr source dated 2023-12-30 and treated as time-bound.
+
+

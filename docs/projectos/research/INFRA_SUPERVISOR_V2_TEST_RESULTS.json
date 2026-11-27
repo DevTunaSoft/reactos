@@ -1,0 +1,170 @@
+{
+  "checks": [
+    {
+      "check": "seed 3 isolated tasks",
+      "detail": "",
+      "pass": true
+    },
+    {
+      "check": "unclaimed scheduling: three workers, three distinct tasks and lease ids",
+      "detail": "['INFRA-01', 'INFRA-02', 'INFRA-03']",
+      "pass": true
+    },
+    {
+      "check": "non-owner beat rejected",
+      "detail": "REJECTED: not_owner",
+      "pass": true
+    },
+    {
+      "check": "wrong lease id beat rejected",
+      "detail": "REJECTED: lease_identity_mismatch",
+      "pass": true
+    },
+    {
+      "check": "owner beat accepted",
+      "detail": "",
+      "pass": true
+    },
+    {
+      "check": "completion without evidence rejected",
+      "detail": "REJECTED: evidence_required_for_completion",
+      "pass": true
+    },
+    {
+      "check": "complete with evidence accepted",
+      "detail": "",
+      "pass": true
+    },
+    {
+      "check": "replayed completion rejected (not_running)",
+      "detail": "",
+      "pass": true
+    },
+    {
+      "check": "meaningful progress heartbeat accepted",
+      "detail": "",
+      "pass": true
+    },
+    {
+      "check": "expired leases reclaimed on claim",
+      "detail": "['INFRA-02', 'INFRA-03']",
+      "pass": true
+    },
+    {
+      "check": "retry attempts incremented on reclaim",
+      "detail": "{'INFRA-02': 1, 'INFRA-03': 1}",
+      "pass": true
+    },
+    {
+      "check": "bounded backoff available_at set",
+      "detail": "{'INFRA-02': '2026-11-27T12:00:12Z', 'INFRA-03': '2026-11-27T12:00:12Z'}",
+      "pass": true
+    },
+    {
+      "check": "stall detected only with no evidence/progress",
+      "detail": "{'INFRA-02': False, 'INFRA-03': True}",
+      "pass": true
+    },
+    {
+      "check": "reclaimed leases cleared",
+      "detail": "",
+      "pass": true
+    },
+    {
+      "check": "automatic crash recovery: reclaimed tasks reassignable",
+      "detail": "{'worker-D': 'INFRA-02', 'worker-E': 'INFRA-03'}",
+      "pass": true
+    },
+    {
+      "check": "stale owner after reclaim rejected",
+      "detail": "",
+      "pass": true
+    },
+    {
+      "check": "new owner wrong lease rejected",
+      "detail": "",
+      "pass": true
+    },
+    {
+      "check": "recovered owner can complete",
+      "detail": "",
+      "pass": true
+    },
+    {
+      "check": "self-review rejected",
+      "detail": "",
+      "pass": true
+    },
+    {
+      "check": "independent review accepted",
+      "detail": "",
+      "pass": true
+    },
+    {
+      "check": "reviewed status recorded",
+      "detail": "",
+      "pass": true
+    },
+    {
+      "check": "replenish seeds backlog when queue is empty",
+      "detail": "['RPL-COVERAGE-0002', 'RPL-EVIDENCE-0001', 'RPL-PROVENANCE-0004', 'RPL-REVIEW-0003']",
+      "pass": true
+    },
+    {
+      "check": "replenish idempotent above threshold",
+      "detail": "",
+      "pass": true
+    },
+    {
+      "check": "replenish generates unique next batch",
+      "detail": "['RPL-COVERAGE-0002', 'RPL-COVERAGE-0006', 'RPL-EVIDENCE-0001', 'RPL-EVIDENCE-0005', 'RPL-PROVENANCE-0004', 'RPL-PROVENANCE-0008', 'RPL-REVIEW-0003', 'RPL-REVIEW-0007']",
+      "pass": true
+    },
+    {
+      "check": "no local-time mktime call in supervisor_v2.py",
+      "detail": "",
+      "pass": true
+    },
+    {
+      "check": "calendar.timegm and timezone-aware UTC used",
+      "detail": "",
+      "pass": true
+    },
+    {
+      "check": "UTC epoch equals calendar.timegm (locale/TZ independent)",
+      "detail": "{'epoch_utc': 1795780800, 'timegm': 1795780800}",
+      "pass": true
+    },
+    {
+      "check": "status under non-UTC TZ unchanged",
+      "detail": "",
+      "pass": true
+    },
+    {
+      "check": "snapshot has all isolated tasks",
+      "detail": "11",
+      "pass": true
+    },
+    {
+      "check": "replay rebuilds state from ledger",
+      "detail": "{'replayed': {'queued': 8, 'running': 0, 'verified': 2, 'blocked': 0, 'reviewed': 1}, 'original': {'queued': 8, 'running': 0, 'verified': 2, 'blocked': 0, 'reviewed': 1}}",
+      "pass": true
+    },
+    {
+      "check": "replay preserves retry facts and ledger stall evidence",
+      "detail": "{\"attempts\": 1, \"stall_in_ledger\": true, \"stall_state\": false}",
+      "pass": true
+    },
+    {
+      "check": "ledger shows no overlapping un-released leases",
+      "detail": "[]",
+      "pass": true
+    }
+  ],
+  "clock": "injected PROJECTOS_V7_NOW",
+  "exit_code": 0,
+  "passed": 32,
+  "state_dir": "<private>/research_v7/state/infra_test",
+  "supervisor": "<private>/research_v7/tools/supervisor_v2.py",
+  "total": 32
+}
