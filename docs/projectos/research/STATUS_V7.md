@@ -449,3 +449,7 @@ This document is a checkpoint, not a claim that research is complete.
 ## RPL21 independent review checkpoint (2026-11-28T04:36Z)
 
 - `INDEPENDENT_REVIEW_RPL21_V8.jsonl` (10 records): reviewed BOOTUEFI-V8-004/005/006 (closed-unmerged PR #8824 vs merged #8980 plus patch-equivalence negative). Verdict `CONFIRMED_WITH_CORRECTIONS`, confidence `HIGH_WITH_LIMITATIONS`; 7 append-only corrections cover mutable snapshots, self-reported retrieval times, paraphrase vs verbatim text, author-only test claims and `.diff`/`.patch` behaviour (8824.diff 200, 8980.diff 404). Runtime claims NOT ASSESSED, all tests NOT RUN.
+
+## F-11 evidence revalidation checkpoint (2026-11-28T04:47Z)
+
+- `EVIDENCE_REVALIDATION_RPL15_V8.jsonl` (10 records): F-11 (HBelusca commit `8bbed80b…`) `CONFIRMED_WITH_CORRECTIONS`, confidence `HIGH_WITH_LIMITATIONS`. Verified exact SHA/URL, author date, one file (34+/5-), signature `verified=true/reason=valid`, patch-id `2210cc8a…`, and pinned raw header lines 45/46/47/57. Seven append-only corrections narrow the undocumented claim, test-suite wording, unqualified commit date, keyword hits, self-reported retrieval and object-presence vs integration; upstream integration and constants' origin NOT ESTABLISHED, runtime NOT RUN.
