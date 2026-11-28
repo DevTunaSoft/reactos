@@ -532,3 +532,7 @@ This document is a checkpoint, not a claim that research is complete.
 ## Albanian coverage checkpoint (2026-11-28T06:43Z)
 
 - `COVERAGE_RPL28_V8.jsonl` (16 records): Albanian (`sq`) lane absent from prior coverage. 12 query slots (7 sq.wikipedia API, 5 web_search; 55 rows), 1 conservative literal match (`Stampa:Sistemet operative`), 11 zero-result lanes, 6 API `totalhits=0` lanes, 2 full wikitext extractions (412/5948 chars) separated from 12 snippet records. Denominators and query-scoped uncertainty recorded; no tests, no access-control bypass.
+
+## F-06 SHA recheck checkpoint (2026-11-28T06:48Z)
+
+- `EVIDENCE_SHA_RECHECK_RPL31_V8.jsonl` (10 records): F-06 commit `45fb6e79…` `CONFIRMED_WITH_CORRECTIONS`, confidence 0.9 for source/repository facts only. Both immutable endpoints reproduce SHA/date/message/parent and single changed path; raw patch (907 bytes, sha256 `f6e4e71a…`) shows the `#ifndef NDEBUG` guard. Six append-only corrections narrow `commit_verified=true` vs REST unsigned, unestablished "final commit"/"boot-blocking" wording, mutable PR states, historical retrieval time and endpoint byte differences. Tests NOT RUN.
