@@ -648,3 +648,7 @@ This document is a checkpoint, not a claim that research is complete.
 ## NVD coverage checkpoint (2026-11-28T10:29Z)
 
 - `COVERAGE_RPL48_V8.jsonl` (13 records): new NVD CVE API 2.0 family with exact `totalResults` denominators; 9 bounded queries all HTTP 200, 1 full extraction (`CVE-2007-1724`), 9 snippets and 6 scoped zero-result lanes including a nonsense control. Denominators: ReactOS 1/1, ReactOS kernel 1/1, Windows operating system 345/5. Isolated-ledger result adopted into the live queue with an append-only `integrator_adopt` event; all runtime fields NOT RUN.
+
+## Security/account lane checkpoint (2026-11-28T10:47Z)
+
+- `SECURITY_ACCOUNT_OPEN_W12_V8.jsonl` (701 records): 10 JIRA searches (HTTP 200, 276 unique issues, security 214 with 100-row cap), 9 GitHub searches (0 open issues for quoted terms), 162 open PR file lists paginated with 0 errors, 109 PR objects (76 closed, 31 open; #40954/#55088 retrieval errors, not states). Pin → fresh master `60a3898b` ahead13/behind0, 14 changed files with 0 strict security/account paths; 18 blobs byte-identical. Do-not-duplicate opens #8696/#9285/#9470/#9598/#9830; 19 broad-keyword false positives. All six runtime fields NOT RUN.
