@@ -581,3 +581,7 @@ This document is a checkpoint, not a claim that research is complete.
 ## GitLab API coverage checkpoint (2026-11-28T08:01Z)
 
 - `COVERAGE_RPL40_V8.jsonl` (13 records): new GitLab.com public REST API v4 `/projects` family and German query-term lane. 10 bounded queries (`per_page=5`, `page=1`), 9 HTTP 200 with `X-Total` denominators; baseline ReactOS total 39 / 5 returned / 5 matched HTTPS URLs; 8 zero-result lanes (3 en, 4 de, `ReactOS Deutsch`). One HTTP 500 control-token query recorded with denominator unknown, explicitly not zero. One full project-metadata extraction separated from snippet rows; all runtime fields NOT RUN.
+
+## UEFI revert SHA recheck checkpoint (2026-11-28T08:14Z)
+
+- `EVIDENCE_SHA_RECHECK_RPL39_V8.jsonl` (10 records): `BOOTUEFI-V8-008` (reverted PR #7486), merge `185225a5…` and revert `177cbd81…`, `CONFIRMED_WITH_CORRECTIONS`, confidence 0.9. Eight append-only corrections: "four days later" is calendar-date wording (3d 9h 27m), double-mapping is a reviewer report rather than a reproduced runtime fact, no causal link to the revert established, branch head mutable, merge PGP-verified vs unsigned revert. All HTTPS URLs and the verbatim review comment reproduced; tests NOT RUN.
