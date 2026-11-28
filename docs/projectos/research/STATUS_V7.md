@@ -499,3 +499,7 @@ This document is a checkpoint, not a claim that research is complete.
 
 - `INDEPENDENT_REVIEW_RPL29_V8.jsonl` (19 records): F-12 fork commit `c52dd091…` `CONFIRMED_WITH_CORRECTIONS`, confidence `HIGH_WITH_LIMITATIONS`; seven append-only corrections. Key corrections: `files_changed:300` is a REST page cap (6 pages, 1535 distinct paths); `commit_verified:true` is an author assertion vs REST unsigned; `.patch` expands a 710-commit series ending at the merge second parent; test-gate list is a recommendation, not executed tests. Local clone lacked the commit object (merge-base NOT RUN); no canonical record rewritten, all runtime fields NOT RUN.
 - Artifact was written into a stale auxiliary worktree and verified/copied into the canonical research tree before publication; no history rewritten.
+
+## Lithuanian coverage checkpoint (2026-11-28T06:02Z)
+
+- `COVERAGE_RPL20_V8.jsonl` (16 records): Lithuanian (`lt`) lane absent from 41 prior language codes. 12 bounded exact queries (7 Wikipedia API, 5 web_search; 67 rows: 17 API + 50 web), 8 matched wiki rows and 8 matched web rows, 6 zero-result lanes, 12 snippet-only and 2 explicitly labelled full extractions. Exact query strings, URLs, row counts and denominators recorded; validator found zero failures attributable to the new file.
