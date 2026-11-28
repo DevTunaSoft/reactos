@@ -1,0 +1,29 @@
+{
+  "compiled_at": "2026-11-28T02:10:57Z",
+  "controlling_checksums": {
+    "CONTROL": "d3785fdb9e115b81bfc2348793a0757fa7ce55acba8b1569f46d07bbb8a4e231",
+    "OPERATIONAL_CORRECTION": "f2e43b42e665853b494c05ef3eeaf9e3d9f9504f5656592267f646719baaa212",
+    "V7_MASTER": "c0cc15328ecb7208701d0d2cae5b52d91b66b04ccca98ecd8cb29dbc58d979ae",
+    "V8_MASTER": "ba45cc1830f5380c88a0f27f7de2e0794feb3b8d612864a59808aa7a5924693d"
+  },
+  "files": {
+    "CONTROL_SANITIZED.md": {
+      "bytes": 1691,
+      "sha256": "d3785fdb9e115b81bfc2348793a0757fa7ce55acba8b1569f46d07bbb8a4e231"
+    },
+    "OPERATIONAL_CORRECTION_V8.md": {
+      "bytes": 9385,
+      "sha256": "f2e43b42e665853b494c05ef3eeaf9e3d9f9504f5656592267f646719baaa212"
+    },
+    "control_expectations.json": {
+      "bytes": 931,
+      "sha256": "2dcb0551663463d62ed7ab275373f283d1599ba586e1ba646a4ca1f0430af571"
+    }
+  },
+  "precedence": "Binding operational supplement to V7 and V8; not a replacement master directive.",
+  "public_vs_private_hash_note": "The public derived V8 directive (a0877189...) is a sanitized rendering; the controlling checksum remains ba45cc18... from the owner-supplied master source held in private control state.",
+  "receipt": "2026-11-28T01:53:08Z",
+  "record_type": "authoritative_control_bundle_manifest",
+  "tests": "NOT RUN",
+  "worker_rule": "Run tools/supervisor.py verify-control before claiming; live supervisor rejects stale_control."
+}

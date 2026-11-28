@@ -354,3 +354,21 @@ This document is a checkpoint, not a claim that research is complete.
 - Queue snapshot regenerated at 01:11:44Z: 74 verified, 5 reviewed, 1 running, 0 queued across 80 tasks. All research records are NOT RUN for runtime; no OS code, patch import, test, merge or upstream submission.
 
 This document is a checkpoint, not a claim that research is complete.
+
+## Operational correction checkpoint (append-only)
+
+```json
+{
+  "at": "2026-11-28T02:12Z",
+  "event": "binding_operational_correction_installed",
+  "supplement_sha256": "f2e43b42e665853b494c05ef3eeaf9e3d9f9504f5656592267f646719baaa212",
+  "control_sha256": "d3785fdb9e115b81bfc2348793a0757fa7ce55acba8b1569f46d07bbb8a4e231",
+  "scheduler": "every 10m, enabled, single supervisor, bounded watchdog",
+  "queue": "79 verified / 6 reviewed / 10 queued / 0 running",
+  "note": "Control gate rejects stale claims; W9-10R reopened; no OS code, test, merge or upstream submission."
+}
+```
+
+## W10 parallel output checkpoint (2026-11-28T02:14Z)
+
+- USB3 independent review (9), CORE-20821 triage (5), ARM64 PR #9809 review (9), fork lineage resolution (91) and unmerged-hunk sampling (10) records published; all parse clean with unique IDs and no secret/path hits. Runtime fields NOT RUN; no OS code, patch import, merge or upstream submission.
