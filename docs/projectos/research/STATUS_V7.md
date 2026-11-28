@@ -676,3 +676,7 @@ This document is a checkpoint, not a claim that research is complete.
 ## Independent BOOTUEFI-V8-010 review checkpoint (2026-11-28T12:28Z)
 
 - `INDEPENDENT_REVIEW_R0053_V8.jsonl` (10 records): `BOOTUEFI-V8-010` head `7ba6af26…` had no verdict among 52 prior review/recheck artifacts (286 SHAs). `INDEPENDENTLY_CONFIRMED_WITH_CORRECTION`, confidence high for exact SHA/URL/retrieval/state facts and moderate for prose corrections. `.commit.verification verified=false reason=unsigned` with top-level `verification` null; PR #8491 closed/unmerged with matching SHAs and file set, PR #9569 open/unmerged at retrieval. Six claim challenges (2 confirmed, 3 overstated, 1 incomplete) and four append-only corrections. Local clone lacked the commit object; REST was the sole immutable primary, no ancestry claim; all runtime fields NOT RUN.
+
+## Europe PMC coverage checkpoint (2026-11-28T12:39Z)
+
+- `COVERAGE_RPL56_V8.jsonl` (21 records): new Europe PMC REST search family with exact `hitCount` denominators and `pageSize=5` cap, absent from 195 prior research files. 16 bounded queries (10 search + 6 `EXT_ID` core lookups), all HTTP 200; 9 primary + 6 core corpus hits, 9 article-URL rows (8 unique) and 8 DOI-URL rows (7 unique), 7 zero-result lanes, 0 literal topical matches; 10 snippet_metadata vs 6 full_metadata_core. ReactOS/WoW64 hits recorded as token/full-text index hits, not topical matches; DBLP HTTP 202 bot challenge left unsolved, no bypass; all runtime fields NOT RUN.
