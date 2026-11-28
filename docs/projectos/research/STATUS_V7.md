@@ -484,3 +484,8 @@ This document is a checkpoint, not a claim that research is complete.
 ## Closed-unmerged prerequisite recheck, second sample (W11-03)
 
 - `PREREQUISITE_RECHECK_SECOND_SAMPLE_W1103_V8.jsonl` (10 records, sha256 `62e8d53da8f84571c719604b68bdbd964041939a0984c32b3a836341c276f586`): 4 bounded search queries, 47 distinct closed-unmerged candidates, 8 sampled with the first sample excluded. PR 4674's named prerequisites 4533/4672/4673 are all still closed-unmerged; the other 7 sampled bodies yielded zero explicit PR-to-PR prerequisite (recorded as zero-result lanes). No import, build or runtime test; all runtime fields NOT RUN.
+
+## Archive/forum family coverage (W11-04)
+
+- `ARCHIVE_FORUM_COVERAGE_W1104_V8.jsonl` (5 records, sha256 `078e7280e404b6186aa93d13befbad24e91d17b9aed59d981668e9f5ffca22e8`): forum.reactos.org family, bounded live attempt plus Wayback CDX inventory (rows=0, range []) and one archived snapshot. Historical snapshots not treated as current state; no access-control bypass; all runtime fields NOT RUN.
+- Correction supplement: `ARCHIVE_FORUM_COVERAGE_W1104_PROBE_V8.jsonl` (2 records, sha256 `0b8290d842f17946c5cf2ec23589e0e7cad9116d1c48d2077d1ed27bfa48324a`). A bounded unfiltered Wayback CDX probe returned HTTP 503 (temporary offline), so the earlier zero-row result is classified inconclusive rather than absence of archived snapshots.
