@@ -536,3 +536,11 @@ This document is a checkpoint, not a claim that research is complete.
 ## F-06 SHA recheck checkpoint (2026-11-28T06:48Z)
 
 - `EVIDENCE_SHA_RECHECK_RPL31_V8.jsonl` (10 records): F-06 commit `45fb6e79…` `CONFIRMED_WITH_CORRECTIONS`, confidence 0.9 for source/repository facts only. Both immutable endpoints reproduce SHA/date/message/parent and single changed path; raw patch (907 bytes, sha256 `f6e4e71a…`) shows the `#ifndef NDEBUG` guard. Six append-only corrections narrow `commit_verified=true` vs REST unsigned, unestablished "final commit"/"boot-blocking" wording, mutable PR states, historical retrieval time and endpoint byte differences. Tests NOT RUN.
+
+## Supervisor checkpoint 2026-11-28T07:02:29Z
+
+- Control re-verified: V8 ba45cc18..., correction f2e43b42..., CONTROL d3785fdb... (authoritative SHA-256 all matched); no EMERGENCY_STOP.
+- Watchdog singleton 08b68a4bc9b8: enabled, one legitimate active lease (W12-04), no second dispatcher.
+- Replenished to 10 ready; claimed 3 with unique cron-<UTC> workers via the disclosed priority-lower/claim/restore path: W12-05 (w1205), RPL-PROVENANCE-0026 (p0026), RPL-REVIEW-0033 (r0033).
+- Published APP_COMPAT_CLUSTER_RECHECK_W1205_V8.jsonl (5 records), PROVENANCE_REVALIDATION_P0026_V8.jsonl (6 records), INDEPENDENT_REVIEW_FV7_006_R0033_V8.jsonl (4 records).
+- All runtime tests NOT RUN; research-only; no OS code, patch import, merge or upstream submission.
