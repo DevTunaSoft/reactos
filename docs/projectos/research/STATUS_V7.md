@@ -503,3 +503,7 @@ This document is a checkpoint, not a claim that research is complete.
 ## Lithuanian coverage checkpoint (2026-11-28T06:02Z)
 
 - `COVERAGE_RPL20_V8.jsonl` (16 records): Lithuanian (`lt`) lane absent from 41 prior language codes. 12 bounded exact queries (7 Wikipedia API, 5 web_search; 67 rows: 17 API + 50 web), 8 matched wiki rows and 8 matched web rows, 6 zero-result lanes, 12 snippet-only and 2 explicitly labelled full extractions. Exact query strings, URLs, row counts and denominators recorded; validator found zero failures attributable to the new file.
+
+## LGPL provenance checkpoint (2026-11-28T06:10Z)
+
+- `PROVENANCE_REVALIDATION_RPL22_V8.jsonl` (17 records): ReactOS LGPL license texts `COPYING.LIB` (LGPL-2.1) and `COPYING3.LIB` (LGPL-3.0) rechecked at pin `3e6033a6…` and fork tip `9a21d07a…`. 13 read-only primary HTTP checks (2 commit, 4 contents, 4 raw, 3 SPDX samples), all HTTP 200; canonical URLs, blob SHAs and retrieval timestamps confirmed, texts byte-identical across revisions. Per-file SPDX and `-only`/`-or-later` variants remain unresolved; three append-only scope corrections recorded. Validator unchanged at 143 failures.
