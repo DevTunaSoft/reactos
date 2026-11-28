@@ -656,3 +656,7 @@ This document is a checkpoint, not a claim that research is complete.
 ## Debugger/crash lane checkpoint (2026-11-28T11:10Z)
 
 - `DEBUGGER_CRASH_OPEN_W12_V8.jsonl` (898 records): 10 JIRA searches (370 unique issues, 0 errors), 7 GitHub searches, 162 open PR file lists paginated with 0 errors, 124 PR objects. Pin → fresh master `60a3898b` ahead13/behind0, 14 changed files with zero strict debugger/crash paths; 14 blobs byte-identical. Do-not-duplicate opens #8435/#9156/#9598/#9713/#9737/#9809/#9863/#9868; 12 keyword false positives; PR 128613 HTTP 404 recorded as a retrieval error. All six runtime fields NOT RUN.
+
+## Tagalog coverage checkpoint (2026-11-28T11:20Z)
+
+- `COVERAGE_RPL52_V8.jsonl` (16 records): Tagalog (`tl`) MediaWiki search lane, absent from 184 prior research artifacts. 11 bounded queries (6 API with exact `totalhits` 3/1/1/0/1/0 at `srlimit=10`; 5 web_search at limit 10), 56 rows (6 API + 50 web), 56 matched URL rows / 52 unique URLs, 7 zero-result lanes, 11 snippet-only + 2 full-extraction records. Tokenization artifacts and a plain-text vs raw-wikitext discrepancy (0 vs 3 literal ReactOS mentions, the latter in a `<ref>`) recorded as query-scoped uncertainty; web rows labelled row-cap-only. All runtime fields NOT RUN.
