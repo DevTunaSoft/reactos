@@ -434,3 +434,9 @@ This document is a checkpoint, not a claim that research is complete.
 
 - `BOOT_UEFI_ACPI_FAILURES_V8.jsonl` (31 records): two reevaluation leads — reverted #8824 with prerequisite merged #8980 (loader-provided ACPI root), and reverted #7486 with merged #8669 (UEFI ACPI mapping); one conditional lead #8491 pending open #9569. All runtime fields NOT RUN, zero validated results; historical JIRA/forum evidence and bounded negative results labelled accordingly.
 - GitHub `.patch` URLs unavailable, REST diff used with disclosed patch-id limitation; no patch-equivalence claim. Three forum topics had no Wayback snapshot and are recorded as unresolved lanes. Skill updated with three retrieval pitfalls.
+
+## Shared root-cause clustering checkpoint (2026-11-28T04:29Z)
+
+- `SHARED_ROOT_CAUSE_CLUSTERS_W10_V8.jsonl` (8 records, sha256 `5ad972959745780f92c3241b1b64492b3876ff2a58665e0dee174803308cba25`): one PROVEN cluster C1 (USB3 boot/setup driver binding across CORE-13344, CORE-20821, PRs 9865/9750, both open+unmerged), two explicitly HYPOTHETICAL cross-lane clusters (setup metadata validation; WoW64/WDF binding completeness), and three PROVEN negative/correction records. All runtime fields NOT RUN.
+- Correction recorded: PR 9865 body cites CORE-20821 while the earlier `USB3_GAP_V7.jsonl` scope indexed CORE-13344; issue-key equivalence not asserted. Live JIRA REST recheck: CORE-17655 Reopened, CORE-13344 Open, CORE-20751 and CORE-20821 Untriaged, all resolution null.
+- `INDEPENDENT_REVIEW_SHARED_ROOT_CAUSE_W10_V8.jsonl` (7 records): independent reviewer distinct from the original researcher; verdict `CONFIRMED_WITH_CORRECTIONS` with an inherited-status limitation for CORE-19766 and a bounded-search caveat. No OS code, test, import, merge or upstream submission.
