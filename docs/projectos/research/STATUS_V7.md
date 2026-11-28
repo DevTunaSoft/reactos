@@ -609,3 +609,7 @@ This document is a checkpoint, not a claim that research is complete.
 ## Storage driver lane checkpoint (2026-11-28T08:57Z)
 
 - `STORAGE_DRIVER_OPEN_W12_V8.jsonl` (546 records): 10 JIRA searches → 226 unresolved issues (141 Untriaged, 68 Open, 16 Reopened, 1 In Progress), 226 correlations, 7 GitHub searches (0 open issues, 12 open PR hits), 163 open PR file lists paginated with one transient 502 retried to 0 errors. Pin → fresh master `60a3898b` ahead13/behind0, 14 changed files with zero storage/disk-class paths; 18 sampled blobs byte-identical. Do-not-duplicate opens #8566/#8849/#8932/#9095/#9598/#9753/#9856; #9550 MSHTML false positive; cited 128613 HTTP 404 recorded unresolved. All runtime fields NOT RUN.
+
+## Display/GPU lane checkpoint (2026-11-28T09:12Z)
+
+- `DISPLAY_GPU_OPEN_W12_V8.jsonl` (944 records): 10 JIRA searches (all HTTP 200), 404 unique unresolved issues (244 Untriaged, 137 Open, 19 Reopened, 4 In Progress), 9 GitHub searches (0 open issues, 27 open PR hits), 162 open PR file lists paginated with 0 errors. Pin → master `60a3898b` ahead13/behind0, 14 changed files and zero display/GPU paths; 18 source blobs byte-identical. Nine do-not-duplicate opens #8435/#9568/#9569/#9577/#9598/#9821/#9878/#9882/#9883; #8347/#8683/#9713 false positives; cited numbers 0 and 128613 HTTP 404 recorded as retrieval errors. All runtime fields NOT RUN; display query bounded at 100 of 558 results.
