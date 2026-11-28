@@ -633,3 +633,7 @@ This document is a checkpoint, not a claim that research is complete.
 ## Bundled zlib provenance checkpoint (2026-11-28T09:58Z)
 
 - `PROVENANCE_REVALIDATION_P0042_V8.jsonl` (12 records): bundled zlib `sdk/lib/3rdparty/zlib/inflate.c` at pin `3e6033a6…`, blob `8acbef44…`, 56,089 bytes, raw SHA-256 `f1679575…`; blob SHA and byte identity confirmed from primary API/raw records. License notice verified through pinned `sdk/include/reactos/libs/zlib/zlib.h` and sibling `LICENSE`. Two append-only corrections; two HTTP 404 retrievals logged as failed attempts without inference; no canonical rewrite, all runtime fields NOT RUN.
+
+## Terminal/console lane checkpoint (2026-11-28T10:19Z)
+
+- `TERMINAL_CONSOLE_OPEN_W12_V8.jsonl` (883 records): 10 JIRA searches (0 errors, 341 unique issues), 9 GitHub searches, 162 open PR file lists paginated (0 errors), 161 PR objects. Pin → fresh master `60a3898b` ahead13/behind0, 14 changed files and zero terminal/console paths; 18 raw blobs byte-identical. Do-not-duplicate opens #9200/#9205/#9206/#9723/#9832/#9833; 7 keyword false positives; 15 HTTP 404 citations recorded as retrieval errors. All six runtime fields NOT RUN; keyword samples bounded (terminal 100/288, console 100/130).
