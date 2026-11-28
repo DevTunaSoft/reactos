@@ -424,3 +424,8 @@ This document is a checkpoint, not a claim that research is complete.
 
 - `FAT_UPSTREAM_RECHECK_V8.jsonl` (11 records): upstream master `a5ccec99` is 1 commit ahead of pin; sole post-pin commit touches only USER32_APITEST files. Raw `fat.c` at new master is byte-identical to pin (sha256 `5faf023b…8bd028b`); all five PR #9510 validation tokens absent. Unbounded `FatCountClustersInChain`, unvalidated `BytesPerSector` and absent short-read check persist. PR #9510 remains closed/unmerged; no `fat.c` change since 2025-11-12 last commit `0ac0eb25`.
 - Verdict: lead remains open, code state unchanged; runtime exploitability UNVERIFIED / NOT RUN, no reproducer, maintainer feedback or licensing. Prior `REVIEW_FV7_009` remains needs-work.
+
+## Btrfs semantic review checkpoint (2026-11-28T03:56Z)
+
+- `BTRFS_SEMANTIC_REVIEW_V8.jsonl` (10 records): verdict `SOURCE_LEVEL_BEHAVIORAL_EQUIVALENCE_ESTABLISHED; ALREADY_UPSTREAM_MERGED; RUNTIME_EQUIVALENCE_NOT_TESTED`. Fork tip `98880e55` is the exact head of merged PR #1959; parent `aad76695` adds the 6-line sparse-extent guard and the tip only reformats a comment. Composed result matches the PR diff (+7/-0, one file) and merged file byte-for-byte (git blob `16a861427c486…`, sha256 `7d82f6cf298c…`). Prior patch-id mismatch explained as single-commit vs combined two-commit diff; FV7-005 supersession upheld.
+- Provenance: GPL-2.0+ file header, copyright 2018 Victor Perevertkin, documented u-boot derivation; authors Mark Harmstone (functional, unsigned) and Hermès BÉLUSCA (style, verified). PR `.patch` HTTP 503 fallback to `.diff` HTTP 200 disclosed. Build/VM/runtime image tests NOT RUN.
