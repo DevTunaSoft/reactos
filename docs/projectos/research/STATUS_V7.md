@@ -557,3 +557,7 @@ This document is a checkpoint, not a claim that research is complete.
 ## F-05 SHA recheck checkpoint (2026-11-28T07:16Z)
 
 - `EVIDENCE_SHA_RECHECK_RPL35_V8.jsonl` (10 records): F-05 commit `88786202…` `CONFIRMED_WITH_CORRECTIONS`, confidence 0.9 for source/repository facts. Fork and upstream REST both HTTP 200 with matching SHA/date/message/parent, 7 files (+104/-18); raw patch shows 7 paths and 30 hunks. Ten append-only corrections: `commit_verified=true` is an author assertion (REST unsigned), "modern stack basic-merged" refers to later PRs #9646/#9623 and not this SHA, mutable PR snapshots and historical retrieval metadata flagged. Compare diverged ahead 20713/behind 27; all runtime fields NOT RUN.
+
+## Filesystem reliability lane checkpoint (2026-11-28T07:30Z)
+
+- `FS_RELIABILITY_OPEN_W12_V8.jsonl` (87 records): 3 JIRA queries (NTFS 62, Btrfs 78, filesystem 329 total/100 returned), 45 detailed unresolved issues, 5 GitHub searches (0 open issues), 163 open PR file lists scanned, 14 PR records (9 open) and 12 correlations. Pin→master ahead1/behind0 with only USER32 apitests; five NTFS/Btrfs source files byte-identical. Open draft #9598 (Btrfs) and adjacent #9753 (FreeLDR FS) classified do-not-duplicate; merged/closed historical PRs recorded. All runtime fields NOT RUN; validator unchanged at 143 pre-existing failures.
