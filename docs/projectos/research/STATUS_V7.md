@@ -585,3 +585,8 @@ This document is a checkpoint, not a claim that research is complete.
 ## UEFI revert SHA recheck checkpoint (2026-11-28T08:14Z)
 
 - `EVIDENCE_SHA_RECHECK_RPL39_V8.jsonl` (10 records): `BOOTUEFI-V8-008` (reverted PR #7486), merge `185225a5…` and revert `177cbd81…`, `CONFIRMED_WITH_CORRECTIONS`, confidence 0.9. Eight append-only corrections: "four days later" is calendar-date wording (3d 9h 27m), double-mapping is a reviewer report rather than a reproduced runtime fact, no causal link to the revert established, branch head mutable, merge PGP-verified vs unsigned revert. All HTTPS URLs and the verbatim review comment reproduced; tests NOT RUN.
+
+## Audio/HID technical lane checkpoint (2026-11-28T08:39Z)
+
+- `AUDIO_DRIVER_OPEN_W12_V8.jsonl` (549 records): 231 JIRA issues + 231 correlations, 53 PRs, 18 pin/master fingerprints, 7 JIRA queries, 6 GitHub searches. Pin → fresh master `60a3898b` ahead 13/behind 0 with HID/USER32-only changes and zero audio paths; 18 audio/AC97/HDA blobs byte-identical. Do-not-duplicate opens #8662/#8683/#9083/#9313/#9598/#9852; #8355 CMake false positive; cited #55088 HTTP 404 recorded unresolved. All six runtime fields NOT RUN.
+- Also published: cron's `INPUT_HID_OPEN_W12_V8.jsonl` (43), `INDEPENDENT_REVIEW_W9_10R_R0041_V8.jsonl` (7) and `PROVENANCE_REVALIDATION_P0034_V8.jsonl` (8), all verified unique-ID and scan-clean.
