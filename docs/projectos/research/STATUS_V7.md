@@ -472,3 +472,7 @@ This document is a checkpoint, not a claim that research is complete.
 ## F-10 revalidation checkpoint (2026-11-28T05:17Z)
 
 - `EVIDENCE_REVALIDATION_RPL23_V8.jsonl` (16 records): F-10 (binarymaster commit `85646637…`) `CONFIRMED_WITH_CORRECTIONS`, confidence `HIGH_WITH_LIMITATIONS`. Exact URL/SHA/message/dates/two-file diff and EC default-space change reproduced from immutable primaries. Five append-only corrections: unsigned `commit_verified=true`, VM sentence is a recommendation not an executed test, EC/ACPI scope narrowed to two files, PR hits are mutable keyword snapshots (#8980 reintroduces #8824), `retrieved` self-reported. All tests NOT RUN; validator failures unchanged at 143.
+
+## Open PR inventory checkpoint (2026-11-28T05:32Z)
+
+- `OPEN_PR_INVENTORY_W11_V8.jsonl` (165 records): 163 open upstream PRs refreshed read-only (21 draft, 142 non-draft), 163 direct state reads and 163 paginated file reads with 0 API errors; changed-file counts matched 163/163. 47/163 in technical lanes (memory/cache 12, SMP 14, storage 11, networking 12 any-lane; 349 in-scope changed files). Do-not-duplicate: 47/47 in scope, 131/163 overall; 6 prior-conflict overlaps, 2 new in-lane observations, #8566 refreshed, #9826 no longer open. All runtime fields NOT RUN; no import or merge.
