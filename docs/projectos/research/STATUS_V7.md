@@ -680,3 +680,8 @@ This document is a checkpoint, not a claim that research is complete.
 ## Europe PMC coverage checkpoint (2026-11-28T12:39Z)
 
 - `COVERAGE_RPL56_V8.jsonl` (21 records): new Europe PMC REST search family with exact `hitCount` denominators and `pageSize=5` cap, absent from 195 prior research files. 16 bounded queries (10 search + 6 `EXT_ID` core lookups), all HTTP 200; 9 primary + 6 core corpus hits, 9 article-URL rows (8 unique) and 8 DOI-URL rows (7 unique), 7 zero-result lanes, 0 literal topical matches; 10 snippet_metadata vs 6 full_metadata_core. ReactOS/WoW64 hits recorded as token/full-text index hits, not topical matches; DBLP HTTP 202 bot challenge left unsolved, no bypass; all runtime fields NOT RUN.
+
+## BOOTUEFI-V8-007 independent SHA recheck (2026-11-28T12:52Z)
+
+- `EVIDENCE_SHA_RECHECK_RPL55_V8_INDEPENDENT.jsonl` (12 records) is a distinct second pass on `BOOTUEFI-V8-007` head `9a2a6bfe…` whose literal SHA appeared in no prior recheck. `CONFIRMED_WITH_CORRECTIONS`, confidence 0.9, 8 append-only corrections, 0 rewrites. PR 8703 REST reproduces every canonical field (15 changed paths, 2 commits, both SHAs, closure exchange verbatim); head `commit.verification` false/unsigned with top-level null; 7 REST URLs HTTP 200 with recorded digests, 0 retrieval errors (one 415 media-type rejection). It coexists with cron's `EVIDENCE_SHA_RECHECK_RPL55_V8.jsonl` (4 records, different subject `2a74f5e7…`) — two subjects, no conflict. All runtime fields NOT RUN.
+- Flagged scratch `inspect_queue.py` overwrite refusal was benign: the subagent's own helper already existed; no research state affected.
