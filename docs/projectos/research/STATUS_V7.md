@@ -668,3 +668,7 @@ This document is a checkpoint, not a claim that research is complete.
 ## PR 9524 SHA recheck checkpoint (2026-11-28T11:48Z)
 
 - `EVIDENCE_SHA_RECHECK_RPL51_V8.jsonl` (10 records): `CU-PR-0003` / PR 9524 head `57ed6003…` absent from 55 prior recheck artifacts (286 SHAs scanned). `CONFIRMED_WITH_CORRECTIONS`, confidence 0.9; 8 append-only corrections covering durable state, basis-less `verified:true`, head tip vs 19-file PR patch, author-stated dependency, test-merge object ≠ integration, unreproducible search leg and self-reported timestamp. No canonical rewrite; 16/16 HTTPS URLs, 0 retrieval errors, all tests NOT RUN.
+
+## Installer/setup lane checkpoint (2026-11-28T12:12Z)
+
+- `INSTALLER_SETUP_OPEN_W12_V8.jsonl` (1,026 records): 10 JIRA searches (434 unique issues, 0 errors), 7 GitHub searches (0 open issues for installer/setup/install), 162 open PR file lists paginated with 0 errors, 124 PR objects. 17 open PRs with strict installer/setup paths classified do-not-duplicate (#7019/#9399/#9414/#9550/#9569/#9594/#9598/#9723/#9752/#9756/#9763/#9865/#9867/#9869/#9870/#9881/#9884); no broad-only false positives. Pin → master `60a3898b` ahead13/behind0, 14 changed files with 0 strict paths; 14 blobs byte-identical. Four HTTP retrieval errors recorded as errors, not states; all runtime fields NOT RUN.
