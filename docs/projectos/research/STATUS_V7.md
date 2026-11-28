@@ -489,3 +489,8 @@ This document is a checkpoint, not a claim that research is complete.
 
 - `ARCHIVE_FORUM_COVERAGE_W1104_V8.jsonl` (5 records, sha256 `078e7280e404b6186aa93d13befbad24e91d17b9aed59d981668e9f5ffca22e8`): forum.reactos.org family, bounded live attempt plus Wayback CDX inventory (rows=0, range []) and one archived snapshot. Historical snapshots not treated as current state; no access-control bypass; all runtime fields NOT RUN.
 - Correction supplement: `ARCHIVE_FORUM_COVERAGE_W1104_PROBE_V8.jsonl` (2 records, sha256 `0b8290d842f17946c5cf2ec23589e0e7cad9116d1c48d2077d1ed27bfa48324a`). A bounded unfiltered Wayback CDX probe returned HTTP 503 (temporary offline), so the earlier zero-row result is classified inconclusive rather than absence of archived snapshots.
+
+## Independent prerequisite sample checkpoint (2026-11-28T05:47Z)
+
+- `PREREQUISITE_RECHECK_W11_V8.jsonl` (27 records) is the subagent's independent 8-PR sample: 1 qualifying reevaluation lead (#5935, closed 2023-11-09, prerequisite #5868 merged 2024-05-06 via `69ebfd67…`) and 7 explicit negatives (#3502/#4398/#4674/#5484 unmerged deps; #7448/#7870 prerequisites merged before subject closure; #9679 only split-from lineage). This is distinct from cron's `PREREQUISITE_RECHECK_SECOND_SAMPLE_W1103_V8.jsonl` (10 records, 0 qualifiers), which remains unchanged. Both results coexist; different samples and selection methods, no conflict reconciled by inference.
+- Cron additionally published F-02/F-07 immutable equivalence revalidation (`EVIDENCE_REVALIDATION_W1101_V8.jsonl`, 10) and archive/forum coverage with an inconclusive-zero correction (`ARCHIVE_FORUM_COVERAGE_W1104_V8.jsonl`, 5 + 2 supplement). All runtime fields NOT RUN, no import or merge.
