@@ -644,3 +644,7 @@ This document is a checkpoint, not a claim that research is complete.
 - Replenished 5->9 ready tasks; claimed W12-13, W12-14 and RPL-REVIEW-0049 with unique cron-<UTC> workers via the disclosed priority-lower/claim/restore path; all three finished within lease (verified, verified, reviewed by distinct reviewer).
 - Published SERIAL_USB_HOST_OPEN_W12_V8.jsonl (631 records), KERNEL_MEMORY_OPEN_W12_V8.jsonl (1260 records), INDEPENDENT_REVIEW_R0049_V8.jsonl (4 records). Worktree commit 23427e1cf9138846b069925a141bad1b487432ef pushed and confirmed by git ls-remote.
 - Research-only: no OS code, patch import, test, merge, upstream submission or runtime claim; all runtime fields NOT RUN.
+
+## NVD coverage checkpoint (2026-11-28T10:29Z)
+
+- `COVERAGE_RPL48_V8.jsonl` (13 records): new NVD CVE API 2.0 family with exact `totalResults` denominators; 9 bounded queries all HTTP 200, 1 full extraction (`CVE-2007-1724`), 9 snippets and 6 scoped zero-result lanes including a nonsense control. Denominators: ReactOS 1/1, ReactOS kernel 1/1, Windows operating system 345/5. Isolated-ledger result adopted into the live queue with an append-only `integrator_adopt` event; all runtime fields NOT RUN.
