@@ -664,3 +664,7 @@ This document is a checkpoint, not a claim that research is complete.
 ## PR 9599 SHA recheck checkpoint (2026-11-28T11:35Z)
 
 - `EVIDENCE_SHA_RECHECK_RPL47_V8.jsonl` (10 records): `CU-PR-0001` / PR 9599 head `8e7efcc3…` selected by literal-SHA gap scan across 54 recheck artifacts / 282 SHAs. `CONFIRMED_WITH_CORRECTIONS`, confidence 0.9; six append-only corrections, 0 rewrites, 0 retrieval errors. Immutable fields and claimed observation reproduce verbatim; prerequisite PR 9414 remains open/unmerged; head commit verification is `verified=true/valid` at `.commit.verification` while top-level `verification` is null — recorded at exact field path. One HTTP 415 was an Accept-header media-type rejection. Tests NOT RUN.
+
+## PR 9524 SHA recheck checkpoint (2026-11-28T11:48Z)
+
+- `EVIDENCE_SHA_RECHECK_RPL51_V8.jsonl` (10 records): `CU-PR-0003` / PR 9524 head `57ed6003…` absent from 55 prior recheck artifacts (286 SHAs scanned). `CONFIRMED_WITH_CORRECTIONS`, confidence 0.9; 8 append-only corrections covering durable state, basis-less `verified:true`, head tip vs 19-file PR patch, author-stated dependency, test-merge object ≠ integration, unreproducible search leg and self-reported timestamp. No canonical rewrite; 16/16 HTTPS URLs, 0 retrieval errors, all tests NOT RUN.
