@@ -507,3 +507,15 @@ This document is a checkpoint, not a claim that research is complete.
 ## LGPL provenance checkpoint (2026-11-28T06:10Z)
 
 - `PROVENANCE_REVALIDATION_RPL22_V8.jsonl` (17 records): ReactOS LGPL license texts `COPYING.LIB` (LGPL-2.1) and `COPYING3.LIB` (LGPL-3.0) rechecked at pin `3e6033a6…` and fork tip `9a21d07a…`. 13 read-only primary HTTP checks (2 commit, 4 contents, 4 raw, 3 SPDX samples), all HTTP 200; canonical URLs, blob SHAs and retrieval timestamps confirmed, texts byte-identical across revisions. Per-file SPDX and `-only`/`-or-later` variants remain unresolved; three append-only scope corrections recorded. Validator unchanged at 143 failures.
+
+## W12-03 filesystem validation current-state checkpoint (2026-11-28T06:21:40Z)
+
+- `W12_FS_VALIDATION_CURRENT_V8.jsonl` (11 records, sha256 f0e978a3f45bf7d62dbd09bd5bdeabad9b1ee3449bc3b8606bbb256b58e31dc3): upstream master `a5ccec99ed84…` is one commit ahead of pin and untouched in FS paths; `fat.c` and `ntfs.c` are byte-identical to the pin. Four bounded open-PR queries: 3 zero-result lanes, NTFS keyword returned 2 unrelated PRs (9736 UCRT, 9576 ETHREAD), both fully paginated with zero filesystem paths. Static only; all runtime fields NOT RUN.
+
+## W12-01 FV7-008 immutable recheck checkpoint (2026-11-28T06:24:27Z)
+
+- `FV7_008_IMMUTABLE_RECHECK_W1201_V8.jsonl` (8 records, sha256 aa30e03d450ecc2856a0232bb1e5acf4700b8d91e03500534b35e72198badcce): verdict coverage confirmed for FV7-008 and FV7-009 (premise stale). Cited CI commit `8b55d712…` re-projected from `.commit.message`/`.commit.verification`: 2022-05-25 MSVC ARM64 builder citing CORE-17518, GPG verified=True, present upstream and fork, 8101 commits behind master. Four append-only corrections; no canonical rewrite; all tests NOT RUN.
+
+## RPL-EVIDENCE-0027 checkpoint (2026-11-28T06:26:24Z)
+
+- `EVIDENCE_SHA_RECHECK_RPL27_V8.jsonl` (9 records, sha256 1ee17ad9a5d875b04d82c8f6d62351152a087e266e38a4a00a288d868eae0b17): canonical PR 9510 head `56b5899d…` / base `86f1b427…` reproduced from .head.sha/.base.sha; commit unsigned at upstream and fork; 2 files after full pagination; raw .patch SHA-256 01f4238f846cfbe13e14dfaa395fa137ca2f835916027fe94464a47482ca80af. Clarified .diff (9473 bytes) vs .patch (11013 bytes) endpoint scope; no canonical rewrite.
