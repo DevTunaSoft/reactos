@@ -429,3 +429,8 @@ This document is a checkpoint, not a claim that research is complete.
 
 - `BTRFS_SEMANTIC_REVIEW_V8.jsonl` (10 records): verdict `SOURCE_LEVEL_BEHAVIORAL_EQUIVALENCE_ESTABLISHED; ALREADY_UPSTREAM_MERGED; RUNTIME_EQUIVALENCE_NOT_TESTED`. Fork tip `98880e55` is the exact head of merged PR #1959; parent `aad76695` adds the 6-line sparse-extent guard and the tip only reformats a comment. Composed result matches the PR diff (+7/-0, one file) and merged file byte-for-byte (git blob `16a861427c486…`, sha256 `7d82f6cf298c…`). Prior patch-id mismatch explained as single-commit vs combined two-commit diff; FV7-005 supersession upheld.
 - Provenance: GPL-2.0+ file header, copyright 2018 Victor Perevertkin, documented u-boot derivation; authors Mark Harmstone (functional, unsigned) and Hermès BÉLUSCA (style, verified). PR `.patch` HTTP 503 fallback to `.diff` HTTP 200 disclosed. Build/VM/runtime image tests NOT RUN.
+
+## Boot/UEFI/ACPI failure survey checkpoint (2026-11-28T04:18Z)
+
+- `BOOT_UEFI_ACPI_FAILURES_V8.jsonl` (31 records): two reevaluation leads — reverted #8824 with prerequisite merged #8980 (loader-provided ACPI root), and reverted #7486 with merged #8669 (UEFI ACPI mapping); one conditional lead #8491 pending open #9569. All runtime fields NOT RUN, zero validated results; historical JIRA/forum evidence and bounded negative results labelled accordingly.
+- GitHub `.patch` URLs unavailable, REST diff used with disclosed patch-id limitation; no patch-equivalence claim. Three forum topics had no Wayback snapshot and are recorded as unresolved lanes. Skill updated with three retrieval pitfalls.
