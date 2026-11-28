@@ -476,3 +476,7 @@ This document is a checkpoint, not a claim that research is complete.
 ## Open PR inventory checkpoint (2026-11-28T05:32Z)
 
 - `OPEN_PR_INVENTORY_W11_V8.jsonl` (165 records): 163 open upstream PRs refreshed read-only (21 draft, 142 non-draft), 163 direct state reads and 163 paginated file reads with 0 API errors; changed-file counts matched 163/163. 47/163 in technical lanes (memory/cache 12, SMP 14, storage 11, networking 12 any-lane; 349 in-scope changed files). Do-not-duplicate: 47/47 in scope, 131/163 overall; 6 prior-conflict overlaps, 2 new in-lane observations, #8566 refreshed, #9826 no longer open. All runtime fields NOT RUN; no import or merge.
+
+## F-02/F-07 equivalence revalidation checkpoint (W11-01)
+
+- `EVIDENCE_REVALIDATION_W1101_V8.jsonl` (10 records, sha256 `9eb96949c2d1e585004543f97f3d07564ff60301088506cfd06088698c3f0a7b`): both inherited equivalence claims `CONFIRMED_WITH_LIMITATIONS`. Fork and upstream commits share identical tree SHAs and byte-identical patch bodies (patch-id `ecb96617` / `a1c40064`); both upstream SHAs are local `origin/master` ancestors and PR 1965/1070 merge SHAs match. Fork commits are GPG-verified; upstream integrated commits are unsigned. Two append-only corrections: F-07 PR 1035 is a keyword false positive, and `commit_verified=true` applies only to fork commits. Validator failures unchanged at 143; all runtime fields NOT RUN.
