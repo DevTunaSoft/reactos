@@ -577,3 +577,7 @@ This document is a checkpoint, not a claim that research is complete.
 
 - `NETWORK_RELIABILITY_OPEN_W12_V8.jsonl` (263 records): 5 unresolved JIRA queries (NDIS 36, TCP/IP 12, TCPIP 27, Winsock 12, network driver 89), 94 open issues (57 Untriaged, 35 Open, 2 Reopened) with 94 correlations; 163 open PR file lists paginated with 0 errors; 47 PR records (28 merged, 8 closed-unmerged, 10 open, 1 HTTP 404 citation). Do-not-duplicate open PRs #8347/#9346/#9598/#9866/#9893/#9836; #9736 excluded as a keyword false positive. 14 network source fingerprints byte-identical at pin and master; all runtime fields NOT RUN.
 - This publication also includes cron's verified `PROVENANCE_REVALIDATION_P0030_V8.jsonl` (7), `COVERAGE_HN_ALGOLIA_RPL36_V8.jsonl` (11) and `INDEPENDENT_REVIEW_APPCOMPAT_R0037_V8.jsonl` (7), all scanned clean.
+
+## GitLab API coverage checkpoint (2026-11-28T08:01Z)
+
+- `COVERAGE_RPL40_V8.jsonl` (13 records): new GitLab.com public REST API v4 `/projects` family and German query-term lane. 10 bounded queries (`per_page=5`, `page=1`), 9 HTTP 200 with `X-Total` denominators; baseline ReactOS total 39 / 5 returned / 5 matched HTTPS URLs; 8 zero-result lanes (3 en, 4 de, `ReactOS Deutsch`). One HTTP 500 control-token query recorded with denominator unknown, explicitly not zero. One full project-metadata extraction separated from snippet rows; all runtime fields NOT RUN.
