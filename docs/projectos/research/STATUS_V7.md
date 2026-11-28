@@ -494,3 +494,8 @@ This document is a checkpoint, not a claim that research is complete.
 
 - `PREREQUISITE_RECHECK_W11_V8.jsonl` (27 records) is the subagent's independent 8-PR sample: 1 qualifying reevaluation lead (#5935, closed 2023-11-09, prerequisite #5868 merged 2024-05-06 via `69ebfd67…`) and 7 explicit negatives (#3502/#4398/#4674/#5484 unmerged deps; #7448/#7870 prerequisites merged before subject closure; #9679 only split-from lineage). This is distinct from cron's `PREREQUISITE_RECHECK_SECOND_SAMPLE_W1103_V8.jsonl` (10 records, 0 qualifiers), which remains unchanged. Both results coexist; different samples and selection methods, no conflict reconciled by inference.
 - Cron additionally published F-02/F-07 immutable equivalence revalidation (`EVIDENCE_REVALIDATION_W1101_V8.jsonl`, 10) and archive/forum coverage with an inconclusive-zero correction (`ARCHIVE_FORUM_COVERAGE_W1104_V8.jsonl`, 5 + 2 supplement). All runtime fields NOT RUN, no import or merge.
+
+## F-12 independent review checkpoint (2026-11-28T05:57Z)
+
+- `INDEPENDENT_REVIEW_RPL29_V8.jsonl` (19 records): F-12 fork commit `c52dd091…` `CONFIRMED_WITH_CORRECTIONS`, confidence `HIGH_WITH_LIMITATIONS`; seven append-only corrections. Key corrections: `files_changed:300` is a REST page cap (6 pages, 1535 distinct paths); `commit_verified:true` is an author assertion vs REST unsigned; `.patch` expands a 710-commit series ending at the merge second parent; test-gate list is a recommendation, not executed tests. Local clone lacked the commit object (merge-base NOT RUN); no canonical record rewritten, all runtime fields NOT RUN.
+- Artifact was written into a stale auxiliary worktree and verified/copied into the canonical research tree before publication; no history rewritten.
