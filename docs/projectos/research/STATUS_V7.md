@@ -372,3 +372,11 @@ This document is a checkpoint, not a claim that research is complete.
 ## W10 parallel output checkpoint (2026-11-28T02:14Z)
 
 - USB3 independent review (9), CORE-20821 triage (5), ARM64 PR #9809 review (9), fork lineage resolution (91) and unmerged-hunk sampling (10) records published; all parse clean with unique IDs and no secret/path hits. Runtime fields NOT RUN; no OS code, patch import, merge or upstream submission.
+
+## W10 detailed checkpoint (2026-11-28T02:25Z)
+
+- USB3 independent review (`USB3_INDEPENDENT_REVIEW_V8.jsonl`, 9 records): PR #9865 open/unmerged with pin base, `txtsetup.sif` SHA-256 `e582da37…afa6f1f` / blob `92aad0f3…a341b`, diff SHA-256 `4727bc61…be56`; wjk's GUI-stage objection withdrawn in `issuecomment-7205969349`; 34/34 CI checks successful on head `d448aaa3…` (build metadata only). PR #9750 open/unmerged with pinned `wdfldr.c` SHA-256 `9bf680b3…a3986075` / blob `65e73c2d…1ddc011a`, unresolved CHANGES_REQUESTED and class-module-reference objection `r4389788621`. Neither establishes runtime acceptance.
+- CORE-20821 triage (`CORE20821_TRIAGE_V8.jsonl`, 5 records): JIRA id 40206, Untriaged, resolution null, updated 2026-10-31T21:10:15Z, no issue links; PR #9865 cites it but JIRA cites PR #9646 — one-directional text correlation only.
+- ARM64 PR #9809 review (`ARM64_PR9809_REVIEW_V8.jsonl`, 9 records): `CONFIRMED_WITH_CORRECTIONS`.
+- Fork lineage (`FORK_LINEAGE_RESOLUTION_V8.jsonl`, 91 records): all 90 previously unresolved members remain UNKNOWN; two 90-alias GraphQL batches resolved 0 repositories and REST returned 404 for 90/90, which cannot distinguish deleted/private/transferred/restricted — no classification inferred.
+- Unmerged hunks (`FORK_UNMERGED_HUNKS_V8.jsonl`, 10 records): 9 sampled tips all had exact SHA present upstream via object lookup, yet compare API reported **9/9 diverged**; 64 files and 98 hunk headers sampled. This is direct evidence that API object existence is not upstream integration. `.patch` fetches returned 403 and API patch media type timed out; bounded `files[].patch` with 12-file/1400-char caps was used and disclosed. Patch equivalence, per-file licensing and legal certification remain NOT RUN.
