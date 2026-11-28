@@ -528,3 +528,7 @@ This document is a checkpoint, not a claim that research is complete.
 
 - `COVERAGE_RPL24_V8.jsonl` (21 records): Latvian (`lv`) lane absent from prior coverage. 19 query slots (16 API + 3 web, 16 distinct strings), 47 rows (17 API + 30 web), 15 matched URLs, 9 labelled zero-result lanes, zero full extractions; all snippet-labelled. Three lv.wikipedia HTTP 429 first attempts each resolved by one bounded retry and recorded without double-counting. No access-control bypass, no inference from zero, all runtime fields NOT RUN.
 - Cron's `W12_FS_VALIDATION_CURRENT_V8.jsonl` (11), `FV7_008_IMMUTABLE_RECHECK_W1201_V8.jsonl` (8) and `EVIDENCE_SHA_RECHECK_RPL27_V8.jsonl` (9) are present in branch history via parent commit `08bd7222…`; validator unchanged at 143 failures with zero attributable to new files.
+
+## Albanian coverage checkpoint (2026-11-28T06:43Z)
+
+- `COVERAGE_RPL28_V8.jsonl` (16 records): Albanian (`sq`) lane absent from prior coverage. 12 query slots (7 sq.wikipedia API, 5 web_search; 55 rows), 1 conservative literal match (`Stampa:Sistemet operative`), 11 zero-result lanes, 6 API `totalhits=0` lanes, 2 full wikitext extractions (412/5948 chars) separated from 12 snippet records. Denominators and query-scoped uncertainty recorded; no tests, no access-control bypass.
