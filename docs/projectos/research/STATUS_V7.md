@@ -544,3 +544,8 @@ This document is a checkpoint, not a claim that research is complete.
 - Replenished to 10 ready; claimed 3 with unique cron-<UTC> workers via the disclosed priority-lower/claim/restore path: W12-05 (w1205), RPL-PROVENANCE-0026 (p0026), RPL-REVIEW-0033 (r0033).
 - Published APP_COMPAT_CLUSTER_RECHECK_W1205_V8.jsonl (5 records), PROVENANCE_REVALIDATION_P0026_V8.jsonl (6 records), INDEPENDENT_REVIEW_FV7_006_R0033_V8.jsonl (4 records).
 - All runtime tests NOT RUN; research-only; no OS code, patch import, merge or upstream submission.
+
+## SMP/IRQL technical lane checkpoint (2026-11-28T07:05Z)
+
+- `SMP_IRQL_ISSUES_W12_V8.jsonl` (65 records): 6 JIRA queries, 44 unique JIRA issues (16 domain candidates, 28 keyword-only), 12 open upstream PRs all classified do-not-duplicate, one cross-tracker correlation. Pin → master `a5ccec99…` is ahead_by=1 (USER32 apitest commit); zero overlap with the 142 PR-proposed paths, 99 paths unchanged, 43 absent at both refs. All runtime fields NOT RUN; keyword searches are bounded samples.
+- Cron's local publication `2b787e24…` (W12-05 app-compat recheck, P0026 provenance, R0033 FV7-006 review) is present in branch history and remote-verified.
