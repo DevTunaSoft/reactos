@@ -549,3 +549,7 @@ This document is a checkpoint, not a claim that research is complete.
 
 - `SMP_IRQL_ISSUES_W12_V8.jsonl` (65 records): 6 JIRA queries, 44 unique JIRA issues (16 domain candidates, 28 keyword-only), 12 open upstream PRs all classified do-not-duplicate, one cross-tracker correlation. Pin → master `a5ccec99…` is ahead_by=1 (USER32 apitest commit); zero overlap with the 142 PR-proposed paths, 99 paths unchanged, 43 absent at both refs. All runtime fields NOT RUN; keyword searches are bounded samples.
 - Cron's local publication `2b787e24…` (W12-05 app-compat recheck, P0026 provenance, R0033 FV7-006 review) is present in branch history and remote-verified.
+
+## Stack Exchange coverage checkpoint (2026-11-28T07:11Z)
+
+- `COVERAGE_RPL32_V8.jsonl` (12 records): new Stack Exchange API v2.3 source family, previously unqueried across ten coverage files. 9 bounded queries (pagesize=10), 24 returned rows, corpus denominator sum 73 via `filter=total` (51/1/0/0/0/18/3/0/0), 14 matched URLs, 5 explicit zero-result lanes (USB xHCI, ARM64, FAT boot, all-subsystem terms, `tagged=reactos`). Nine snippets and one full extraction labelled; bodies not republished; point-in-time metadata only, all runtime fields NOT RUN.
