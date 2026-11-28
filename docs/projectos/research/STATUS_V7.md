@@ -453,3 +453,7 @@ This document is a checkpoint, not a claim that research is complete.
 ## F-11 evidence revalidation checkpoint (2026-11-28T04:47Z)
 
 - `EVIDENCE_REVALIDATION_RPL15_V8.jsonl` (10 records): F-11 (HBelusca commit `8bbed80b…`) `CONFIRMED_WITH_CORRECTIONS`, confidence `HIGH_WITH_LIMITATIONS`. Verified exact SHA/URL, author date, one file (34+/5-), signature `verified=true/reason=valid`, patch-id `2210cc8a…`, and pinned raw header lines 45/46/47/57. Seven append-only corrections narrow the undocumented claim, test-suite wording, unqualified commit date, keyword hits, self-reported retrieval and object-presence vs integration; upstream integration and constants' origin NOT ESTABLISHED, runtime NOT RUN.
+
+## Malay coverage checkpoint (2026-11-28T04:59Z)
+
+- `COVERAGE_RPL16_V8.jsonl` (13 records): new Malay (`ms`) lane, absent from all prior coverage artifacts. 10 bounded exact queries (5 Wikipedia API, 5 web_search; 16/1/1/1/0 totalhits and 50 web rows), 13 snippet records, 1 full Wikipedia extract (2,108 chars, revision 2023-11-15T17:44:02Z), 2 metadata records. All five web queries returned zero Malay-language matches; recorded as a lane-specific result, not universal absence. Tests NOT RUN; no access-control bypass.
