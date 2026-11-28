@@ -1,0 +1,26 @@
+{
+  "files": {
+    "CONTROL": {
+      "path": "CONTROL.md",
+      "role": "control index and precedence",
+      "sha256": "d3785fdb9e115b81bfc2348793a0757fa7ce55acba8b1569f46d07bbb8a4e231"
+    },
+    "OPERATIONAL_CORRECTION": {
+      "path": "OPERATIONAL_CORRECTION_V8.md",
+      "role": "binding operational supplement",
+      "sha256": "f2e43b42e665853b494c05ef3eeaf9e3d9f9504f5656592267f646719baaa212"
+    },
+    "V7_MASTER": {
+      "path": "../../private/state/directives/V7-master.md",
+      "role": "preserved predecessor",
+      "sha256": "c0cc15328ecb7208701d0d2cae5b52d91b66b04ccca98ecd8cb29dbc58d979ae"
+    },
+    "V8_MASTER": {
+      "path": "CONTROLLING_DIRECTIVE_V8.md",
+      "role": "controlling master directive",
+      "sha256": "ba45cc1830f5380c88a0f27f7de2e0794feb3b8d612864a59808aa7a5924693d"
+    }
+  },
+  "installed_at": "2026-11-28T01:55:07Z",
+  "receipt": "2026-11-28T01:53:08Z"
+}

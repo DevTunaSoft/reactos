@@ -1,0 +1,81 @@
+{
+  "schema_version": "v7.1",
+  "manifest_id": "PROJECTOS-V7-PORTABLE-TOOLING",
+  "purpose": "Portable Node/browser dependency and launch policy for the sanitized V7 adaptive retrieval harness.",
+  "audit_commit": "96af7ca",
+  "branch": "research/v7-wave1",
+  "host_paths_included": false,
+  "credentials_included": false,
+  "node": {
+    "runtime": "Node.js (system installation; version not pinned by this manifest)",
+    "dependency_directory_env": "PROJECTOS_V7_NODE_TOOLS",
+    "install_command": "npm install --no-save puppeteer-core@25.19.0 @lightpanda/browser@1.6.0",
+    "dependencies": [
+      {
+        "name": "puppeteer-core",
+        "version": "25.19.0",
+        "registry_url": "https://registry.npmjs.org/puppeteer-core",
+        "license": "Apache-2.0",
+        "role": "system-Chrome automation via an explicit executable path",
+        "browser_bundled": false,
+        "status": "verified",
+        "measured_launch_ms": 4676
+      },
+      {
+        "name": "@lightpanda/browser",
+        "version": "1.6.0",
+        "registry_url": "https://registry.npmjs.org/@lightpanda/browser",
+        "license": "Apache-2.0",
+        "role": "candidate lightweight browser strategy",
+        "browser_bundled": false,
+        "status": "unavailable_platform",
+        "reason": "Windows native CLI installer reports a platform incompatibility and no WSL distribution is present; the Node package exposes API helpers only, not a launchable browser binary. No page navigation is claimed."
+      }
+    ]
+  },
+  "browser_executable_env": "PROJECTOS_V7_CHROME_PATH",
+  "optional_lightpanda_cli_env": "PROJECTOS_V7_LIGHTPANDA_BIN",
+  "playwright": {
+    "python_package": "playwright==1.65.2",
+    "engines": ["chromium", "firefox", "webkit"],
+    "chromium_sandbox_option": true,
+    "browser_binaries": "supplied by the Playwright installation; no host path published"
+  },
+  "selenium": {
+    "python_package": "selenium==4.54.0",
+    "driver": "Selenium Manager / system Chrome via PROJECTOS_V7_CHROME_PATH",
+    "browser_bundled": false
+  },
+  "launch_policy": {
+    "sandbox_disabling_launch_args": [],
+    "protection_disabling_flags": [],
+    "headless": true,
+    "isolated_profile_per_context": true,
+    "personal_browser_session_reuse": false,
+    "images_fonts_media_blocked_for_playwright": true,
+    "authentication_captcha_paywall_bypass": false
+  },
+  "request_limits": {
+    "max_response_bytes": 5000000,
+    "per_request_timeout_seconds": 20,
+    "max_attempts": 2
+  },
+  "applicable_engines": [
+    "playwright_chromium",
+    "playwright_firefox",
+    "playwright_webkit",
+    "puppeteer_core_chrome",
+    "selenium_chrome"
+  ],
+  "unavailable_engines": ["lightpanda"],
+  "evidence_records": [
+    "TOOL_INTEGRATION_V7.jsonl",
+    "TOOL_EFFECTIVENESS_CORRECTION_V7.jsonl"
+  ],
+  "helper": "tools/research_fetch_v3.py (published under docs/projectos/research/tools/)",
+  "notes": [
+    "Install into a dedicated directory and point the environment variables at it; no absolute installation path is published.",
+    "Only public demonstration/documentation pages and a local JavaScript data-URL fixture were used.",
+    "Research-only: no OS implementation source, tests, merges or upstream submissions."
+  ]
+}

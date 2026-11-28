@@ -1,0 +1,100 @@
+{
+  "exercise": "V8 Priority C - isolated GitHub recovery exercise",
+  "utc": "2026-11-27T18:36:31Z",
+  "workspace": "<scratch>/v8recovery.duz35q",
+  "repo": "https://github.com/DevTunaSoft/reactos",
+  "branch": "research/v7-wave1",
+  "expected_sha": "cc96564f9f9a1f8de84953938f10dc5ed68970e5",
+  "remote_sha_verified": "cc96564f9f9a1f8de84953938f10dc5ed68970e5",
+  "local_head_verified": "cc96564f9f9a1f8de84953938f10dc5ed68970e5",
+  "sha_verification": {
+    "remote_command": "git ls-remote origin refs/heads/research/v7-wave1",
+    "remote_output": "cc96564f9f9a1f8de84953938f10dc5ed68970e5\\trefs/heads/research/v7-wave1",
+    "local_command": "git rev-parse HEAD",
+    "local_output": "cc96564f9f9a1f8de84953938f10dc5ed68970e5",
+    "match": true
+  },
+  "commands": [
+    "TMP=$(mktemp -d \"$LOCALAPPDATA/hermes/cache/scratch/v8recovery.XXXXXX\")",
+    "cd \"$TMP\" && git init -q reactos && cd reactos && git remote add origin https://github.com/DevTunaSoft/reactos.git",
+    "git ls-remote origin refs/heads/research/v7-wave1",
+    "git fetch --depth 1 origin cc96564f9f9a1f8de84953938f10dc5ed68970e5",
+    "git checkout -q --detach FETCH_HEAD",
+    "rm -f .git/index.lock && git reset --hard FETCH_HEAD",
+    "git rev-parse HEAD && git status --porcelain",
+    "cp queue_state.json queue_events.jsonl \"$TMP/private_snapshot/\"",
+    "sha256sum queue_state.json queue_events.jsonl",
+    "python3 \"$TMP/validate_recovery.py\"",
+    "gh api repos/reactos/reactos/pulls/9510 --jq '{number,state,merged,merge_commit_sha,updated_at,closed_at,title,html_url}'",
+    "gh api repos/reactos/reactos/pulls/9341 --jq '{number,state,merged,merge_commit_sha,updated_at,closed_at,title,html_url}'"
+  ],
+  "recovery": {
+    "retrieved_from_github": true,
+    "shallow_fetch_depth": 1,
+    "tracked_files_at_pin": 29680,
+    "working_tree_clean_after_restore": true,
+    "emergency_stop_present": false,
+    "required_files_present": 9,
+    "required_files": [
+      "HANDOFF_V7.md", "STATUS_V7.md", "WAVE1_REPORT.md", "COVERAGE_V7.md",
+      "QUEUE_SNAPSHOT_V7.jsonl", "FINDINGS_V7.jsonl", "FAILURE_MODE_INDEX_V7.jsonl",
+      "SOURCE_REGISTER_V7.jsonl", "REQUIREMENTS_TRACEABILITY_V8.jsonl"
+    ],
+    "required_file_sha256": {
+      "HANDOFF_V7.md": "2ae72e99138acbe60a27e4387a6a254e3269e905",
+      "STATUS_V7.md": "76a2e51a9f7f196375581dfc33f0ec39d2cbfff8",
+      "QUEUE_SNAPSHOT_V7.jsonl": "945a18ec9ea9b07770852658a18364b8514b7011",
+      "REQUIREMENTS_TRACEABILITY_V8.jsonl": "d6813c39d362296153b9281f226070cbf7cd1e67"
+    }
+  },
+  "validation_counts": {
+    "jsonl_files_checked": 71,
+    "jsonl_records_total": 7812,
+    "jsonl_parse_errors": 0,
+    "queue_snapshot_records": 64,
+    "queue_snapshot_schema_errors": 0,
+    "traceability_records": 731,
+    "traceability_schema_errors": 0,
+    "private_queue_state_sha256": "c4e872894f86b5f59b9e236bbb05731289f1c64c48b05a08dbc373ff0cfe91f6",
+    "private_queue_events_sha256": "fa0447990e2e5765c1e5ebd95e4aaae6e8d6b60e9e8acf995b7bbf1ab74fad32",
+    "private_queue_updated": "2026-11-27T18:28:45Z",
+    "private_snapshot_utc": "2026-11-27T18:32:43Z",
+    "tasks_total": 70,
+    "status_counts": {"verified": 57, "reviewed": 5, "queued": 7, "running": 1},
+    "events_total": 249,
+    "event_type_counts": {"seed": 9, "claim": 61, "heartbeat": 86, "lease_reclaimed": 2, "complete": 39, "fail": 15, "replenish_skipped": 10, "integrator_adopt": 19, "replenish": 2, "review": 4, "update_rejected": 2},
+    "completed_assignments": 62,
+    "pending_assignments": 8,
+    "pending_ids": ["RPL-PROVENANCE-0008", "V8-B01", "V8-C01", "V8-D01", "V8-E01", "V8-F01", "W9-11", "W9-12"]
+  },
+  "resumed_assignment": "V8-E01 - Independent review of kernel memory and filesystem candidates (bounded subtask: check current upstream PR status, read-only)",
+  "resumed_assignment_evidence": {
+    "task_status": "queued",
+    "scope": "read-only gh api PR metadata; no claim, no file write in active workspace, no commit, no push, no upstream submission",
+    "retrieved_utc": "2026-11-27T18:36:31Z",
+    "PR_9510": {"number": 9510, "state": "closed", "merged": false, "closed_at": "2026-09-09T12:15:31Z", "updated_at": "2026-09-09T12:15:31Z", "title": "[FREELDR] Validate on-disk filesystem data before use", "url": "https://github.com/reactos/reactos/pull/9510", "agrees_with_published_record": true},
+    "PR_9341": {"number": 9341, "state": "closed", "merged": false, "closed_at": "2026-10-14T05:32:42Z", "updated_at": "2026-10-14T05:32:43Z", "title": "[NTOS:MM] Fix balance only performing a single pass per wakeup", "url": "https://github.com/reactos/reactos/pull/9341", "agrees_with_published_record": true},
+    "conclusion": "Both candidates remain closed unmerged upstream; published FINDINGS_V7 (PR 9510) and KERNEL_MEMORY_CANDIDATES_V7 / KM-V7-001 (unmerged PR 9341) reproduce exactly. No engineering promotion justified."
+  },
+  "deduplication_and_state_integrity": {
+    "published_snapshot_ids": 64,
+    "published_duplicate_ids": 0,
+    "private_task_ids": 70,
+    "private_published_overlap": 64,
+    "private_only_ids": ["V8-A01", "V8-B01", "V8-C01", "V8-D01", "V8-E01", "V8-F01"],
+    "published_only_ids": [],
+    "events_referencing_unknown_task": [],
+    "duplicate_complete_events": [],
+    "claim_complete_pairs": 38,
+    "integrity_passed": true
+  },
+  "blockers": [
+    "Active private queue is concurrently mutated: queue_state.json 'updated' advanced 2026-11-27T18:12:43Z -> 18:21:34Z -> 18:28:45Z during the exercise; validation used a single hashed copy (sha256 c4e872894f86b5f59b9e236bbb05731289f1c64c48b05a08dbc373ff0cfe91f6) to avoid a torn read. No claim or evidence append was made to the active queue.",
+    "V8-B01 was in running state under a live cron lease in the active queue; it was not touched, per no-modify constraint.",
+    "Initial detached checkout exceeded a 300s timeout on Windows and left a stale .git/index.lock plus an unpopulated index; resolved only inside the scratch workspace with 'rm -f .git/index.lock' and 'git reset --hard FETCH_HEAD'.",
+    "Published QUEUE_SNAPSHOT_V7.jsonl is sanitized and lags private state by 6 V8 assignments; full task restoration requires the private ledger, which was available here as a read-only snapshot.",
+    "No push, merge or upstream submission was performed; this exercise is research-only."
+  ],
+  "validation_passed": true,
+  "summary": "Isolated shallow fetch of research/v7-wave1 at exact remote SHA cc96564f; 9/9 required files recovered; 71 JSONL files / 7812 records parsed with 0 errors; 0 queue and 0 traceability schema errors; 62 completed vs 8 pending assignments identified; V8-E01 upstream-status subtask resumed read-only with PR #9510 and #9341 verified closed unmerged; dedup/integrity checks clean."
+}

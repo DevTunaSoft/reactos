@@ -1,0 +1,8 @@
+[
+  {"key":"EVIDENCE","title":"Revalidate one canonical finding against its immutable primary source","lane":"D","priority":4,"next_action":"Pick one FV7-* or F-* record not reviewed in the last wave; verify exact URL, SHA and observed facts; append a correction, never erase history."},
+  {"key":"COVERAGE","title":"Extend coverage to one unqueried source family or language lane","lane":"B","priority":4,"next_action":"Run one bounded query in an untouched language/community lane; record query, denominator, zero results where applicable and uncertainty."},
+  {"key":"REVIEW","title":"Independent review of one pending candidate","lane":"D","priority":3,"next_action":"Assign a reviewer independent of the original researcher; cite exact source lines and mark tests NOT RUN."},
+  {"key":"PROVENANCE","title":"Revalidate source provenance and licensing metadata","lane":"C","priority":5,"next_action":"Verify source URL, revision and license from primary records; record uncertainty."},
+  {"key":"FAILURE","title":"Mine one historical failure or closed-unmerged attempt","lane":"B","priority":4,"next_action":"Record exact revision, environment, observed failure and later changes; do not infer motives."},
+  {"key":"CORRELATION","title":"Correlate one open ReactOS issue with current upstream state","lane":"C","priority":4,"next_action":"Check JIRA status and upstream PR/commit state at pinned SHA; classify without claiming a fix."}
+]

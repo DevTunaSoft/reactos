@@ -1,0 +1,101 @@
+$ PROJECTOS_V7_NOW=2026-11-27T12:00:00Z python supervisor_v2.py status  [exit=0]
+  OUT updated: 2026-11-27T12:00:00Z
+  OUT counts: {"blocked": 0, "queued": 0, "reviewed": 0, "running": 0, "verified": 0}
+  OUT available_now: 0 stalled: 0
+  OUT cursors: {}
+  OUT ledger_active_leases: 0
+$ PROJECTOS_V7_NOW=2026-11-27T12:00:00Z python supervisor_v2.py seed <private>/research_v7\state\infra_test\tasks_seed_infra.json  [exit=0]
+  OUT seeded: 3 ["INFRA-01", "INFRA-02", "INFRA-03"]
+PASS seed 3 isolated tasks :: 
+$ PROJECTOS_V7_NOW=2026-11-27T12:00:01Z python supervisor_v2.py claim worker-A  [exit=0]
+  OUT {"attempts": 0, "available_at": "2026-11-27T12:00:00Z", "id": "INFRA-01", "lease_id": "85b257068993410682708cc58b799e73", "lease_owner": "worker-A", "lease_until": "2026-11-27T12:00:06Z", "stall_detected": false, "status": "running"}
+$ PROJECTOS_V7_NOW=2026-11-27T12:00:02Z python supervisor_v2.py claim worker-B  [exit=0]
+  OUT {"attempts": 0, "available_at": "2026-11-27T12:00:00Z", "id": "INFRA-02", "lease_id": "58b6f33a42b94491848005fc76beb7d8", "lease_owner": "worker-B", "lease_until": "2026-11-27T12:00:07Z", "stall_detected": false, "status": "running"}
+$ PROJECTOS_V7_NOW=2026-11-27T12:00:03Z python supervisor_v2.py claim worker-C  [exit=0]
+  OUT {"attempts": 0, "available_at": "2026-11-27T12:00:00Z", "id": "INFRA-03", "lease_id": "23a19ba4aea1408bb075f81db3e1805a", "lease_owner": "worker-C", "lease_until": "2026-11-27T12:00:08Z", "stall_detected": false, "status": "running"}
+PASS unclaimed scheduling: three workers, three distinct tasks and lease ids :: ['INFRA-01', 'INFRA-02', 'INFRA-03']
+$ PROJECTOS_V7_NOW=2026-11-27T12:00:04Z python supervisor_v2.py beat --task INFRA-01 --worker worker-Z --lease-id 85b257068993410682708cc58b799e73  [exit=3]
+  OUT REJECTED: not_owner
+PASS non-owner beat rejected :: REJECTED: not_owner
+$ PROJECTOS_V7_NOW=2026-11-27T12:00:04Z python supervisor_v2.py beat --task INFRA-01 --worker worker-A --lease-id bogus  [exit=3]
+  OUT REJECTED: lease_identity_mismatch
+PASS wrong lease id beat rejected :: REJECTED: lease_identity_mismatch
+$ PROJECTOS_V7_NOW=2026-11-27T12:00:04Z python supervisor_v2.py beat --task INFRA-01 --worker worker-A --lease-id 85b257068993410682708cc58b799e73  [exit=0]
+PASS owner beat accepted :: 
+$ PROJECTOS_V7_NOW=2026-11-27T12:00:05Z python supervisor_v2.py finish --task INFRA-01 --worker worker-A --lease-id 85b257068993410682708cc58b799e73  [exit=3]
+  OUT REJECTED: evidence_required_for_completion
+PASS completion without evidence rejected :: REJECTED: evidence_required_for_completion
+$ PROJECTOS_V7_NOW=2026-11-27T12:00:05Z python supervisor_v2.py complete --task INFRA-01 --worker worker-A --lease-id 85b257068993410682708cc58b799e73 --evidence PASS UTC lease arithmetic with injected clock  [exit=0]
+PASS complete with evidence accepted :: 
+$ PROJECTOS_V7_NOW=2026-11-27T12:00:06Z python supervisor_v2.py complete --task INFRA-01 --worker worker-A --lease-id 85b257068993410682708cc58b799e73 --evidence duplicate  [exit=3]
+  OUT REJECTED: not_running
+PASS replayed completion rejected (not_running) :: 
+$ PROJECTOS_V7_NOW=2026-11-27T12:00:06Z python supervisor_v2.py beat --task INFRA-02 --worker worker-B --lease-id 58b6f33a42b94491848005fc76beb7d8 --progress-note primary source verified  [exit=0]
+PASS meaningful progress heartbeat accepted :: 
+$ PROJECTOS_V7_NOW=2026-11-27T12:00:11Z python supervisor_v2.py claim worker-D  [exit=1]
+  OUT NO_QUEUED_TASKS reclaimed=["INFRA-02", "INFRA-03"]
+PASS expired leases reclaimed on claim :: ['INFRA-02', 'INFRA-03']
+PASS retry attempts incremented on reclaim :: {'INFRA-02': 1, 'INFRA-03': 1}
+PASS bounded backoff available_at set :: {'INFRA-02': '2026-11-27T12:00:12Z', 'INFRA-03': '2026-11-27T12:00:12Z'}
+PASS stall detected only with no evidence/progress :: {'INFRA-02': False, 'INFRA-03': True}
+PASS reclaimed leases cleared :: 
+$ PROJECTOS_V7_NOW=2026-11-27T12:00:12Z python supervisor_v2.py claim worker-D  [exit=0]
+  OUT {"attempts": 1, "available_at": "2026-11-27T12:00:12Z", "id": "INFRA-02", "lease_id": "a074465d519040f5ba7e32994169b652", "lease_owner": "worker-D", "lease_until": "2026-11-27T12:00:17Z", "stall_detected": false, "status": "running"}
+$ PROJECTOS_V7_NOW=2026-11-27T12:00:13Z python supervisor_v2.py claim worker-E  [exit=0]
+  OUT {"attempts": 1, "available_at": "2026-11-27T12:00:12Z", "id": "INFRA-03", "lease_id": "349c5d06b15a4f0bb6aa2c310696d740", "lease_owner": "worker-E", "lease_until": "2026-11-27T12:00:18Z", "stall_detected": false, "status": "running"}
+PASS automatic crash recovery: reclaimed tasks reassignable :: {'worker-D': 'INFRA-02', 'worker-E': 'INFRA-03'}
+$ PROJECTOS_V7_NOW=2026-11-27T12:00:14Z python supervisor_v2.py beat --task INFRA-03 --worker worker-C --lease-id 23a19ba4aea1408bb075f81db3e1805a  [exit=3]
+  OUT REJECTED: not_owner
+PASS stale owner after reclaim rejected :: 
+$ PROJECTOS_V7_NOW=2026-11-27T12:00:14Z python supervisor_v2.py beat --task INFRA-03 --worker worker-E --lease-id wrong  [exit=3]
+  OUT REJECTED: lease_identity_mismatch
+PASS new owner wrong lease rejected :: 
+$ PROJECTOS_V7_NOW=2026-11-27T12:00:15Z python supervisor_v2.py complete --task INFRA-03 --worker worker-E --lease-id 349c5d06b15a4f0bb6aa2c310696d740 --evidence PASS crash recovery after expired lease  [exit=0]
+PASS recovered owner can complete :: 
+$ PROJECTOS_V7_NOW=2026-11-27T12:00:16Z python supervisor_v2.py review --task INFRA-02 --worker worker-D --lease-id a074465d519040f5ba7e32994169b652 --evidence x --reviewer worker-D  [exit=3]
+  OUT REJECTED: reviewer_must_be_independent
+PASS self-review rejected :: 
+$ PROJECTOS_V7_NOW=2026-11-27T12:00:16Z python supervisor_v2.py review --task INFRA-02 --worker worker-D --lease-id a074465d519040f5ba7e32994169b652 --evidence PASS independent evidence review --reviewer reviewer-INFR  [exit=0]
+PASS independent review accepted :: 
+PASS reviewed status recorded :: 
+$ PROJECTOS_V7_NOW=2026-11-27T12:00:17Z python supervisor_v2.py replenish  [exit=0]
+  OUT replenished: 4 ["RPL-EVIDENCE-0001", "RPL-COVERAGE-0002", "RPL-REVIEW-0003", "RPL-PROVENANCE-0004"]
+PASS replenish seeds backlog when queue is empty :: ['RPL-COVERAGE-0002', 'RPL-EVIDENCE-0001', 'RPL-PROVENANCE-0004', 'RPL-REVIEW-0003']
+$ PROJECTOS_V7_NOW=2026-11-27T12:00:18Z python supervisor_v2.py replenish  [exit=0]
+  OUT REPLENISH_SKIPPED queued=4 min_queued=2
+PASS replenish idempotent above threshold :: 
+$ PROJECTOS_V7_NOW=2026-11-27T12:00:19Z python supervisor_v2.py replenish --min-queued 6 --target 8  [exit=0]
+  OUT replenished: 4 ["RPL-EVIDENCE-0005", "RPL-COVERAGE-0006", "RPL-REVIEW-0007", "RPL-PROVENANCE-0008"]
+PASS replenish generates unique next batch :: ['RPL-COVERAGE-0002', 'RPL-COVERAGE-0006', 'RPL-EVIDENCE-0001', 'RPL-EVIDENCE-0005', 'RPL-PROVENANCE-0004', 'RPL-PROVENANCE-0008', 'RPL-REVIEW-0003', 'RPL-REVIEW-0007']
+PASS no local-time mktime call in supervisor_v2.py :: 
+PASS calendar.timegm and timezone-aware UTC used :: 
+PASS UTC epoch equals calendar.timegm (locale/TZ independent) :: {'epoch_utc': 1795780800, 'timegm': 1795780800}
+TZ=EST5EDT local mktime(2026-11-27T12:00:00Z)=1795798800.0 vs UTC timegm=1795780800 (difference=18000.0 s); supervisor uses the UTC value
+$ PROJECTOS_V7_NOW=2026-11-27T12:00:20Z python supervisor_v2.py status  [exit=0]
+  OUT updated: 2026-11-27T12:00:19Z
+  OUT counts: {"blocked": 0, "queued": 8, "reviewed": 1, "running": 0, "verified": 2}
+  OUT available_now: 8 stalled: 0
+  OUT cursors: {"replenish_seq": 8}
+  OUT ledger_active_leases: 0
+  OUT   RPL-COVERAGE-0002  queued   p5 a0 avail=2026-11-27T12:00:17Z
+  OUT   RPL-COVERAGE-0006  queued   p5 a0 avail=2026-11-27T12:00:19Z
+  OUT   RPL-EVIDENCE-0001  queued   p5 a0 avail=2026-11-27T12:00:17Z
+  OUT   RPL-EVIDENCE-0005  queued   p5 a0 avail=2026-11-27T12:00:19Z
+  OUT   RPL-PROVENANCE-0004 queued   p5 a0 avail=2026-11-27T12:00:17Z
+  OUT   RPL-PROVENANCE-0008 queued   p5 a0 avail=2026-11-27T12:00:19Z
+  OUT   RPL-REVIEW-0003    queued   p4 a0 avail=2026-11-27T12:00:17Z
+  OUT   RPL-REVIEW-0007    queued   p4 a0 avail=2026-11-27T12:00:19Z
+PASS status under non-UTC TZ unchanged :: 
+$ PROJECTOS_V7_NOW=2026-11-27T12:00:21Z python supervisor_v2.py snapshot <private>/research_v7\state\infra_test\INFRA_SNAPSHOT.jsonl  [exit=0]
+  OUT snapshot: <private>/research_v7\state\infra_test\INFRA_SNAPSHOT.jsonl 11 tasks
+PASS snapshot has all isolated tasks :: 11
+$ PROJECTOS_V7_NOW=2026-11-27T12:00:22Z python supervisor_v2.py replay  [exit=0]
+  OUT replayed: 22 events -> 11 tasks {"blocked": 0, "queued": 8, "reviewed": 1, "running": 0, "verified": 2}
+PASS replay rebuilds state from ledger :: {'replayed': {'queued': 8, 'running': 0, 'verified': 2, 'blocked': 0, 'reviewed': 1}, 'original': {'queued': 8, 'running': 0, 'verified': 2, 'blocked': 0, 'reviewed': 1}}
+PASS replay preserves retry facts and ledger stall evidence :: {"attempts": 1, "stall_in_ledger": true, "stall_state": false}
+PASS ledger shows no overlapping un-released leases :: []
+CLAIM_EVIDENCE [{"event": "claim", "lease_id": "85b257068993410682708cc58b799e73", "task": "INFRA-01", "ts": "2026-11-27T12:00:01Z", "worker": "worker-A"}, {"event": "claim", "lease_id": "58b6f33a42b94491848005fc76beb7d8", "task": "INFRA-02", "ts": "2026-11-27T12:00:02Z", "worker": "worker-B"}, {"event": "claim", "lease_id": "23a19ba4aea1408bb075f81db3e1805a", "task": "INFRA-03", "ts": "2026-11-27T12:00:03Z", "worker": "worker-C"}, {"event": "claim", "lease_id": "a074465d519040f5ba7e32994169b652", "task": "INFRA-02", "ts": "2026-11-27T12:00:12Z", "worker": "worker-D"}, {"event": "claim", "lease_id": "349c5d06b15a4f0bb6aa2c310696d740", "task": "INFRA-03", "ts": "2026-11-27T12:00:13Z", "worker": "worker-E"}]
+RECLAIM_EVIDENCE [{"details": {"INFRA-02": {"attempts": 1, "available_at": "2026-11-27T12:00:12Z", "backoff_seconds": 1, "stalled": false, "status": "queued"}, "INFRA-03": {"attempts": 1, "available_at": "2026-11-27T12:00:12Z", "backoff_seconds": 1, "stalled": true, "status": "queued"}}, "event": "lease_reclaimed", "tasks": ["INFRA-02", "INFRA-03"], "ts": "2026-11-27T12:00:11Z"}]
+REJECT_EVIDENCE [{"action": "beat", "reason": "not_owner", "ts": "2026-11-27T12:00:04Z", "worker": "worker-Z"}, {"action": "beat", "reason": "lease_identity_mismatch", "ts": "2026-11-27T12:00:04Z", "worker": "worker-A"}, {"action": "finish", "reason": "evidence_required_for_completion", "ts": "2026-11-27T12:00:05Z", "worker": "worker-A"}, {"action": "complete", "reason": "not_running", "ts": "2026-11-27T12:00:06Z", "worker": "worker-A"}, {"action": "beat", "reason": "not_owner", "ts": "2026-11-27T12:00:14Z", "worker": "worker-C"}, {"action": "beat", "reason": "lease_identity_mismatch", "ts": "2026-11-27T12:00:14Z", "worker": "worker-E"}, {"action": "review", "reason": "reviewer_must_be_independent", "ts": "2026-11-27T12:00:16Z", "worker": "worker-D"}]
+REPLENISH_EVIDENCE [{"added": 4, "event": "replenish", "queued_after": 4, "queued_before": 0, "ts": "2026-11-27T12:00:17Z"}, {"added": null, "event": "replenish_skipped", "queued_after": null, "queued_before": null, "ts": "2026-11-27T12:00:18Z"}, {"added": 4, "event": "replenish", "queued_after": 8, "queued_before": 4, "ts": "2026-11-27T12:00:19Z"}]
+SUMMARY 32/32 checks passed; exit=0
