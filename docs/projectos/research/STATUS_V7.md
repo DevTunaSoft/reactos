@@ -689,3 +689,7 @@ This document is a checkpoint, not a claim that research is complete.
 ## crates.io coverage checkpoint (2026-11-28T13:15Z)
 
 - `COVERAGE_RPL60_V8.jsonl` (16 records): new crates.io public REST API v1 crate-search family (`meta.total` denominator), absent from 201 prior research files. 9 bounded snippet searches (`per_page=5`, `page=1`) plus 3 single-crate full extractions, 12 HTTP 200 with 0 errors; denominator sum 637, 26 returned rows, 1 literal-token row, 2 scoped zero-result lanes including a nonsense control. Tokenized hits recorded as non-topical; a Google Books HTTP 429 candidate was screened out and recorded, not treated as a result. All runtime fields NOT RUN.
+
+## CU-PR-0008 SHA recheck checkpoint (2026-11-28T13:28Z)
+
+- `EVIDENCE_SHA_RECHECK_RPL59_V8.jsonl` (9 records): `CU-PR-0008` head `c780c639…` had no prior recheck. `CONFIRMED_WITH_CORRECTIONS`, confidence 0.94; exact SHA, closed/merged state and timestamps, body dependency literal and prerequisite #9482 merged state reproduced from primary REST. Five append-only corrections: unreproducible search-snippet provenance, "closed PR" vs closed-and-merged, interpretive claim, historical recheck note and prerequisite timestamp precision. Tests/builds NOT RUN.
