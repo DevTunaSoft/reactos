@@ -523,3 +523,8 @@ This document is a checkpoint, not a claim that research is complete.
 ## Cache-manager technical lane checkpoint (2026-11-28T06:27Z)
 
 - `CACHE_MANAGER_ISSUES_W12_V8.jsonl` (82 records): 5 JIRA queries, 29 JIRA issues, 5 GitHub searches, 28 PR records, 8 correlations and 4 pin-source token records. 11 open upstream PRs (incl. `[NTOS:CC]` #9668/#9314) classified do-not-duplicate; #9127/#9467 closed-merged historical work. Pin vs current master `a5ccec99…` is ahead_by=1/behind_by=0 with only 5 USER32 apitest files changed, so CC/MM static state is identical. All runtime fields NOT RUN.
+
+## Latvian coverage checkpoint (2026-11-28T06:37Z)
+
+- `COVERAGE_RPL24_V8.jsonl` (21 records): Latvian (`lv`) lane absent from prior coverage. 19 query slots (16 API + 3 web, 16 distinct strings), 47 rows (17 API + 30 web), 15 matched URLs, 9 labelled zero-result lanes, zero full extractions; all snippet-labelled. Three lv.wikipedia HTTP 429 first attempts each resolved by one bounded retry and recorded without double-counting. No access-control bypass, no inference from zero, all runtime fields NOT RUN.
+- Cron's `W12_FS_VALIDATION_CURRENT_V8.jsonl` (11), `FV7_008_IMMUTABLE_RECHECK_W1201_V8.jsonl` (8) and `EVIDENCE_SHA_RECHECK_RPL27_V8.jsonl` (9) are present in branch history via parent commit `08bd7222…`; validator unchanged at 143 failures with zero attributable to new files.
