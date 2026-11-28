@@ -519,3 +519,7 @@ This document is a checkpoint, not a claim that research is complete.
 ## RPL-EVIDENCE-0027 checkpoint (2026-11-28T06:26:24Z)
 
 - `EVIDENCE_SHA_RECHECK_RPL27_V8.jsonl` (9 records, sha256 1ee17ad9a5d875b04d82c8f6d62351152a087e266e38a4a00a288d868eae0b17): canonical PR 9510 head `56b5899d…` / base `86f1b427…` reproduced from .head.sha/.base.sha; commit unsigned at upstream and fork; 2 files after full pagination; raw .patch SHA-256 01f4238f846cfbe13e14dfaa395fa137ca2f835916027fe94464a47482ca80af. Clarified .diff (9473 bytes) vs .patch (11013 bytes) endpoint scope; no canonical rewrite.
+
+## Cache-manager technical lane checkpoint (2026-11-28T06:27Z)
+
+- `CACHE_MANAGER_ISSUES_W12_V8.jsonl` (82 records): 5 JIRA queries, 29 JIRA issues, 5 GitHub searches, 28 PR records, 8 correlations and 4 pin-source token records. 11 open upstream PRs (incl. `[NTOS:CC]` #9668/#9314) classified do-not-duplicate; #9127/#9467 closed-merged historical work. Pin vs current master `a5ccec99…` is ahead_by=1/behind_by=0 with only 5 USER32 apitest files changed, so CC/MM static state is identical. All runtime fields NOT RUN.
