@@ -629,3 +629,7 @@ This document is a checkpoint, not a claim that research is complete.
 
 - `EVIDENCE_SHA_RECHECK_RPL43_V8.jsonl` (10 records): `W9C-200` / PR 9127 merge `7877f5bc…`, base `a4c86306…`, head `f35fb0c8…` had no prior dedicated recheck across 51 artifacts. `CONFIRMED_WITH_CORRECTIONS`, confidence 0.9. Immutable facts reproduced (merged 2026-07-21T21:59:10Z, one merged path `ntoskrnl/cc/view.c` +34/-11, 2 PR files, 5 reviews, merge unsigned). Five append-only corrections: "closed unmerged" contradicts `merged=true`, "dirty-VACB/fastfat attempt" exceeds the cache-manager-only patch, two fix claims are author assertions, Testman links not re-evaluated, retrieval timestamp self-reported. Tests NOT RUN.
 - The cron's flagged `tasks_wave12h.json` write refusal was a benign collision: the W12-12 seed already existed (3 lines) and cron's own seed had passed; no state loss.
+
+## Bundled zlib provenance checkpoint (2026-11-28T09:58Z)
+
+- `PROVENANCE_REVALIDATION_P0042_V8.jsonl` (12 records): bundled zlib `sdk/lib/3rdparty/zlib/inflate.c` at pin `3e6033a6…`, blob `8acbef44…`, 56,089 bytes, raw SHA-256 `f1679575…`; blob SHA and byte identity confirmed from primary API/raw records. License notice verified through pinned `sdk/include/reactos/libs/zlib/zlib.h` and sibling `LICENSE`. Two append-only corrections; two HTTP 404 retrievals logged as failed attempts without inference; no canonical rewrite, all runtime fields NOT RUN.
