@@ -480,3 +480,7 @@ This document is a checkpoint, not a claim that research is complete.
 ## F-02/F-07 equivalence revalidation checkpoint (W11-01)
 
 - `EVIDENCE_REVALIDATION_W1101_V8.jsonl` (10 records, sha256 `9eb96949c2d1e585004543f97f3d07564ff60301088506cfd06088698c3f0a7b`): both inherited equivalence claims `CONFIRMED_WITH_LIMITATIONS`. Fork and upstream commits share identical tree SHAs and byte-identical patch bodies (patch-id `ecb96617` / `a1c40064`); both upstream SHAs are local `origin/master` ancestors and PR 1965/1070 merge SHAs match. Fork commits are GPG-verified; upstream integrated commits are unsigned. Two append-only corrections: F-07 PR 1035 is a keyword false positive, and `commit_verified=true` applies only to fork commits. Validator failures unchanged at 143; all runtime fields NOT RUN.
+
+## Closed-unmerged prerequisite recheck, second sample (W11-03)
+
+- `PREREQUISITE_RECHECK_SECOND_SAMPLE_W1103_V8.jsonl` (10 records, sha256 `62e8d53da8f84571c719604b68bdbd964041939a0984c32b3a836341c276f586`): 4 bounded search queries, 47 distinct closed-unmerged candidates, 8 sampled with the first sample excluded. PR 4674's named prerequisites 4533/4672/4673 are all still closed-unmerged; the other 7 sampled bodies yielded zero explicit PR-to-PR prerequisite (recorded as zero-result lanes). No import, build or runtime test; all runtime fields NOT RUN.
