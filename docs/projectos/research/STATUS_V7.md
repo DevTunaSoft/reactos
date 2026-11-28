@@ -419,3 +419,8 @@ This document is a checkpoint, not a claim that research is complete.
 - `FINDING_REVALIDATION_W10_V8.jsonl` (7 records): FV7-004 revalidated from immutable primary sources, verdict `CONFIRMED_WITH_CORRECTION`; control hashes verified before claim, lease finished with exact evidence. No OS code, test, merge or upstream submission.
 - Cron's `CLOSED_UNMERGED_PREREQUISITE_V8.jsonl` (10 records, published in `6e4ebcb3`) reports 0 qualifying reevaluation leads in a bounded sample of 8 closed-unmerged PRs; #9599 still needs open #9414, CMake #9523/#9524 only partly satisfied, #9484 was already merged. Negative result recorded, not inferred as universal.
 - All three prior subagents are finished; ProjectOS now moves to the owner-directed one-subagent limit.
+
+## FAT upstream recheck checkpoint (2026-11-28T03:48Z)
+
+- `FAT_UPSTREAM_RECHECK_V8.jsonl` (11 records): upstream master `a5ccec99` is 1 commit ahead of pin; sole post-pin commit touches only USER32_APITEST files. Raw `fat.c` at new master is byte-identical to pin (sha256 `5faf023b…8bd028b`); all five PR #9510 validation tokens absent. Unbounded `FatCountClustersInChain`, unvalidated `BytesPerSector` and absent short-read check persist. PR #9510 remains closed/unmerged; no `fat.c` change since 2025-11-12 last commit `0ac0eb25`.
+- Verdict: lead remains open, code state unchanged; runtime exploitability UNVERIFIED / NOT RUN, no reproducer, maintainer feedback or licensing. Prior `REVIEW_FV7_009` remains needs-work.
