@@ -672,3 +672,7 @@ This document is a checkpoint, not a claim that research is complete.
 ## Installer/setup lane checkpoint (2026-11-28T12:12Z)
 
 - `INSTALLER_SETUP_OPEN_W12_V8.jsonl` (1,026 records): 10 JIRA searches (434 unique issues, 0 errors), 7 GitHub searches (0 open issues for installer/setup/install), 162 open PR file lists paginated with 0 errors, 124 PR objects. 17 open PRs with strict installer/setup paths classified do-not-duplicate (#7019/#9399/#9414/#9550/#9569/#9594/#9598/#9723/#9752/#9756/#9763/#9865/#9867/#9869/#9870/#9881/#9884); no broad-only false positives. Pin → master `60a3898b` ahead13/behind0, 14 changed files with 0 strict paths; 14 blobs byte-identical. Four HTTP retrieval errors recorded as errors, not states; all runtime fields NOT RUN.
+
+## Independent BOOTUEFI-V8-010 review checkpoint (2026-11-28T12:28Z)
+
+- `INDEPENDENT_REVIEW_R0053_V8.jsonl` (10 records): `BOOTUEFI-V8-010` head `7ba6af26…` had no verdict among 52 prior review/recheck artifacts (286 SHAs). `INDEPENDENTLY_CONFIRMED_WITH_CORRECTION`, confidence high for exact SHA/URL/retrieval/state facts and moderate for prose corrections. `.commit.verification verified=false reason=unsigned` with top-level `verification` null; PR #8491 closed/unmerged with matching SHAs and file set, PR #9569 open/unmerged at retrieval. Six claim challenges (2 confirmed, 3 overstated, 1 incomplete) and four append-only corrections. Local clone lacked the commit object; REST was the sole immutable primary, no ancestry claim; all runtime fields NOT RUN.
