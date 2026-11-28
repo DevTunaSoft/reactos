@@ -445,3 +445,7 @@ This document is a checkpoint, not a claim that research is complete.
 
 - `INDEPENDENT_REVIEW_RPL17_V8.jsonl` (11 records): F-01 re-reviewed from immutable commit `118f5cd5…`, patch-id `1dc87ba0…`, PR #9510 closed/unmerged and diverged in both compare directions; verdict `CONFIRMED_WITH_CORRECTION` (high confidence). Three append-only corrections: `commit_verified:true` lacked a reproducible verification field, author vs committer date distinction (2019-09-29 committer), and 256 KiB/>65k figures remain author assertions. Tests NOT RUN.
 - Cron's `SHARED_ROOT_CAUSE_CLUSTERS_W10_V8.jsonl` (8) and `INDEPENDENT_REVIEW_SHARED_ROOT_CAUSE_W10_V8.jsonl` (7), published in `4aad6ded…`: one PROVEN USB3 boot/setup driver-binding cluster (CORE-13344, CORE-20821, PRs #9865/#9750 all open/unmerged), two hypothetical cross-lane clusters, three proven negatives; independent verdict `CONFIRMED_WITH_CORRECTIONS`. No equivalence asserted between CORE-20821 and CORE-13344 despite PR #9865 citing the former.
+
+## RPL21 independent review checkpoint (2026-11-28T04:36Z)
+
+- `INDEPENDENT_REVIEW_RPL21_V8.jsonl` (10 records): reviewed BOOTUEFI-V8-004/005/006 (closed-unmerged PR #8824 vs merged #8980 plus patch-equivalence negative). Verdict `CONFIRMED_WITH_CORRECTIONS`, confidence `HIGH_WITH_LIMITATIONS`; 7 append-only corrections cover mutable snapshots, self-reported retrieval times, paraphrase vs verbatim text, author-only test claims and `.diff`/`.patch` behaviour (8824.diff 200, 8980.diff 404). Runtime claims NOT ASSESSED, all tests NOT RUN.
