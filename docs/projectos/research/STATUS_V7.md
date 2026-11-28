@@ -553,3 +553,7 @@ This document is a checkpoint, not a claim that research is complete.
 ## Stack Exchange coverage checkpoint (2026-11-28T07:11Z)
 
 - `COVERAGE_RPL32_V8.jsonl` (12 records): new Stack Exchange API v2.3 source family, previously unqueried across ten coverage files. 9 bounded queries (pagesize=10), 24 returned rows, corpus denominator sum 73 via `filter=total` (51/1/0/0/0/18/3/0/0), 14 matched URLs, 5 explicit zero-result lanes (USB xHCI, ARM64, FAT boot, all-subsystem terms, `tagged=reactos`). Nine snippets and one full extraction labelled; bodies not republished; point-in-time metadata only, all runtime fields NOT RUN.
+
+## F-05 SHA recheck checkpoint (2026-11-28T07:16Z)
+
+- `EVIDENCE_SHA_RECHECK_RPL35_V8.jsonl` (10 records): F-05 commit `88786202…` `CONFIRMED_WITH_CORRECTIONS`, confidence 0.9 for source/repository facts. Fork and upstream REST both HTTP 200 with matching SHA/date/message/parent, 7 files (+104/-18); raw patch shows 7 paths and 30 hunks. Ten append-only corrections: `commit_verified=true` is an author assertion (REST unsigned), "modern stack basic-merged" refers to later PRs #9646/#9623 and not this SHA, mutable PR snapshots and historical retrieval metadata flagged. Compare diverged ahead 20713/behind 27; all runtime fields NOT RUN.
