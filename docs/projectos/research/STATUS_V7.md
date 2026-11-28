@@ -685,3 +685,7 @@ This document is a checkpoint, not a claim that research is complete.
 
 - `EVIDENCE_SHA_RECHECK_RPL55_V8_INDEPENDENT.jsonl` (12 records) is a distinct second pass on `BOOTUEFI-V8-007` head `9a2a6bfe…` whose literal SHA appeared in no prior recheck. `CONFIRMED_WITH_CORRECTIONS`, confidence 0.9, 8 append-only corrections, 0 rewrites. PR 8703 REST reproduces every canonical field (15 changed paths, 2 commits, both SHAs, closure exchange verbatim); head `commit.verification` false/unsigned with top-level null; 7 REST URLs HTTP 200 with recorded digests, 0 retrieval errors (one 415 media-type rejection). It coexists with cron's `EVIDENCE_SHA_RECHECK_RPL55_V8.jsonl` (4 records, different subject `2a74f5e7…`) — two subjects, no conflict. All runtime fields NOT RUN.
 - Flagged scratch `inspect_queue.py` overwrite refusal was benign: the subagent's own helper already existed; no research state affected.
+
+## crates.io coverage checkpoint (2026-11-28T13:15Z)
+
+- `COVERAGE_RPL60_V8.jsonl` (16 records): new crates.io public REST API v1 crate-search family (`meta.total` denominator), absent from 201 prior research files. 9 bounded snippet searches (`per_page=5`, `page=1`) plus 3 single-crate full extractions, 12 HTTP 200 with 0 errors; denominator sum 637, 26 returned rows, 1 literal-token row, 2 scoped zero-result lanes including a nonsense control. Tokenized hits recorded as non-topical; a Google Books HTTP 429 candidate was screened out and recorded, not treated as a result. All runtime fields NOT RUN.
