@@ -660,3 +660,7 @@ This document is a checkpoint, not a claim that research is complete.
 ## Tagalog coverage checkpoint (2026-11-28T11:20Z)
 
 - `COVERAGE_RPL52_V8.jsonl` (16 records): Tagalog (`tl`) MediaWiki search lane, absent from 184 prior research artifacts. 11 bounded queries (6 API with exact `totalhits` 3/1/1/0/1/0 at `srlimit=10`; 5 web_search at limit 10), 56 rows (6 API + 50 web), 56 matched URL rows / 52 unique URLs, 7 zero-result lanes, 11 snippet-only + 2 full-extraction records. Tokenization artifacts and a plain-text vs raw-wikitext discrepancy (0 vs 3 literal ReactOS mentions, the latter in a `<ref>`) recorded as query-scoped uncertainty; web rows labelled row-cap-only. All runtime fields NOT RUN.
+
+## PR 9599 SHA recheck checkpoint (2026-11-28T11:35Z)
+
+- `EVIDENCE_SHA_RECHECK_RPL47_V8.jsonl` (10 records): `CU-PR-0001` / PR 9599 head `8e7efcc3…` selected by literal-SHA gap scan across 54 recheck artifacts / 282 SHAs. `CONFIRMED_WITH_CORRECTIONS`, confidence 0.9; six append-only corrections, 0 rewrites, 0 retrieval errors. Immutable fields and claimed observation reproduce verbatim; prerequisite PR 9414 remains open/unmerged; head commit verification is `verified=true/valid` at `.commit.verification` while top-level `verification` is null — recorded at exact field path. One HTTP 415 was an Accept-header media-type rejection. Tests NOT RUN.
