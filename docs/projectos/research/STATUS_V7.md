@@ -344,4 +344,13 @@ This document is a checkpoint, not a claim that research is complete.
 - Queue: 68 verified, 5 reviewed, 1 queued, 0 running across 74 tasks; snapshot regenerated at 23:54:52Z. The `ledger_active_leases` counter still shows three historical claim events with no matching release; materialized state has no running task, and the next claim's reclaim logic will reconcile them.
 - No OS code, patch import, test, merge or upstream submission.
 
+## Wave 12 checkpoint — independent WoW64 review, issue/failure archaeology, new lane and licensing (2026-11-28T01:12Z)
+
+- `INDEPENDENT_REVIEW_WOW64_V8.jsonl` (12 records): FV7-007 `CONFIRMED_WITH_CORRECTIONS`; five appended corrections correct earlier tallies (23 vs 24 records, 16 vs 20 path checks, 16 absent paths vs 0), reclassify PR #9809 as open ARM64 rather than WoW64, qualify "no wow64 implementation subtree" to sampled paths (two wow64-named files exist at pin), and show F-04 head SHA `41b38f00` diverged (behind_by=5) while integration came via merge commit `29f6b92f` (behind_by=0). PR #8713 merged 2026-08-06, #9766 merged 2026-11-07; CORE-17655 remains Reopened.
+- `FINDING_REVALIDATION_V8.jsonl` (7 records): F-04 `CONFIRMED_WITH_CORRECTION` from its immutable commit URL; both new files pass the published validator with zero attributable findings (142 pre-existing failures untouched).
+- `OPEN_ISSUE_CORRELATION_V8.jsonl` (2) and `FAILURE_ATTEMPT_V8.jsonl` (2): one open issue correlated to upstream state at pin 3e6033a6 without claiming a fix, and one closed-unmerged attempt recorded with exact revision, observed failure and later changes; motives not inferred.
+- `COVERAGE_NEW_LANE_V8.jsonl` (13): Estonian (`et`) lane, 9 exact queries, 40 result rows, 9 language-matched rows, 5 zero-result queries. `PROVENANCE_LICENSE_V8.jsonl` (9): one new source family, 6 primary HTTP checks of URL/revision/license, independent of the previously verified GPLv2 `COPYING` result.
+- Five tasks were completed in isolated ledgers and adopted with explicit `integrator_adopt` events; `RPL-REVIEW-0011` remained leased by the hourly cron and was not touched. It produced `INDEPENDENT_REVIEW_FV7_003_V8.jsonl` during this checkpoint; that artifact is owned by the running cron fire and will be published by it.
+- Queue snapshot regenerated at 01:11:44Z: 74 verified, 5 reviewed, 1 running, 0 queued across 80 tasks. All research records are NOT RUN for runtime; no OS code, patch import, test, merge or upstream submission.
+
 This document is a checkpoint, not a claim that research is complete.
