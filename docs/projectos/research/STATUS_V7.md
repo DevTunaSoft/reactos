@@ -561,3 +561,19 @@ This document is a checkpoint, not a claim that research is complete.
 ## Filesystem reliability lane checkpoint (2026-11-28T07:30Z)
 
 - `FS_RELIABILITY_OPEN_W12_V8.jsonl` (87 records): 3 JIRA queries (NTFS 62, Btrfs 78, filesystem 329 total/100 returned), 45 detailed unresolved issues, 5 GitHub searches (0 open issues), 163 open PR file lists scanned, 14 PR records (9 open) and 12 correlations. Pin→master ahead1/behind0 with only USER32 apitests; five NTFS/Btrfs source files byte-identical. Open draft #9598 (Btrfs) and adjacent #9753 (FreeLDR FS) classified do-not-duplicate; merged/closed historical PRs recorded. All runtime fields NOT RUN; validator unchanged at 143 pre-existing failures.
+
+
+## Supervisor checkpoint 2026-11-28T07:48:02Z
+
+- Control re-verified: V8 ba45cc18..., correction f2e43b42..., CONTROL d3785fdb... all matched authoritative SHA-256; no EMERGENCY_STOP; branch research/v7-wave1 clean, local/remote head 4e5baf46... at start.
+- Watchdog singleton 08b68a4bc9b8 enabled; one legitimate active lease (W12-07) at start and throughout; no second dispatcher. Replenished 5 -> 9 ready with four real template tasks before claiming.
+- Claimed three queued tasks with unique cron-<UTC> workers via the disclosed priority-lower/claim/restore path, leaving W12-07 untouched: RPL-PROVENANCE-0030, RPL-COVERAGE-0036, RPL-REVIEW-0037.
+- `PROVENANCE_REVALIDATION_P0030_V8.jsonl` (7 records): third-party `dll/3rdparty/libpng/png.c` at pin 3e6033a6... contents/raw/blob/header revalidated; 135426 bytes, SHA-256 8a1ff605..., recomputed git blob equals API blob, same blob at research tip d1db1689...; libpng license statement quoted verbatim (no SPDX tag); commit verification re-projected from commit.verification.
+- `COVERAGE_HN_ALGOLIA_RPL36_V8.jsonl` (11 records): new Hacker News Algolia story-index lane with explicit per-query denominators (nbHits 4580/0/8/0/17/2/1415/3078), 8/8 HTTP 200, hitsPerPage=5, 2 explicit zero-result lanes, 0 full extractions, no universal-coverage claim.
+- `INDEPENDENT_REVIEW_APPCOMPAT_R0037_V8.jsonl` (7 records): ACV8-015 do-not-duplicate INDEPENDENTLY_CONFIRMED from four fresh primary REST responses by an independent reviewer handle; PRs #9757/#9872/#9761 open unmerged, CORE-13141 Open/null.
+- Validator unchanged at 143 pre-existing failures; zero new failures from these artifacts. All runtime/build/test fields NOT RUN; research-only, no OS code, patch import, merge, upstream submission or credentials.
+
+## Networking reliability lane checkpoint (2026-11-28T07:50Z)
+
+- `NETWORK_RELIABILITY_OPEN_W12_V8.jsonl` (263 records): 5 unresolved JIRA queries (NDIS 36, TCP/IP 12, TCPIP 27, Winsock 12, network driver 89), 94 open issues (57 Untriaged, 35 Open, 2 Reopened) with 94 correlations; 163 open PR file lists paginated with 0 errors; 47 PR records (28 merged, 8 closed-unmerged, 10 open, 1 HTTP 404 citation). Do-not-duplicate open PRs #8347/#9346/#9598/#9866/#9893/#9836; #9736 excluded as a keyword false positive. 14 network source fingerprints byte-identical at pin and master; all runtime fields NOT RUN.
+- This publication also includes cron's verified `PROVENANCE_REVALIDATION_P0030_V8.jsonl` (7), `COVERAGE_HN_ALGOLIA_RPL36_V8.jsonl` (11) and `INDEPENDENT_REVIEW_APPCOMPAT_R0037_V8.jsonl` (7), all scanned clean.
