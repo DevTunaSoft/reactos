@@ -637,3 +637,10 @@ This document is a checkpoint, not a claim that research is complete.
 ## Terminal/console lane checkpoint (2026-11-28T10:19Z)
 
 - `TERMINAL_CONSOLE_OPEN_W12_V8.jsonl` (883 records): 10 JIRA searches (0 errors, 341 unique issues), 9 GitHub searches, 162 open PR file lists paginated (0 errors), 161 PR objects. Pin → fresh master `60a3898b` ahead13/behind0, 14 changed files and zero terminal/console paths; 18 raw blobs byte-identical. Do-not-duplicate opens #9200/#9205/#9206/#9723/#9832/#9833; 7 keyword false positives; 15 HTTP 404 citations recorded as retrieval errors. All six runtime fields NOT RUN; keyword samples bounded (terminal 100/288, console 100/130).
+
+## 2026-11-28T10:25Z supervisor fire (cron 08b68a4bc9b8)
+
+- Control verified: V8 ba45cc18..., correction f2e43b42..., CONTROL d3785fdb... (authoritative SHA-256 recomputed); no EMERGENCY_STOP; watchdog singleton enabled, one pre-existing live lease W12-17 left untouched.
+- Replenished 5->9 ready tasks; claimed W12-13, W12-14 and RPL-REVIEW-0049 with unique cron-<UTC> workers via the disclosed priority-lower/claim/restore path; all three finished within lease (verified, verified, reviewed by distinct reviewer).
+- Published SERIAL_USB_HOST_OPEN_W12_V8.jsonl (631 records), KERNEL_MEMORY_OPEN_W12_V8.jsonl (1260 records), INDEPENDENT_REVIEW_R0049_V8.jsonl (4 records). Worktree commit 23427e1cf9138846b069925a141bad1b487432ef pushed and confirmed by git ls-remote.
+- Research-only: no OS code, patch import, test, merge, upstream submission or runtime claim; all runtime fields NOT RUN.
