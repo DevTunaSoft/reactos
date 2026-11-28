@@ -605,3 +605,7 @@ This document is a checkpoint, not a claim that research is complete.
 ## arXiv coverage checkpoint (2026-11-28T08:45Z)
 
 - `COVERAGE_RPL44_V8.jsonl` (12 records): new arXiv Atom search API family, absent from 12 prior coverage records. 9 bounded queries all HTTP 200 with `start=0`/`max_results=5` and exact `opensearch:totalResults` denominators (corpus total 65, 12 bounded rows, 12 matched HTTPS URLs, 3 zero-result lanes: `reactos-os`, `reactos-kernel`, `reactos-cs-os`). Tokenization false positive `ti:"ReactOS"` returning a REACTO paper recorded, not counted as a literal match. Nine snippets and one full abstract-page extraction labelled; all runtime fields NOT RUN.
+
+## Storage driver lane checkpoint (2026-11-28T08:57Z)
+
+- `STORAGE_DRIVER_OPEN_W12_V8.jsonl` (546 records): 10 JIRA searches → 226 unresolved issues (141 Untriaged, 68 Open, 16 Reopened, 1 In Progress), 226 correlations, 7 GitHub searches (0 open issues, 12 open PR hits), 163 open PR file lists paginated with one transient 502 retried to 0 errors. Pin → fresh master `60a3898b` ahead13/behind0, 14 changed files with zero storage/disk-class paths; 18 sampled blobs byte-identical. Do-not-duplicate opens #8566/#8849/#8932/#9095/#9598/#9753/#9856; #9550 MSHTML false positive; cited 128613 HTTP 404 recorded unresolved. All runtime fields NOT RUN.
